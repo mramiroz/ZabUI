@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Card Component",
+    "category": "card",
+    "description": "A card component with image and text.",
+    "code": "const CardComponent = ({ title, description, link }) => (\n  <div className='card bg-blue-500 text-white p-4'>\n    <h2 className='text-xl'>{title}</h2>\n    <p className='mt-2'>{description}</p>\n    <a href={link} className='mt-4 inline-block bg-white text-blue-500 px-4 py-2 rounded'>See More</a>\n  </div>\n);",
+    "link": "https://codepen.io/your-link"
+  },
+  {
+    "title": "Button Component",
+    "category": "button",
+    "description": "A simple blue button.",
+    "code": "const ButtonComponent = ({ title, link }) => (\n  <button onClick={() => window.location.href = link} className='bg-blue-500 text-white px-4 py-2 rounded'>{title}</button>\n);",
+    "link": "https://codepen.io/your-link"
+  },
+  {
+    "title": "Navbar Component",
+    "category": "navbar",
+    "description": "A simple navbar with links.",
+    "code": "const NavbarComponent = ({ title, links }) => (\n  <nav className='bg-blue-500 text-white p-4'>\n    <h2 className='text-xl'>{title}</h2>\n    <ul className='flex space-x-4'>\n      {links.map((link, index) => (\n        <li key={index}>\n          <a href={link.href} className='text-white'>{link.text}</a>\n        </li>\n      ))}\n    </ul>\n  </nav>\n);",
+    "link": "https://codepen.io/your-link"
+  }
+]

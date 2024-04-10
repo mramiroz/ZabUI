@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.neon-blue {
+  box-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff;
+}
+
+.neon-red {
+  box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+}
+
+.neon-green {
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+aside {
+  display: none;
+}
+
+aside.open {
+  display: block;
+}
