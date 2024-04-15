@@ -5,13 +5,6 @@ import Card from '../components/component/card';
 
 const Home = () => {
 
-  const [components, setComponents] = useState([]);
-  useEffect(() => {
-    fetch('/api/components')
-      .then(res => res.json())
-      .then(data => setComponents(data))
-      .catch(err => console.error(err));
-  }, []);
   return (
     <div className="w-full">
       <h1>Libreria de componentes</h1>
