@@ -4,10 +4,19 @@ import { connectToDatabase } from "@/lib/mongodb";
 import { useParams } from "next/navigation";
 import { Component, useEffect, useState } from "react";
 
+interface ComponentData {
+  _id: string;
+  code: string;
+  title: string;
+  description: string;
+  category: string;
+  props: any;
+}
+
 const Show = () => {
     const param = useParams();
 
-    const [components, setComponents] = useState<Component[] | null>(null);
+    const [components, setComponents] = useState<ComponentData[] | null>(null);
 
     useEffect(() => {
         const category = param.category;
