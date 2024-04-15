@@ -11,7 +11,7 @@ export default function Aside({ isAsideOpen }: { isAsideOpen: boolean }) {
       .catch(err => console.error(err));
   }, []);
   return (
-    <aside className={`order-first bg-gray-900 w-1/5 ${isAsideOpen ? 'open' : ''}`}>
+    <aside className={`order-first bg-gray-900 w-1/5 h-screen ${isAsideOpen ? 'open' : ''}`}>
       <ul className='space-y-2 m-5'>
         {categories.map((category, index) => (
           <li key={index} className='bg-gray-700 p-2'>

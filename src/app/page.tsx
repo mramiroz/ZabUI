@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, use } from 'react';
-import Component from '@/models/Component';
 import Card from '../components/component/card';
 
 
@@ -15,15 +14,10 @@ const Home = () => {
   }, []);
   return (
     <div className="w-full">
-      {Array.isArray(components) && components.map((item, index) => (
-        <Card
-          key={index}
-          code={item.code}
-          title={item.title}
-          description={item.description}
-          link={item.link}
-        />
-      ))}
+      <h1>Libreria de componentes</h1>
+      <code>
+        npm install @compui/comps
+      </code>
     </div>
   );
 };

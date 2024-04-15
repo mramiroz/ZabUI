@@ -1,23 +1,35 @@
 [
   {
     "title": "Card Component",
-    "category": "card",
+    "category": "Card",
     "description": "A card component with image and text.",
-    "code": "const CardComponent = ({ title, description, link }) => (\n  <div className='card bg-blue-500 text-white p-4'>\n    <h2 className='text-xl'>{title}</h2>\n    <p className='mt-2'>{description}</p>\n    <a href={link} className='mt-4 inline-block bg-white text-blue-500 px-4 py-2 rounded'>See More</a>\n  </div>\n);",
-    "link": "https://codepen.io/your-link"
+    "import": "import Card from '@compui/comps'",
+    "code": "<Card/>",
+    "props": {
+      "image": "https://your-image-link",
+      "title": "Card Title",
+      "description": "Card Description"
+    }
   },
   {
     "title": "Button Component",
-    "category": "button",
+    "category": "Button",
     "description": "A simple blue button.",
-    "code": "const ButtonComponent = ({ title, link }) => (\n  <button onClick={() => window.location.href = link} className='bg-blue-500 text-white px-4 py-2 rounded'>{title}</button>\n);",
-    "link": "https://codepen.io/your-link"
+    "import": "import Button from '@compui/button'",
+    "code": "const Button = require('@compui/comps'); export default function MyButton(){return(<Button/>)}",
+    "props": {
+      "text": "Click Me",
+      "color": "blue",
+      "width": "4",
+      "height": "4"
+    }
   },
   {
     "title": "Navbar Component",
-    "category": "navbar",
+    "category": "Navbar",
     "description": "A simple navbar with links.",
-    "code": "const NavbarComponent = ({ title, links }) => (\n  <nav className='bg-blue-500 text-white p-4'>\n    <h2 className='text-xl'>{title}</h2>\n    <ul className='flex space-x-4'>\n      {links.map((link, index) => (\n        <li key={index}>\n          <a href={link.href} className='text-white'>{link.text}</a>\n        </li>\n      ))}\n    </ul>\n  </nav>\n);",
+    "import": "import Navbar from '@compui/navbar'",
+    "code": "<Navbar/>",
     "link": "https://codepen.io/your-link"
   }
 ]
