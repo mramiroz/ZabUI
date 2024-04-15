@@ -9,6 +9,7 @@ interface ComponentData {
   title: string;
   description: string;
   category: string;
+  import: string;
   props: any;
 }
 
