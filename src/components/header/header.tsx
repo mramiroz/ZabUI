@@ -22,7 +22,6 @@ export default function Header({ isAsideOpen, setIsAsideOpen }: { isAsideOpen: b
       ) : (
         <ButtonHeader text="Login" href="/login" />
       )}
-      <Button text="Sign Up" href="/signup" color="blue" width="4" height="4"/>
     </header>
   );
 }

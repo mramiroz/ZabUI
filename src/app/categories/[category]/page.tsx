@@ -2,12 +2,12 @@
 import Card from "../../../components/component/card";
 import { connectToDatabase } from "@/lib/mongodb";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
 
 const Show = () => {
     const param = useParams();
 
-    const [components, setComponents] = useState(null);
+    const [components, setComponents] = useState<Component[] | null>(null);
 
     useEffect(() => {
         const category = param.category;
