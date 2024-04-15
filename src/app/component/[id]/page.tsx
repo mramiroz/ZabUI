@@ -32,11 +32,19 @@ const Show = () => {
 
   return (
     <div>
-      <h1>{component.title}</h1>
-      <p>{component.description}</p>
-      <code>
-        <Copy code={component.import} showCode={true}/>
-      </code>
+return (
+  <div>
+    {component && (
+      <>
+        <h1>{component.title}</h1>
+        <p>{component.description}</p>
+        <code>
+          <Copy code={component.import} showCode={true}/>
+        </code>
+      </>
+    )}
+  </div>
+);
     </div>
   );
 }
