@@ -1,12 +1,11 @@
 "use client";
 import Card from "../../../components/component/card";
 import { connectToDatabase } from "@/lib/mongodb";
-import { ObjectId } from "mongoose";
 import { useParams } from "next/navigation";
 import { Component, useEffect, useState } from "react";
 
 interface ComponentData {
-  _id: ObjectId;
+  _id: string;
   code: string;
   title: string;
   description: string;
@@ -36,7 +35,7 @@ const Show = () => {
         {Array.isArray(components) && components.map((item, index) => (
           <Card
             key={index}
-            id={item._id}
+            id={item._id.toString()}
             code={item.code}
             title={item.title}
             description={item.description}
