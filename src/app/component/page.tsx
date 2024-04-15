@@ -2,10 +2,18 @@
 import { useState, useEffect, use } from 'react';
 import Card from '../../components/component/card';
 
+interface ComponentData{
+  _id: string;
+  code: string;
+  title: string;
+  description: string;
+  category: string;
+  props: any;
+}
 
 const Home = () => {
 
-  const [components, setComponents] = useState([]);
+  const [components, setComponents] = useState<ComponentData[]>([]);
   useEffect(() => {
     fetch('/api/components')
       .then(res => res.json())
