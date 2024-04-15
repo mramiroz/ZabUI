@@ -1,7 +1,5 @@
 {
-  "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
   "/component/page": "app/component/page.js",
-  "/api/categories/route": "app/api/categories/route.js",
-  "/api/components/route": "app/api/components/route.js"
+  "/page": "app/page.js",
+  "/categories/[category]/page": "app/categories/[category]/page.js"
 }

@@ -14,11 +14,10 @@ export default function Aside({ isAsideOpen }: { isAsideOpen: boolean }) {
     <aside className={`order-first bg-gray-900 w-1/5 h-screen ${isAsideOpen ? 'open' : ''}`}>
       <ul className='space-y-2 m-5'>
         {categories.map((category, index) => (
-          <li key={index} className='bg-gray-700 p-2'>
+          
             <Link href={`/categories/${category}`}>
-              {category}
+              <li key={index} className='bg-gray-700 p-2 hover:bg-gray-600'>{category}</li>
             </Link>
-          </li>
         ))}
       </ul>
     </aside>
