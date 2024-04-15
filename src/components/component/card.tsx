@@ -6,7 +6,7 @@ import * as Comps from '@compui/comps';
 import { ObjectId } from 'mongodb';
 
 interface CardProps {
-  id: ObjectId;
+  id: string;
   code: string;
   title: string;
   description: string;  
