@@ -1,11 +1,12 @@
 "use client";
 import Card from "../../../components/component/card";
 import { connectToDatabase } from "@/lib/mongodb";
+import { ObjectId } from "mongoose";
 import { useParams } from "next/navigation";
 import { Component, useEffect, useState } from "react";
 
 interface ComponentData {
-  _id: string;
+  _id: ObjectId;
   code: string;
   title: string;
   description: string;
