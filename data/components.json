@@ -1,35 +1,41 @@
 [
   {
-    "title": "Card Component",
-    "category": "Card",
-    "description": "A card component with image and text.",
-    "import": "import Card from '@compui/comps'",
-    "code": "<Card/>",
+    "title": "Button",
+    "description": "A button",
+    "category": "Button",
+    "component": "Button",
     "props": {
-      "image": "https://your-image-link",
-      "title": "Card Title",
-      "description": "Card Description"
-    }
+      "text": "Click me",
+      "width": "4",
+      "height": "2",
+      "color":"red",
+      "href": "#"
+    },
+    "import": "import Button from '@compui/comps';",
+    "code": "impor"
   },
   {
-    "title": "Button Component",
-    "category": "Button",
-    "description": "A simple blue button.",
-    "import": "import Button from '@compui/button'",
-    "code": "const Button = require('@compui/comps'); export default function MyButton(){return(<Button/>)}",
+    "title": "Profile",
+    "description": "A profile",
+    "category": "Profile",
+    "component": "Profile",
     "props": {
-      "text": "Click Me",
-      "color": "blue",
+      "image": "profile.jpg",
       "width": "4",
       "height": "4"
-    }
+    },
+    "import": "import Profile from '@compui/comps';",
+    "code": "impor"
   },
   {
-    "title": "Navbar Component",
-    "category": "Navbar",
-    "description": "A simple navbar with links.",
-    "import": "import Navbar from '@compui/navbar'",
-    "code": "<Navbar/>",
-    "link": "https://codepen.io/your-link"
+    "title": "Copy",
+    "description": "A copy",
+    "category": "Button",
+    "component": "Copy",
+    "props": {
+      "text": "Hello World"
+    },
+    "import": "import Copy from '@compui/comps';",
+    "code": "impor"
   }
 ]

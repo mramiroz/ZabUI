@@ -2,6 +2,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import React from 'react';
 import Link from 'next/link';
 import Copy from './copy';
+import * as Comp from '@compui/comps';
 import { ObjectId } from 'mongodb';
 
 interface CardProps {
@@ -13,11 +14,13 @@ interface CardProps {
   props: any;
 }
 
-const Card: React.FC<CardProps> = ({ id,  code, title, description, category, props}) => {
+const Card = ({ id,  code, title, description, category, props}: CardProps) => {
+  const Component = Comp[title];
+  console.log(props);
   return (
     <div className="rounded overflow-hidden shadow-lg m-4 flex flex-col justify-between">
-      <div>
-        <h2>Componente</h2>
+      <div className='flex justify-center p-10'>
+        <Component {...props}/>
       </div>
       <div className="flex justify-between items-center px-6 py-4">
         <Link href={`/component/${id}`} className="inline-block bg-blue-500 rounded-full p-3 p-1 text-sm font-semibold text-gray-700 mr-2">

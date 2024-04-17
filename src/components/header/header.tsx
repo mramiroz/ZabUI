@@ -10,11 +10,11 @@ export default function Header({ isAsideOpen, setIsAsideOpen }: { isAsideOpen: b
 
   return (
     <header className="flex p-4 justify-between items-center">
-      <div className="flex items-center">
+      <div className="flex">
         <Image src="/menu.svg" alt="menu" width={30} height={30} onClick={handleMenuClick} className="cursor-pointer mr-4" />
         <a href="/"><h1 className="text-4xl font-bold mx-auto">CompUI</h1></a>
       </div>
-      <nav className="flex list-none space-x-20 justify-end">
+      <nav className="flex list-none space-x-20">
         <ButtonHeader text="Components" href="/component" />
       </nav>
       {isAuthenticated ? (
