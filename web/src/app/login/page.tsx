@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 
 export default function Login() {
@@ -12,6 +13,7 @@ export default function Login() {
                         Login
                     </button>
                 </form>
+                <p className="mt-4">Don't have an account? <a href="/register" className="text-blue-500">Register</a></p>
             </div>
         </div>
     );
