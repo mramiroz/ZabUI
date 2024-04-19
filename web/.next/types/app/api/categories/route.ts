@@ -1,4 +1,4 @@
-// File: /home/mramiro/CompUI/src/app/api/categories/route.ts
+// File: /home/mramiro/CompUI/web/src/app/api/categories/route.ts
 import * as entry from '../../../../../src/app/api/categories/route.js'
 import type { NextRequest } from 'next/server.js'
 

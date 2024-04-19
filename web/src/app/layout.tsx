@@ -1,4 +1,5 @@
 "use client";
+import { Analytics } from "@vercel/analytics/react"
 import { Roboto } from "next/font/google";
 import Header from "../components/header/header";
 import "../styles/globals.css";
@@ -19,7 +20,7 @@ export default function RootLayout({
         <Header isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} />
         <main className="flex-grow flex">
           <Aside isAsideOpen={isAsideOpen}/>
-          <div className="flex-grow">{children}</div>
+          <div className="flex-grow">{children}<Analytics/></div>
         </main>
         <Footer />
       </body>
