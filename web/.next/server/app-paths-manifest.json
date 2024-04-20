@@ -1,4 +1,7 @@
 {
+  "/register/page": "app/register/page.js",
   "/page": "app/page.js",
-  "/api/categories/route": "app/api/categories/route.js"
+  "/api/categories/route": "app/api/categories/route.js",
+  "/api/user/route": "app/api/user/route.js",
+  "/categories/[category]/page": "app/categories/[category]/page.js"
 }

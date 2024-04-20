@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import dotenv from 'dotenv';
+const mongoose = require('mongoose');
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ export async function connectToDatabase() {
     const client = new MongoClient(uri);
     await client.connect();
     db = client.db("CompUI");
+    await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'CompUI'});
   }
   return db;
 }
