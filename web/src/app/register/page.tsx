@@ -1,25 +1,38 @@
 "use client";
 import { useState } from "react";
+import { signIn, useSession , signOut} from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const router = useRouter();
+    const { data: session } = useSession();
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const response = await fetch("/api/user", {
-            method: "POST",
-            body: JSON.stringify({username, email, password}),
-            headers: {
-                "Content-Type": "application/json"
+        try{
+            const res = await fetch("/api/auth/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({username, email, password})
+            });
+            if(res.ok){
+                const user = await res.json();
+                if (session) await signOut({redirect: false});
+                await signIn("credentials", {
+                    username: username,
+                    password: password,
+                    redirect: false
+                });
+                router.push("/");
             }
-        });
-        if(response.ok){
-            alert("User created");
-        }
-        else{
-            alert("Error creating user");
+        } catch(error: any){
+            console.error("An unexpected error happened:", error);
         }
     }
     return (

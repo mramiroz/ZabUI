@@ -6,17 +6,22 @@ const {Schema} = mongoose;
 const UserSchema = new Schema({
     username:{
         type: String,
-        required: true,
+        required: [true, "Username is required"],
         unique: true
     },
     password:{
         type: String,
-        required: true
+        required: [true, "Password is required"],
+        select: false
     },
     email:{
         type: String,
-        required: true,
-        unique: true
+        required: [true, "Email is required"],
+        unique: true,
+        match: [
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            "Email is invalid"
+        ]
     },
     favComps: {
         type: Array,

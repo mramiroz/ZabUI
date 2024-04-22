@@ -5,7 +5,7 @@ export default function Button({ text, width, height, backColor, borderColor, on
   return (
     <button
         style={{backgroundColor: backColor, borderColor: borderColor}}
-        className={`${width} ${height} p-2 border rounded hover:shadow-lg`}
+        className={`w-${width} h-${height} p-2 border rounded hover:shadow-lg`}
         onClick={onClick}>
      <a href={href}>{text}</a>
     </button>

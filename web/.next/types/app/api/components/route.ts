@@ -1,4 +1,4 @@
-// File: /home/mramiroz/Escritorio/CompUI/web/src/app/api/components/route.ts
+// File: /home/mramiro/CompUI/web/src/app/api/components/route.ts
 import * as entry from '../../../../../src/app/api/components/route.js'
 import type { NextRequest } from 'next/server.js'
 

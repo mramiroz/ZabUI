@@ -1,6 +1,12 @@
 {
-  "/component/page": "app/component/page.js",
+  "/not-found": "app/not-found.js",
+  "/register/page": "app/register/page.js",
   "/page": "app/page.js",
+  "/component/[id]/page": "app/component/[id]/page.js",
+  "/component/page": "app/component/page.js",
+  "/signout/page": "app/signout/page.js",
+  "/login/page": "app/login/page.js",
   "/api/categories/route": "app/api/categories/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/components/route": "app/api/components/route.js"
 }

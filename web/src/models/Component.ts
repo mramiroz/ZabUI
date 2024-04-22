@@ -1,23 +1,18 @@
-import mongoose, { Schema, Model, Document } from 'mongoose';
+import mongoose from "mongoose";
 
-const mongodbUri = process.env.MONGODB_URI || '';
-mongoose.connect(mongodbUri);
-mongoose.Promise = global.Promise;
+const { Schema } = mongoose;
 
-interface IComponent extends Document {
-  code: string;
-  title: string;
-  description: string;
-  link: string;
-}
+const componentSchema = new Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  category: { type: String, required: true },
+  props: { type: Object, required: true },
+  import: { type: String, required: true },
+  code: { type: String, required: true },
+  component: { type: String, required: true },
+  likes: { type: Number, default: 0 }
+}, { timestamps: true });
 
-const schema = new Schema<IComponent>({
-  code: String,
-  title: String,
-  description: String,
-  link: String,
-});
-
-const Component: Model<IComponent> = mongoose.models.Component || mongoose.model<IComponent>('Component', schema);
+const Component = mongoose.models.Component || mongoose.model("Component", componentSchema, "Components")
 
 export default Component;

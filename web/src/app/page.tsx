@@ -6,7 +6,6 @@ import Bubble from '@/components/home/Bubble';
 
 
 const Home = () => {
-
   return (
     <div className="text-lg text-center">
       <section className="justify-center block m-4">
@@ -18,7 +17,7 @@ const Home = () => {
         </div>
       </section>
       <section className="flex flex-col items-center justify-center p-4 m-4">
-        <p className='max-w-prose'>CompUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
+        <p className='max-w-prose my-4'>CompUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
         <Copy code="npm install @compui/comps" showCode={true}/>
       </section>
     </div>
