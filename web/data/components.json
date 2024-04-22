@@ -20,7 +20,7 @@
     "category": "Profile",
     "component": "Profile",
     "props": {
-      "image": "profile.jpg",
+      "image": "/profile.jpg",
       "width": "4",
       "height": "4"
     },
@@ -36,6 +36,22 @@
       "text": "Hello World"
     },
     "import": "import Copy from '@compui/comps';",
+    "code": "impor"
+  },
+  {
+    "title": "Bubble",
+    "description": "A bubble",
+    "category": "Button",
+    "component": "Bubble",
+    "props": {
+      "text": "Hello World",
+      "width": "4",
+      "height": "4",
+      "color": "red",
+      "link": "#",
+      "image": "/github.svg"
+    },
+    "import": "import Bubble from '@compui/comps';",
     "code": "impor"
   }
 ]

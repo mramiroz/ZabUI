@@ -8,8 +8,8 @@ import Bubble from '@/components/home/Bubble';
 const Home = () => {
 
   return (
-    <div className="text-center text-lg">
-      <section className="block justify-center m-4">
+    <div className="text-lg text-center">
+      <section className="justify-center block m-4">
         <div className='flex justify-center m-12'>
           <h1 className='text-6xl'>Build UI in <br/> NextJS easily</h1>
         </div>
@@ -17,7 +17,7 @@ const Home = () => {
           <Bubble text="Github"image="/github-icon.svg" width={30} height={30} color="#071e26"/>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center m-4 p-4">
+      <section className="flex flex-col items-center justify-center p-4 m-4">
         <p className='max-w-prose'>CompUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
         <Copy code="npm install @compui/comps" showCode={true}/>
       </section>

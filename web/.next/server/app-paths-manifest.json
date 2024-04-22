@@ -1,7 +1,6 @@
 {
-  "/register/page": "app/register/page.js",
+  "/component/page": "app/component/page.js",
   "/page": "app/page.js",
   "/api/categories/route": "app/api/categories/route.js",
-  "/api/user/route": "app/api/user/route.js",
-  "/categories/[category]/page": "app/categories/[category]/page.js"
+  "/api/components/route": "app/api/components/route.js"
 }
