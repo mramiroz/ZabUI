@@ -1,9 +1,9 @@
 
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import {connectToDatabase } from '@/lib/mongodb';
 
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const db = await connectToDatabase();
     const body = await request.json();
@@ -24,7 +24,7 @@ export async function GET() {
   }
 }
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
   try {
     const db = await connectToDatabase();
     const result = await db.collection("Components").deleteMany({});

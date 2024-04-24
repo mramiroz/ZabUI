@@ -24,7 +24,7 @@ export default function Header({ isAsideOpen, setIsAsideOpen }: { isAsideOpen: b
     )}
     <div className="w-1/3 flex justify-end">
       {status === "authenticated" ? (
-        <p>{session?.user?.username}</p>
+        <p><a href="/profile" className="hover:underline">{(session?.user as any)?.username}</a></p>
       ) : (
         <Button width="4" height="4" text="Login" href="/login" />
       )}

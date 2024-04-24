@@ -1,4 +1,4 @@
-// File: /home/mramiro/CompUI/web/src/app/api/auth/[...nextauth]/route.ts
+// File: /home/mramiroz/Escritorio/CompUI/web/src/app/api/auth/[...nextauth]/route.ts
 import * as entry from '../../../../../../src/app/api/auth/[...nextauth]/route.js'
 import type { NextRequest } from 'next/server.js'
 

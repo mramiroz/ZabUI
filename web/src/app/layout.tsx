@@ -24,9 +24,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <SessionProvider>
-      <body className={`${roboto.className} bg-gray-800 text-white felx flex-col min-h-screen`}>
+      <body className={`${roboto.className} bg-gray-800 text-white flex flex-col min-h-screen`}>
         <Header isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} />
-        <main className="flex-grow flex">
+        <main className="flex-grow flex mx-2 md:mx-32 md:my-10">
           <Aside isAsideOpen={isAsideOpen}/>
           <div className="w-full">{children}<Analytics/></div>
         </main>

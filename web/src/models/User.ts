@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import {ObjectId} from "mongodb";
 
 const {Schema} = mongoose;
 
@@ -35,6 +36,23 @@ UserSchema.pre("save", async function(next){
     }
     next();
 });
+
+UserSchema.methods.addFavComp = function(compId : ObjectId){
+    if(this.favComps.includes(compId)){
+        return;
+    }
+    this.favComps.push(compId);
+    this.save();
+}
+
+UserSchema.methods.removeFavComp = function(compId : ObjectId){
+    if(!this.favComps.includes(compId)){
+        return;
+    }
+    this.favComps = this.favComps.filter((id: ObjectId) => id !== compId);
+    this.save();
+}
+
 const User = mongoose.models.User || mongoose.model("User", UserSchema, "Users");
 
 export default User;

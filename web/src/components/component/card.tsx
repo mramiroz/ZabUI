@@ -1,4 +1,5 @@
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import { ObjectId } from 'mongodb';
 import React from 'react';
 import Link from 'next/link';
 import Like from '@/components/component/Like';
@@ -6,7 +7,7 @@ import Copy from './copy';
 import * as Comp from '@compui/comps';
 
 interface CardProps {
-  id: string;
+  id: ObjectId;
   code: string;
   title: string;
   description: string;  
@@ -22,7 +23,7 @@ const Card = ({ id,  code, title, description, category, props}: CardProps) => {
         <Component {...props}/>
       </div>
       <div className="flex justify-between items-center px-6 py-4">
-        <Link href={`/component/${id}`} className="inline-block bg-blue-500 rounded-full p-3 p-1 text-sm font-semibold text-gray-700 mr-2">
+        <Link href={`/component/${id}`} className="inline-block bg-blue-500 rounded-full p-3 text-sm font-semibold text-gray-700 mr-2">
           Details
         </Link>
         <Copy code={code} showCode={false}/>

@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect, use } from 'react';
-import Card from '../../components/component/card';
+import Card from '@/components/component/card';
+import { ObjectId } from 'mongodb';
 
 interface ComponentData{
-  _id: string;
+  _id: ObjectId;
   code: string;
   title: string;
   description: string;
