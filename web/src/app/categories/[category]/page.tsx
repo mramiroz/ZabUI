@@ -1,7 +1,7 @@
 "use client";
-import Card from "../../../components/component/card";
+import { ObjectId } from "mongodb";
+import Card from "../../../components/component/Card";
 import { connectToDatabase } from "@/lib/mongodb";
-import { ObjectId } from "mongoose";
 import { useParams } from "next/navigation";
 import { Component, useEffect, useState } from "react";
 
@@ -12,6 +12,7 @@ interface ComponentData {
   description: string;
   category: string;
   props: any;
+  likes: number;
 }
 
 const Show = () => {
@@ -42,6 +43,7 @@ const Show = () => {
             description={item.description}
             category={item.category}
             props={item.props}
+            likes={item.likes}
           />
         ))}
       </div>

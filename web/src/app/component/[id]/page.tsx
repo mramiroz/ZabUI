@@ -1,7 +1,7 @@
 "use client"; 
 import { useEffect, useState } from 'react';
 import {useParams } from 'next/navigation';
-import Copy  from '../../../components/component/copy'
+import Copy  from '../../../components/component/Copy'
 import * as Comps from '@compui/comps';
 
 interface ComponentData {

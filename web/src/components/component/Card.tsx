@@ -3,7 +3,7 @@ import { ObjectId } from 'mongodb';
 import React from 'react';
 import Link from 'next/link';
 import Like from '@/components/component/Like';
-import Copy from './copy';
+import Copy from './Copy';
 import * as Comp from '@compui/comps';
 
 interface CardProps {

@@ -1,5 +1,5 @@
 "use client";
-import Copy from '../components/component/copy';
+import Copy from '../components/component/Copy';
 import Bubble from '@/components/home/Bubble';
 import Pricing from '@/components/example/Pricing';
 

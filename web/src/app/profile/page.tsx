@@ -1,5 +1,5 @@
 "use client";
-import Card from '@/components/component/card';
+import Card from '@/components/component/Card';
 import { Button } from '@compui/comps';
 import { useSession, signOut, getSession } from 'next-auth/react';
 import { use, useEffect, useState } from 'react';
@@ -11,6 +11,7 @@ interface ComponentData{
   description: string;
   category: string;
   props: any;
+  likes: number;
 }
 export default function Profile(){
   const { data: session} = useSession();
@@ -33,7 +34,7 @@ export default function Profile(){
   
   return (
     <>
-      <p className='my-5 text-5xl text-center'>Hello {user?.username} 👋</p>
+      <p className='my-5 text-5xl text-center'>Hello {(user as any)?.username} 👋</p>
       <p className='my-3 text-3xl'>Here are your favorite components: </p>
       <div className='md:flex md:flex-wrap'>
         {comps.map((comp: ComponentData, index) => (

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, use } from 'react';
-import Card from '@/components/component/card';
+import Card from '@/components/component/Card';
 import { ObjectId } from 'mongodb';
 
 interface ComponentData{
@@ -10,6 +10,7 @@ interface ComponentData{
   description: string;
   category: string;
   props: any;
+  likes: number;
 }
 
 const Home = () => {
@@ -22,7 +23,7 @@ const Home = () => {
       .catch(err => console.error(err));
   }, []);
   return (
-    <div className="flex justify-center flex-wrap w-full">
+    <div className="flex flex-wrap justify-center w-full">
       {Array.isArray(components) && components.map((item, index) => (
         <Card
           key={index}
@@ -32,6 +33,7 @@ const Home = () => {
           description={item.description}
           category={item.category}
           props={item.props}
+          likes={item.likes}
         />
       ))}
     </div>
