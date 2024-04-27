@@ -13,28 +13,29 @@ interface CardProps {
   description: string;  
   category: string;
   props: any;
+  likes: number;
 }
 
-const Card = ({ id,  code, title, description, category, props}: CardProps) => {
+const Card = ({ id,  code, title, description, category, props, likes}: CardProps) => {
   const Component = Comp[title];
   return (
-    <div className="rounded shadow-lg m-4 flex flex-col justify-between w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-      <div className='flex justify-center p-10'>
+    <div className="flex flex-col justify-between w-full m-4 rounded shadow-lg sm:w-1/2 md:w-1/3 lg:w-1/4">
+      <div className='m-10 '>
         <Component {...props}/>
       </div>
-      <div className="flex justify-between items-center px-6 py-4">
-        <Link href={`/component/${id}`} className="inline-block bg-blue-500 rounded-full p-3 text-sm font-semibold text-gray-700 mr-2">
+      <div className="flex items-center justify-between px-6 py-4">
+        <Link href={`/component/${id}`} className="inline-block p-3 mr-2 text-sm font-semibold text-gray-700 bg-blue-500 rounded-full">
           Details
         </Link>
         <Copy code={code} showCode={false}/>
       </div>
       <div className="flex justify-between px-6 py-4">
         <div>
-          <h3 className="font-bold text-xl mb-2">{title}</h3>
-          <p className="text-gray-700 text-base">{description}</p>
+          <h3 className="mb-2 text-xl font-bold">{title}</h3>
+          <p className="text-base text-gray-700">{description}</p>
         </div>
         <div className="flex items-center mt-4">
-         <Like />
+         <Like compId={id}/>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 import Card from '@/components/component/card';
 import { Button } from '@compui/comps';
 import { useSession, signOut, getSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { ObjectId } from 'mongodb';
 interface ComponentData{
   _id: ObjectId;
@@ -13,27 +13,28 @@ interface ComponentData{
   props: any;
 }
 export default function Profile(){
-  const { data: session, status } = useSession();
+  const { data: session} = useSession();
   const user = session?.user;
+  const favComps = (user as any)?.favComps;
+  const [comps, setComps] = useState<ComponentData[]>([]);
 
   useEffect(() => {
-    if(status === 'unauthenticated'){
-      window.location.href = '/login';
-    }
-  }
-  , [status]);
-  const [comps, setComps] = useState([]);
-  useEffect(() => {
-    fetch('/api/components')
-      .then(res => res.json())
-      .then(data => setComps(data))
-      .catch(err => console.error(err));
-  }, []);
-
+    fetch("/api/components/favComps", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({compIds: favComps})
+    }).then(async (res) => {
+      const data = await res.json();
+      setComps(data);
+    });
+  }, [favComps]);
+  
   return (
     <>
-      <p className='text-5xl text-center my-5'>Hello {user?.username} 👋</p>
-      <p className='text-3xl my-3'>Here are your favorite components: </p>
+      <p className='my-5 text-5xl text-center'>Hello {user?.username} 👋</p>
+      <p className='my-3 text-3xl'>Here are your favorite components: </p>
       <div className='md:flex md:flex-wrap'>
         {comps.map((comp: ComponentData, index) => (
           <Card
@@ -44,11 +45,13 @@ export default function Profile(){
             description={comp.description}
             category={comp.category}
             props={comp.props}
+            likes={comp.likes}
           />
         ))}
       </div>
-      <Button text="Logout" onClick={() => signOut()} />
-
+      <Button onClick={() => signOut()}>
+        Logout
+      </Button>
     </>
   )
 }

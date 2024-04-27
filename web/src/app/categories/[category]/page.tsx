@@ -1,11 +1,12 @@
 "use client";
 import Card from "../../../components/component/card";
 import { connectToDatabase } from "@/lib/mongodb";
+import { ObjectId } from "mongoose";
 import { useParams } from "next/navigation";
 import { Component, useEffect, useState } from "react";
 
 interface ComponentData {
-  _id: string;
+  _id: ObjectId;
   code: string;
   title: string;
   description: string;
@@ -31,11 +32,11 @@ const Show = () => {
     }, [param.category]);
 
     return(
-        <div className="w-full">
+        <div className="flex flex-wrap justify-center w-full">
         {Array.isArray(components) && components.map((item, index) => (
           <Card
             key={index}
-            id={item._id.toString()}
+            id={item._id}
             code={item.code}
             title={item.title}
             description={item.description}

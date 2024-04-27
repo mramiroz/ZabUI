@@ -1,2 +1,3 @@
 node_modules/
 web/.env
+mongodb_data/

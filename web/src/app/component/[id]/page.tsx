@@ -43,19 +43,21 @@ const Show = () => {
   const Component = component && Comps[component.title];
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       {component && (
         <>
-          <Component {...component.props} />
-          <h1>{component.title}</h1>
-          <p>{component.description}</p>
-          <code>
+          <h1 className='mb-4 text-4xl font-bold'>{component.title}</h1>
+          <div className="mb-4 component-content">
+            <Component {...component.props} />
+          </div>
+          <p className="mb-4 text-base text-gray-200">{component.description}</p>
+          <code className="mb-4 text-sm text-gray-200">
             <Copy code={component.import} showCode={true}/>
           </code>
-          <h2>Props:</h2>
-          <ul>
+          <h2 className="mb-2 text-2xl font-semibold">Props:</h2>
+          <ul className="list-disc list-inside">
             {Object.entries(component.props).map(([prop, description]) => (
-              <li key={prop}>
+              <li key={prop} className="mb-1 text-base text-gray-200">
                 <strong>{prop}:</strong>
               </li>
             ))}

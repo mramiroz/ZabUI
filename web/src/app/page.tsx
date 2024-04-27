@@ -1,8 +1,7 @@
 "use client";
-import { useState, useEffect, use } from 'react';
-import Card from '../components/component/card';
 import Copy from '../components/component/copy';
 import Bubble from '@/components/home/Bubble';
+import Pricing from '@/components/example/Pricing';
 
 
 const Home = () => {
@@ -17,9 +16,10 @@ const Home = () => {
         </div>
       </section>
       <section className="flex flex-col items-center justify-center p-4 m-4">
-        <p className='max-w-prose my-4'>CompUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
+        <p className='my-4 max-w-prose'>CompUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
         <Copy code="npm install @compui/comps" showCode={true}/>
       </section>
+      <Pricing price="10€" text="Best product" features={["asd", "cositas"]} color="black" />
     </div>
   );
 };

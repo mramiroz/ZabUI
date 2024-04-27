@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import User from "@/models/User";
+import { connectToDatabase } from '@/lib/mongodb';
+import { ObjectId } from 'mongodb';
 
 export async function DELETE(request: NextRequest){
   try{
+    await connectToDatabase();
     const body = await request.json();
-    const user = await User.findOne({id: body.id});
+    const id = new ObjectId(body.id);
+    const user = await User.findOne({_id: id});
+    console.log(user);
     if (!user){
       return NextResponse.json({message: "User not found"}, {status: 404});
     }
@@ -16,10 +21,11 @@ export async function DELETE(request: NextRequest){
   }
 }
 
-export async function POST(request: NextRequest){
+export async function PUT(request: NextRequest){
   try{
+    await connectToDatabase();
     const body = await request.json();
-    const user = await User.findOne({id: body.id});
+    const user = await User.findOne({_id: body.id});
     if (!user){
       return NextResponse.json({message: "User not found"}, {status: 404});
     }

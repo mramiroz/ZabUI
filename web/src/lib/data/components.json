@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Button",
+    "description": "A button",
+    "category": "Button",
+    "component": "Button",
+    "props": {
+      "children": "Click me",
+      "width": "4",
+      "height": "2",
+      "color":"red",
+      "href": "#"
+    },
+    "import": "import Button from '@compui/comps';",
+    "code": "impor",
+    "likes": 0
+  },
+  {
+    "title": "Profile",
+    "description": "A profile",
+    "category": "Profile",
+    "component": "Profile",
+    "props": {
+      "image": "/profile.jpg",
+      "width": "30",
+      "height": "30"
+    },
+    "import": "import Profile from '@compui/comps';",
+    "code": "impor",
+    "likes": 0
+  },
+  {
+    "title": "Copy",
+    "description": "A copy",
+    "category": "Button",
+    "component": "Copy",
+    "props": {
+      "text": "Hello World"
+    },
+    "import": "import Copy from '@compui/comps';",
+    "code": "impor",
+    "likes": 0
+  },
+  {
+    "title": "Bubble",
+    "description": "A bubble",
+    "category": "Button",
+    "component": "Bubble",
+    "props": {
+      "text": "Hello World",
+      "width": "30",
+      "height": "30",
+      "color": "#071e26",
+      "link": "#",
+      "image": "/github-icon.svg"
+    },
+    "import": "import Bubble from '@compui/comps';",
+    "code": "impor",
+    "likes": 0
+  },
+  {
+    "title": "Pricing",
+    "description": "A pricing card",
+    "category": "Pricing",
+    "component": "Pricing",
+    "props": {
+      "text": "Product",
+      "btnText": "Buy now",
+      "color": "black",
+      "price": "$10",
+      "features": ["Feature 1", "Feature 2", "Feature 3"],
+      "children": "Buy now"
+    },
+    "import": "import Pricing from '@compui/comps';",
+    "code": "impor",
+    "likes": 0
+  }
+]

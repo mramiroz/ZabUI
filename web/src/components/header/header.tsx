@@ -12,21 +12,26 @@ export default function Header({ isAsideOpen, setIsAsideOpen }: { isAsideOpen: b
   const { data: session, status } = useSession();
 
   return (
-  <header className="flex justify-between p-4 items-center">
+  <header className="flex items-center justify-between p-4">
     <div className="flex w-1/3">
-      <Image src="/menu.svg" alt="menu" width={30} height={30} onClick={handleMenuClick} className="cursor-pointer mr-4" />
-      <a href="/"><h1 className="text-4xl font-bold mx-auto">CompUI</h1></a>
+      <Image src="/menu.svg" alt="menu" width={30} height={30} onClick={handleMenuClick} className="mr-4 cursor-pointer" />
+      <a href="/"><h1 className="mx-auto text-4xl font-bold">CompUI</h1></a>
     </div>
     {isMobile ? null : (
       <nav className="flex justify-center w-1/3 ">
-        <Button text="Components" href="/component" backColor="black" borderColor="white" />
+        <Button href="/component" backColor="black" borderColor="white">
+          Components
+        </Button>
       </nav>
     )}
-    <div className="w-1/3 flex justify-end">
+    <div className="flex justify-end w-1/3">
       {status === "authenticated" ? (
         <p><a href="/profile" className="hover:underline">{(session?.user as any)?.username}</a></p>
       ) : (
-        <Button width="4" height="4" text="Login" href="/login" />
+        <Button width="4" height="4" href="/login">
+          Login
+        </Button>
+        
       )}
     </div>
   </header>

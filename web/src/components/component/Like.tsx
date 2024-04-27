@@ -1,17 +1,22 @@
+import { useSession } from 'next-auth/react'
+import { ObjectId } from 'mongodb'
 import Image from 'next/image'
 import { useState } from 'react'
+import Component from '@/models/Component'
 
-export default function Like({likes = 0}){
+export default function Like({compId}: {compId: ObjectId}){
     const [liked, setLiked] = useState(false)
-    const [likesCount, setLikesCount] = useState(likes)
+    const [likesCount, setLikesCount] = useState(0)
+    const user = useSession().data?.user;
+    const id = user?._id;
     const handleLike = () => {
         const newLike = !liked;
         setLiked(newLike);
         if (newLike){
             setLikesCount(likesCount + 1)
-            fetch('/api/component/like', {
-                method: 'POST',
-                body: JSON.stringify({id: 1, compId: 1}),
+            fetch('/api/components/like', {
+                method: 'PUT',
+                body: JSON.stringify({id: id, compId: compId }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -19,9 +24,9 @@ export default function Like({likes = 0}){
             .catch(err => console.error(err))
         } else {
             setLikesCount(likesCount - 1)
-            fetch('/api/component/like', {
+            fetch('/api/components/like', {
                 method: 'DELETE',
-                body: JSON.stringify({id: 1, compId: 1}),
+                body: JSON.stringify({id: id, compId: compId}),
                 headers: {
                     'Content-Type': 'application/json'
                 }
