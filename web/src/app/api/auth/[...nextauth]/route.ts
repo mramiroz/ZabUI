@@ -1,11 +1,11 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import GoogleProvider from "next-auth/providers/google"
 import bcrypt from 'bcrypt';
 import User from '@/models/User';
 import { connectToDatabase } from '@/lib/mongodb';
 
 const handler = NextAuth({
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         CredentialsProvider({
             name: 'Credentials',
@@ -26,21 +26,17 @@ const handler = NextAuth({
                     throw new Error("Invalid credentials");
                 }
             }
-        }),
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         })
     ],
     callbacks: {
         async jwt({token, user}){
             if (user){
-                token.user = user;
+                token.user = user as { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; };
             }
             return token;
         },
         async session({session, token}){
-            session.user = token.user;
+            session.user = token.user as { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; };
             return session;
         }
     }

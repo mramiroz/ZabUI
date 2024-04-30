@@ -1,6 +1,10 @@
 {
   "name": "compsui",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mramiroz/CompUI"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -8,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@compui/comps": "1.1.12",
+    "@compui/comps": "^1.1.19",
     "@libsql/client": "^0.6.0",
     "@vercel/analytics": "^1.2.2",
     "bcrypt": "^5.1.1",

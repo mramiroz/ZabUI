@@ -4,7 +4,6 @@ import { useState } from 'react';
 import {signIn, useSession} from 'next-auth/react';
 
 export default function Login() {
-    //const [session, loading] = useSession();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -24,13 +23,13 @@ export default function Login() {
         }
     }
     return (
-        <div className="flex justify-center items-center m-20">
-          <div className="text-center bg-gray-900 p-10 rounded">
-            <h1 className="text-3xl font-bold mb-4">Login</h1>
+        <div className="flex items-center justify-center m-20">
+          <div className="p-10 text-center bg-gray-900 rounded">
+            <h1 className="mb-4 text-3xl font-bold">Login</h1>
             <form className="flex flex-col items-center" onSubmit={handleSubmit}>
-              <input className="my-2 p-2 border border-gray-300 rounded text-black" type="text" placeholder="Username" required onChange={(e) => setUsername(e.target.value)} />
-              <input className="mb-5 p-2 border border-gray-300 rounded text-black" type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold my-4 py-2 px-4 rounded" type="submit">
+              <input className="p-2 my-2 text-black border border-gray-300 rounded" type="text" placeholder="Username" required onChange={(e) => setUsername(e.target.value)} />
+              <input className="p-2 mb-5 text-black border border-gray-300 rounded" type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
+              <button className="px-4 py-2 my-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" type="submit">
                 Login
               </button>
             </form>

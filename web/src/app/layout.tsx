@@ -1,13 +1,15 @@
 "use client";
 import { Analytics } from "@vercel/analytics/react"
 import { Roboto } from "next/font/google";
-import Header from "../components/header/header";
+import Header from "../components/header/Header";
 import "../styles/globals.css";
-import Aside from "@/components/categories/aside";
-import Footer from "@/components/footer/footer";
+import Aside from "@/components/categories/Aside";
+import Footer from "@/components/footer/Footer";
 import { useState } from "react";
 import { useSession , SessionProvider } from "next-auth/react";
+
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
+
 
 export default function RootLayout({
   children,

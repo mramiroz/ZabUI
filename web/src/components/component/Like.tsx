@@ -1,14 +1,13 @@
 import { useSession } from 'next-auth/react'
 import { ObjectId } from 'mongodb'
 import Image from 'next/image'
-import { useState } from 'react'
-import Component from '@/models/Component'
+import { useState } from 'react';
 
 export default function Like({compId}: {compId: ObjectId}){
     const [liked, setLiked] = useState(false)
     const [likesCount, setLikesCount] = useState(0)
     const user = useSession().data?.user;
-    const id = user?._id;
+    const id = (user as any)?._id;
     const handleLike = () => {
         const newLike = !liked;
         setLiked(newLike);

@@ -24,6 +24,11 @@ const UserSchema = new Schema({
             "Email is invalid"
         ]
     },
+    role:{
+        type: String,
+        enum: ["admin", "user"],
+        default: "user"
+    },
     favComps: {
         type: Array,
         default: []

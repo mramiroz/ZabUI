@@ -4,6 +4,7 @@ import { Button } from '@compui/comps';
 import { useSession, signOut, getSession } from 'next-auth/react';
 import { use, useEffect, useState } from 'react';
 import { ObjectId } from 'mongodb';
+
 interface ComponentData{
   _id: ObjectId;
   code: string;
@@ -37,18 +38,19 @@ export default function Profile(){
       <p className='my-5 text-5xl text-center'>Hello {(user as any)?.username} 👋</p>
       <p className='my-3 text-3xl'>Here are your favorite components: </p>
       <div className='md:flex md:flex-wrap'>
-        {comps.map((comp: ComponentData, index) => (
-          <Card
-            key={index}
-            id={comp._id}
-            code={comp.code}
-            title={comp.title}
-            description={comp.description}
-            category={comp.category}
-            props={comp.props}
-            likes={comp.likes}
-          />
-        ))}
+        {comps.map((comp: ComponentData, index) => {
+          return (
+            <Card
+              key={index}
+              id={comp._id}
+              code={comp.code}
+              title={comp.title}
+              description={comp.description}
+              category={comp.category}
+              props={comp.props}
+              likes={comp.likes} />
+          )
+        })}
       </div>
       <Button onClick={() => signOut()}>
         Logout

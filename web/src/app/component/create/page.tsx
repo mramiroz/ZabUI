@@ -31,9 +31,7 @@ const Create = () => {
       }
 
       const data = await res.json();
-      console.log(data);
-
-      // Retroalimentación al usuario
+      
       alert('Component created successfully');
     } catch (err) {
       console.error(err);

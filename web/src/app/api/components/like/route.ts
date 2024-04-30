@@ -9,7 +9,6 @@ export async function DELETE(request: NextRequest){
     const body = await request.json();
     const id = new ObjectId(body.id);
     const user = await User.findOne({_id: id});
-    console.log(user);
     if (!user){
       return NextResponse.json({message: "User not found"}, {status: 404});
     }

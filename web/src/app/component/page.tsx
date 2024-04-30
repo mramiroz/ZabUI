@@ -23,7 +23,7 @@ const Home = () => {
       .catch(err => console.error(err));
   }, []);
   return (
-    <div className="flex flex-wrap justify-center w-full">
+    <div>
       {Array.isArray(components) && components.map((item, index) => (
         <Card
           key={index}
