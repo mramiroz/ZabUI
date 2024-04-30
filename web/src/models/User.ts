@@ -42,7 +42,7 @@ UserSchema.pre("save", async function(next){
     next();
 });
 
-UserSchema.methods.addFavComp = function(compId : ObjectId){
+UserSchema.methods.addFavComp = async function(compId : ObjectId){
     if(this.favComps.includes(compId)){
         return;
     }
@@ -50,11 +50,12 @@ UserSchema.methods.addFavComp = function(compId : ObjectId){
     this.save();
 }
 
-UserSchema.methods.removeFavComp = function(compId : ObjectId){
+UserSchema.methods.removeFavComp = async function(compId : ObjectId){
     if(!this.favComps.includes(compId)){
         return;
     }
-    this.favComps = this.favComps.filter((id: ObjectId) => id !== compId);
+    const index = this.favComps.indexOf(compId);
+    this.favComps.splice(index, 1);
     this.save();
 }
 

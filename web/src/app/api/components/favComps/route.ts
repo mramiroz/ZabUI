@@ -6,7 +6,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const db = await connectToDatabase();
     const body = await request.json();
     const favComps = await Component.find({ _id: { $in: body.compIds } });
     return NextResponse.json(favComps, { status: 200 });

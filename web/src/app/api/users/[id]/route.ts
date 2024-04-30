@@ -21,3 +21,15 @@ export async function DELETE(_: NextResponse, {params}: {params: {id: string}}){
     return NextResponse.json({message: "Error deleting user", error: err.message}, {status: 500});
   }
 }
+
+export async function PUT(request: NextResponse, {params}: {params: {id: string}}){
+  try{
+    const body = await request.json();
+    const user  = await User.findByIdAndUpdate(params.id, body, {new: true});
+    console.log(user);
+    return NextResponse.json(user, {status: 200});
+  }
+  catch(err: any){
+    return NextResponse.json({message: "Error updating user", error: err.message}, {status: 500});
+  }
+}

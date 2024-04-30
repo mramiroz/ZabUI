@@ -21,6 +21,19 @@ export default function Update(){
             .then(data => setComponent(data))
             .catch(err => console.error(err));
     }, []);
+    
+    const updateComponent = (updatedData: ComponentData) => {
+        fetch(`/api/components/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedData)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error(err));
+    };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">

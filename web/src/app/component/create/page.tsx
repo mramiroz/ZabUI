@@ -10,13 +10,10 @@ const Create = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-
-    // Validación de los campos del formulario
     if (!title || !description || !code || !link || !category) {
       alert('Please fill in all fields');
       return;
     }
-
     try {
       const res = await fetch('/api/components', {
         method: 'POST',
@@ -25,13 +22,10 @@ const Create = () => {
         },
         body: JSON.stringify({ title, description, code, link, category }),
       });
-
       if (!res.ok) {
         throw new Error(res.statusText);
       }
-
       const data = await res.json();
-      
       alert('Component created successfully');
     } catch (err) {
       console.error(err);
@@ -41,13 +35,13 @@ const Create = () => {
 
   return (
     <form className="w-full max-w-lg mx-auto mt-10" onSubmit={handleSubmit}>
-      <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="flex flex-wrap mb-6 -mx-3">
         <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray text-xs font-bold mb-2" htmlFor="title">
+          <label className="block mb-2 text-xs font-bold tracking-wide uppercase text-gray" htmlFor="title">
             Title
           </label>
           <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white"
             id="title"
             type="text"
             placeholder="Title"
@@ -56,13 +50,13 @@ const Create = () => {
           />
         </div>
       </div>
-      <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="flex flex-wrap mb-6 -mx-3">
         <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray text-xs font-bold mb-2" htmlFor="description">
+          <label className="block mb-2 text-xs font-bold tracking-wide uppercase text-gray" htmlFor="description">
             Description
           </label>
           <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white"
             id="description"
             type="text"
             placeholder="Description"
@@ -71,13 +65,13 @@ const Create = () => {
           />
         </div>
       </div>
-      <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="flex flex-wrap mb-6 -mx-3">
         <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray text-xs font-bold mb-2" htmlFor="code">
+          <label className="block mb-2 text-xs font-bold tracking-wide uppercase text-gray" htmlFor="code">
             Code
           </label>
           <textarea
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white"
             id="code"
             placeholder="Code"
             value={code}
@@ -85,14 +79,13 @@ const Create = () => {
           />
         </div>
       </div>
-      <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="flex flex-wrap mb-6 -mx-3">
         <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray text-xs font-bold mb-2" htmlFor="link">
+          <label className="block mb-2 text-xs font-bold tracking-wide uppercase text-gray" htmlFor="link">
             Link
           </label>
           <input
-            className="appearance-none block w-full bg-gray
-            -200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded appearance-none bg-gray -200 focus:outline-none focus:bg-white"
             id="link"
             type="text"
             placeholder="Link"
@@ -101,13 +94,13 @@ const Create = () => {
           />
         </div>
       </div>
-      <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="flex flex-wrap mb-6 -mx-3">
         <div className="w-full px-3">
-          <label className="block uppercase tracking-wide text-gray text-xs font-bold mb-2" htmlFor="category">
+          <label className="block mb-2 text-xs font-bold tracking-wide uppercase text-gray" htmlFor="category">
             Category
           </label>
           <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white"
             id="category"
             type="text"
             placeholder="Category"
@@ -116,10 +109,10 @@ const Create = () => {
           />
         </div>
       </div>
-      <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="flex flex-wrap mb-6 -mx-3">
         <div className="w-full px-3">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
             type="submit"
           >
             Create

@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 import bcrypt from 'bcrypt';
 import User from '@/models/User';
 import { connectToDatabase } from '@/lib/mongodb';
@@ -31,15 +32,17 @@ const handler = NextAuth({
     callbacks: {
         async jwt({token, user}){
             if (user){
-                token.user = user as { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; };
+                token.user = user;
             }
             return token;
         },
         async session({session, token}){
-            session.user = token.user as { name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; };
+            session.user = token.user as any;
             return session;
         }
+    },
+    pages: {
+        signIn: '/login',
     }
 });
-
 export {handler as GET, handler as POST}

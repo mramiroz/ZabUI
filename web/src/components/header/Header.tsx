@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button, RndButton} from "@compui/comps";
 import {useMediaQuery} from "react-responsive";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function Header({ isAsideOpen, setIsAsideOpen }: { isAsideOpen: boolean, setIsAsideOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
   const handleMenuClick = () => {
@@ -19,19 +20,29 @@ export default function Header({ isAsideOpen, setIsAsideOpen }: { isAsideOpen: b
     </div>
     {isMobile ? null : (
       <nav className="flex justify-center w-1/3 ">
-        <RndButton href="/components" backColor="#1F2F71">
+        <RndButton href="/" backColor="#1F2F71">
+          Home
+        </RndButton>
+        <RndButton href="/docs" backColor="#1F2F71">
+          Docs
+        </RndButton>
+        <RndButton href="/component" backColor="#1F2F71">
           Components
         </RndButton>
       </nav>
     )}
-    <div className="flex justify-end w-1/3">
-      {status === "authenticated" ? (
-        <p><a href="/profile" className="hover:underline">{(session?.user as any)?.username}</a></p>
+    <div className="flex items-center justify-end w-1/3">
+      {session ? (
+        <>
+          {!isMobile ? (<p> Welcome, {(session?.user as any)?.username}!</p>): null}    
+          <Link href={`/profile`}>
+            <Image src="/user-icon.svg" alt="user" width={40} height={40} className="ml-2 border-2 rounded-full cursor-pointer"/>
+          </Link>
+        </>
       ) : (
         <Button width="4" height="4" href="/login">
           Login
         </Button>
-        
       )}
     </div>
   </header>
