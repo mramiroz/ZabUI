@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 dotenv.config();
 
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI2;
 
 if (!uri) {
   throw new Error("MONGODB_URI is not defined. Please check your environment variables.");

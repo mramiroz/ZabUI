@@ -11,11 +11,11 @@ export default function Aside({ isAsideOpen }: { isAsideOpen: boolean }) {
       .catch(err => console.error(err));
   }, []);
   return (
-    <aside className={`order-first bg-gray-900 w-3/5 md:w-1/5 h-screen ${isAsideOpen ? 'open' : ''} fixed z-10`}>
-      <ul className='m-5 space-y-2'>
+    <aside className={`order-first bg-gray-900 w-3/5 md:w-1/5 h-full ${isAsideOpen ? 'open' : ''}`}>
+      <ul className='m-5'>
         {categories.map((category, index) => (
             <Link key={index} href={`/categories/${category}`}>
-              <li className='p-2 bg-gray-700 hover:bg-gray-600'>{category}</li>
+              <li className='p-2 my-2 bg-gray-700 rounded-md hover:bg-gray-600'>{category}</li>
             </Link>
         ))}
       </ul>

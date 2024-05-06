@@ -4,7 +4,7 @@ import { signIn, useSession , signOut} from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -19,13 +19,13 @@ export default function Register() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({username, email, password})
+                body: JSON.stringify({name, email, password})
             });
             if(res.ok){
                 const user = await res.json();
                 if (session) await signOut({redirect: false});
                 await signIn("credentials", {
-                    username: username,
+                    name: name,
                     password: password,
                     redirect: false
                 });
@@ -36,14 +36,14 @@ export default function Register() {
         }
     }
     return (
-        <div className="flex justify-center items-center m-20">
-            <div className="text-center bg-gray-900 p-20 rounded-lg">
-                <h1 className="text-3xl font-bold mb-4">Register</h1>
+        <div className="flex items-center justify-center m-20">
+            <div className="p-20 text-center bg-gray-900 rounded-lg">
+                <h1 className="mb-4 text-3xl font-bold">Register</h1>
                 <form className="flex flex-col items-center" onSubmit={handleSubmit}>
-                    <input className="mb-2 p-2 border border-gray-300 rounded text-black" type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
-                    <input className="mb-2 p-2 border border-gray-300 rounded text-black" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                    <input className="mb-2 p-2 border border-gray-300 rounded text-black" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <input className="p-2 mb-2 text-black border border-gray-300 rounded" type="text" placeholder="Username" onChange={(e) => setName(e.target.value)}/>
+                    <input className="p-2 mb-2 text-black border border-gray-300 rounded" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                    <input className="p-2 mb-2 text-black border border-gray-300 rounded" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                    <button type="submit" className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
                         Register
                     </button>
                 </form>

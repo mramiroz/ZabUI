@@ -26,7 +26,6 @@ export async function PUT(request: NextResponse, {params}: {params: {id: string}
   try{
     const body = await request.json();
     const user  = await User.findByIdAndUpdate(params.id, body, {new: true});
-    console.log(user);
     return NextResponse.json(user, {status: 200});
   }
   catch(err: any){

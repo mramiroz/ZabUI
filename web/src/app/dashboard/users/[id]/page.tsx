@@ -5,7 +5,7 @@ import { ObjectId } from 'mongodb';
 
 interface UserData{
   _id: ObjectId;
-  username: string;
+  name: string;
   email: string;
   role: string;
   favComps: ObjectId[];
@@ -45,7 +45,7 @@ export default function Update(){
             <form className="space-y-4" onSubmit={handleOnSubmit}>
                 <div className="flex flex-col">
                     <label className="text-sm font-bold">Name:</label>
-                    <input type="text" id="name" name="name" value={user.username} className="p-2 text-black border rounded-md" onChange={handleOnchange} />
+                    <input type="text" id="name" name="name" value={user.name} className="p-2 text-black border rounded-md" onChange={handleOnchange} />
                 </div>
                 <div className="flex flex-col">
                     <label className="text-sm font-bold">Email:</label>

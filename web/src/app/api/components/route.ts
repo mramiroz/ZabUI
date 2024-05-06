@@ -1,9 +1,11 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import {connectToDatabase } from '@/lib/mongodb';
+import { getServerSession } from 'next-auth';
 
 
 export async function POST(request: NextRequest) {
+  const session = await getServerSession();
   try {
     const db = await connectToDatabase();
     const body = await request.json();

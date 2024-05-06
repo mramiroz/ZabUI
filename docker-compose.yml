@@ -17,7 +17,7 @@ services:
     image: node:21-alpine
     command: sh -c "npm install && npm run dev"
     environment:
-      MONGODB_URI: mongodb://root:root@mongodb:27017
+      MONGODB_URI: mongodb://mongodb:27017
     ports:
       - 3000:3000
     working_dir: /app

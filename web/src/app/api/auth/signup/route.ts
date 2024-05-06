@@ -3,20 +3,20 @@ import {connectToDatabase} from "@/lib/mongodb";
 import User from "@/models/User";
 
 interface UserProps {
-    username: string;
+    name: string;
     email: string;
     password: string;
 }
 
 export async function POST (req: NextRequest) {
     try{
-        const db = await connectToDatabase();
-        const {username, email, password}: UserProps = await req.json();
-        const searchUser = await User.findOne({username});
+        await connectToDatabase();
+        const {name, email, password}: UserProps = await req.json();
+        const searchUser = await User.findOne({name});
         if (searchUser) return NextResponse.json({message: "Username already exists"}, {status: 400});
         const searchEmail = await User.findOne({email});
         if (searchEmail) return NextResponse.json({message: "Email already exists"}, {status: 400});
-        const user = new User({username, email, password});
+        const user = new User({name, email, password});
         await user.save();
         return NextResponse.json({message: "User created"}, {status: 200});
     } catch(error: any){

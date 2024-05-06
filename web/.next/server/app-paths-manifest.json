@@ -1,11 +1,10 @@
 {
-  "/not-found": "app/not-found.js",
+  "/profile/page": "app/profile/page.js",
+  "/register/page": "app/register/page.js",
   "/page": "app/page.js",
   "/component/page": "app/component/page.js",
-  "/profile/page": "app/profile/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/components/like/route": "app/api/components/like/route.js",
-  "/api/components/unlike/route": "app/api/components/unlike/route.js",
-  "/api/components/route": "app/api/components/route.js",
-  "/api/categories/route": "app/api/categories/route.js"
+  "/login/page": "app/login/page.js",
+  "/api/categories/route": "app/api/categories/route.js",
+  "/api/favComps/route": "app/api/favComps/route.js"
 }

@@ -6,7 +6,7 @@ export default function Label({user, onDelete}: {user: any, onDelete: any}){
     <div key={user._id} className="flex flex-col mb-4 border rounded-lg">
       <div className="flex justify-between p-2">
         <div>
-          <h3 className="text-xl font-bold">{user.username}</h3>
+          <h3 className="text-xl font-bold">{user.name}</h3>
           <p className="text-base text-gray-700">{user.role}</p>
         </div>
         <div className="flex space-x-2">

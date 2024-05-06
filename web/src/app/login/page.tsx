@@ -1,22 +1,23 @@
 "use client";
-import React, { FormEvent } from 'react';
-import { useState } from 'react';
-import {signIn, useSession} from 'next-auth/react';
+import React, { FormEvent, useState } from 'react';
+import { signIn } from 'next-auth/react';
+import {Button } from "@compui/comps";
+import Image from 'next/image';
 
 export default function Login() {
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
 
     const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
         const res = await signIn('credentials', {
             redirect: false,
-            username: username,
+            name: name,
             password: password
         });
         if (res?.error) {
-            console.error('An unexpected error happened:', res.error);
+            setError((res as any)?.error);
         }
         else{
             window.location.href = '/';
@@ -26,14 +27,18 @@ export default function Login() {
         <div className="flex items-center justify-center m-20">
           <div className="p-10 text-center bg-gray-900 rounded">
             <h1 className="mb-4 text-3xl font-bold">Login</h1>
+            {error && <p className="text-red-500">{error}</p>}
             <form className="flex flex-col items-center" onSubmit={handleSubmit}>
-              <input className="p-2 my-2 text-black border border-gray-300 rounded" type="text" placeholder="Username" required onChange={(e) => setUsername(e.target.value)} />
+              <input className="p-2 my-2 text-black border border-gray-300 rounded" type="text" placeholder="Name" required onChange={(e) => setName(e.target.value)} />
               <input className="p-2 mb-5 text-black border border-gray-300 rounded" type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
-              <button className="px-4 py-2 my-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" type="submit">
+              <button className="px-4 py-2 my-4 font-bold text-white bg-blue-700 rounded hover:bg-blue-900" type="submit">
                 Login
               </button>
             </form>
-            <p className="mt-2">Don't have an account? <a href="/register" className="text-blue-500">Register</a></p>
+            <Button width="4" height="4" onClick={()=> {signIn('google')}} backColor="#1E3A8A" borderColor="#1E3A8A">
+              <Image src="/google.svg" alt={'google login'} width={30} height={30}/>
+            </Button>
+            <p className="mt-2">Don't have an account? <a href="/register" className="text-blue-700">Register</a></p>
           </div>
         </div>
     )

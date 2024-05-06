@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import {ObjectId} from "mongodb";
 
 const {Schema} = mongoose;
 
 const UserSchema = new Schema({
-    username:{
+    name:{
         type: String,
         required: [true, "Username is required"],
         unique: true
@@ -41,23 +40,6 @@ UserSchema.pre("save", async function(next){
     }
     next();
 });
-
-UserSchema.methods.addFavComp = async function(compId : ObjectId){
-    if(this.favComps.includes(compId)){
-        return;
-    }
-    this.favComps.push(compId);
-    this.save();
-}
-
-UserSchema.methods.removeFavComp = async function(compId : ObjectId){
-    if(!this.favComps.includes(compId)){
-        return;
-    }
-    const index = this.favComps.indexOf(compId);
-    this.favComps.splice(index, 1);
-    this.save();
-}
 
 const User = mongoose.models.User || mongoose.model("User", UserSchema, "Users");
 

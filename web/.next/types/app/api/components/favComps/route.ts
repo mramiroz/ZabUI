@@ -1,8 +1,8 @@
 // File: /home/mramiroz/Escritorio/CompUI/web/src/app/api/components/favComps/route.ts
-import * as entry from '../../../../../../src/app/api/components/favComps/route.js'
+import * as entry from '../../../../../../src/app/api/favComps/route.js'
 import type { NextRequest } from 'next/server.js'
 
-type TEntry = typeof import('../../../../../../src/app/api/components/favComps/route.js')
+type TEntry = typeof import('../../../../../../src/app/api/favComps/route.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
