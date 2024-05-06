@@ -23,7 +23,7 @@ export async function PUT(req: NextRequest){
         await comp.save();
         user.favComps.push(compId);
         await user.save();
-        return NextResponse.json({message: "Component added to favorites"}, {status: 200});
+        return NextResponse.json(user, {status: 200});
     }
     catch (error) {
         return NextResponse.json({message: "Error adding component to favorites"}, {status: 500});

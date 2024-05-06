@@ -1,10 +1,12 @@
 {
+  "/api/components/route": "app/api/components/route.js",
+  "/api/favComps/like/route": "app/api/favComps/like/route.js",
   "/profile/page": "app/profile/page.js",
-  "/register/page": "app/register/page.js",
-  "/page": "app/page.js",
   "/component/page": "app/component/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
   "/api/categories/route": "app/api/categories/route.js",
-  "/api/favComps/route": "app/api/favComps/route.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/favComps/route": "app/api/favComps/route.js",
+  "/api/components/[id]/route": "app/api/components/[id]/route.js"
 }

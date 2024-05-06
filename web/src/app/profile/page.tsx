@@ -16,11 +16,9 @@ interface ComponentData{
   likes: number;
 }
 export default function Profile(){
-  const { data: session, status} = useSession();
+  const { data: session, status, update} = useSession();
   const [comps, setComps] = useState<ComponentData[]>([]);
   const user = session?.user as any;
-
-  
 
   useEffect(() => {
     if (user?.favComps) {

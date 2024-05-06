@@ -25,13 +25,3 @@ export async function GET() {
     return NextResponse.json({ message: "Error fetching components", error: error.message }, { status: 500 });
   }
 }
-
-export async function DELETE(request: NextRequest) {
-  try {
-    const db = await connectToDatabase();
-    const result = await db.collection("Components").deleteMany({});
-    return NextResponse.json({ message: "Component deleted" }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: "Error deleting component" }, { status: 500 });
-  }
-}

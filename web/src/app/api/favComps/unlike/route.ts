@@ -23,7 +23,7 @@ export async function PUT(req: NextRequest){
       const index = user.favComps.indexOf(compId);
       user.favComps.splice(index, 1);
       await user.save();
-      return NextResponse.json({message: "Component removed from favorites"}, {status: 200});
+      return NextResponse.json(user, {status: 200});
   } catch{
       return NextResponse.json({message: "Error removing component from favorites"}, {status: 500});
   }
