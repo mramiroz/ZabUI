@@ -1,7 +1,5 @@
-import { cookies } from 'next/headers';
 import Copy from '../components/component/Copy';
 import { Bubble } from '@compui/comps';
-import { getToken } from 'next-auth/jwt';
 
 
 const Home = () => {

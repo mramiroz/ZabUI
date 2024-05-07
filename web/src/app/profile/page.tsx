@@ -2,9 +2,9 @@
 import Card from '@/components/component/Card';
 import { Button } from '@compui/comps';
 import { useSession, signOut, getSession } from 'next-auth/react';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ObjectId } from 'mongodb';
-import { redirect } from 'next/navigation';
+import getFavComps from '@/actions/Profile/getFavComps';
 
 interface ComponentData{
   _id: ObjectId;
@@ -16,31 +16,30 @@ interface ComponentData{
   likes: number;
 }
 export default function Profile(){
-  const { data: session, status, update} = useSession();
-  const [comps, setComps] = useState<ComponentData[]>([]);
-  const user = session?.user as any;
+  const { data: session, status } = useSession();
+  const user = session?.user;
+  const [favComps, setFavComps] = useState<ComponentData[]>([]);
 
   useEffect(() => {
-    if (user?.favComps) {
-      fetch("/api/favComps", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({compIds: user.favComps})
-      }).then(async (res) => {
-        const data = await res.json();
-        setComps(data);
-      });
+    const fetchData = async () => {
+      if (!user){
+        return;
+      }
+      const favComps = await getFavComps({id: (user as any)?._id});
+      if (!favComps) {
+        return;
+      }
+      setFavComps(favComps as any);
     }
-  }, [user?.favComps]);
+    fetchData();
+  }, [])
   
   return (
     <>
       <p className='my-5 text-5xl text-center'>Hello {(user as any)?.name} 👋</p>
       <p className='my-3 text-3xl'>Here are your favorite components: </p>
       <div className='md:flex md:flex-wrap'>
-        {comps.map((comp: ComponentData, index) => {
+        {favComps.map((comp: ComponentData, index) => {
           return (
             <Card
               key={index}

@@ -34,7 +34,7 @@ const Card = ({ id,  code, title, description, category, props, likes}: CardProp
           <p className="text-base text-gray-700">{description}</p>
         </div>
         <div className="flex items-center mt-4">
-         <Like compId={id}/>
+         <Like compId={id.toString()}/>
         </div>
       </div>
     </div>

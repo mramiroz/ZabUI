@@ -1,7 +1,6 @@
 "use client";
 import React, { FormEvent, useState } from 'react';
 import { signIn } from 'next-auth/react';
-import {Button } from "@compui/comps";
 import Image from 'next/image';
 
 export default function Login() {
@@ -35,9 +34,6 @@ export default function Login() {
                 Login
               </button>
             </form>
-            <Button width="4" height="4" onClick={()=> {signIn('google')}} backColor="#1E3A8A" borderColor="#1E3A8A">
-              <Image src="/google.svg" alt={'google login'} width={30} height={30}/>
-            </Button>
             <p className="mt-2">Don't have an account? <a href="/register" className="text-blue-700">Register</a></p>
           </div>
         </div>

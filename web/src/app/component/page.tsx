@@ -1,27 +1,18 @@
-"use client";
-import { useState, useEffect, use } from 'react';
+import { connectToDatabase } from '@/lib/mongodb';
 import Card from '@/components/component/Card';
-import { ObjectId } from 'mongodb';
+import Component from '@/models/Component';
 
-interface ComponentData{
-  _id: ObjectId;
-  code: string;
-  title: string;
-  description: string;
-  category: string;
-  props: any;
-  likes: number;
-}
-
-const Home = () => {
-
-  const [components, setComponents] = useState<ComponentData[]>([]);
-  useEffect(() => {
-    fetch('/api/components')
-      .then(res => res.json())
-      .then(data => setComponents(data))
-      .catch(err => console.error(err));
-  }, []);
+export default async function Home(){
+  const getComponents = async () => {
+    "use server"
+    await connectToDatabase();
+    const components = await Component.find();
+    if (!components) {
+      return {message: "No components found", status: 404};
+    }
+    return components;
+  }
+  const components = await getComponents();
   return (
     <div>
       {Array.isArray(components) && components.map((item, index) => (
@@ -38,6 +29,4 @@ const Home = () => {
       ))}
     </div>
   );
-};
-
-export default Home;
+}

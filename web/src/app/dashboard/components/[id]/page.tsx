@@ -54,11 +54,11 @@ export default function Update(){
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-bold">Code:</label>
-                        <textarea id="code" name="code" value={component.code} className="p-2 text-black border rounded-md"></textarea>
+                        <input type="text" id="code" name="code" value={component.code} className="p-2 text-black border rounded-md" />
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-bold">Props:</label>
-                        <textarea id="props" name="props" value={component.props} className="p-2 text-black border rounded-md"></textarea>
+                        <input type="text" id="props" name="props" value={component.props} className="p-2 text-black border rounded-md" />
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-bold">Likes:</label>

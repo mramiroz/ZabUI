@@ -1,53 +1,45 @@
-import { getSession, signIn, useSession } from 'next-auth/react';
+"use client";
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { ObjectId } from 'mongodb';
 import Image from 'next/image';
+import removeLike from '@/actions/Like/removeLike';
+import addLike from '@/actions/Like/addLike';
+import getLikesAndUserLikeStatus from '@/actions/Like/getLikesAndUserLikeStatus';
 
-export default function Like({compId}: {compId: ObjectId}){
-    let { data: session, update } = useSession();
+
+export default function Like({compId}: {compId: string}){
+    let { data: session} = useSession();
     const [liked, setLiked] = useState(false)
     const [likesCount, setLikesCount] = useState(0)
     const user = session?.user;
-    const id = (user as any)?._id;
+    const id = (user as any)?._id || (user as any)?.id;
+    
+    useEffect(() => {
+        const fetchData = async () =>
+        {
+            if (!user) {
+                return;
+            }
+            const { likesCount, userHasLiked } = await getLikesAndUserLikeStatus({compId, userId: id});
+            setLikesCount(likesCount);
+            setLiked(userHasLiked);
+        }
+        fetchData();
+    },[session])
     
     const handleLike = async () => {
-        const newLike = !liked;
-        let response;
-        setLiked(newLike);
-        if (newLike){
-            setLikesCount(likesCount + 1);
-            response = await fetch('/api/favComps/like', {
-                method: 'PUT',
-                body: JSON.stringify({id, compId}),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-        }
-        else{
+        if (liked) {
+            removeLike({id: compId, userId: id});
+            setLiked(false);
             setLikesCount(likesCount - 1);
-            response = await fetch('/api/favComps/unlike', {
-                method: 'PUT',
-                body: JSON.stringify({id, compId}),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
         }
-        const data = await response.json();
-    }
-    const getLikes = async () => {
-        const response = await fetch(`/api/components/${compId}`);
-        const data = await response.json();
-        setLikesCount(data.likes);
-        if ((user as any)?.favComps.includes(compId)){
+        else {
+            addLike({id: compId, userId: id});
             setLiked(true);
+            setLikesCount(likesCount + 1);
         }
     }
-    useEffect(() => {
-        getLikes();
-    }, [])
-    
 
     return (
         <div className="flex items-center mt-4">

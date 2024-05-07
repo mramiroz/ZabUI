@@ -36,15 +36,17 @@ export const options: NextAuthOptions = {
   ],
   callbacks: {
     async signIn(params: any){
-      const { user, account, profile } = params;
+      const { user, account} = params;
       if (account.provider === 'google') {
         await connectToDatabase();
-        const existingUser = await User.findOne({ email: user.email });
+        let existingUser = await User.findOne({ email: user.email });
         if (!existingUser) {
           const randomPassword = crypto.randomBytes(16).toString('hex');
           const newUser = new User({name: user.name, email: user.email, password: randomPassword});
           await newUser.save();
+          existingUser = newUser;
         }
+        user.id = existingUser._id;
       }
       return true;
     },

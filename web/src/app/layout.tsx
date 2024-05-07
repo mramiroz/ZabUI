@@ -19,7 +19,6 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CompUI</title>
-        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${roboto.className} bg-gray-800 text-white flex flex-col min-h-screen`}>
         <SessionWrapper>

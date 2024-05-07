@@ -1,36 +1,21 @@
-"use client";
-import { ObjectId } from "mongodb";
-import Card from "../../../components/component/Card";
+import Card from "@/components/component/Card";
 import { connectToDatabase } from "@/lib/mongodb";
+import Component from "@/models/Component";
 import { useParams } from "next/navigation";
-import { Component, useEffect, useState } from "react";
 
-interface ComponentData {
-  _id: ObjectId;
-  code: string;
-  title: string;
-  description: string;
-  category: string;
-  props: any;
-  likes: number;
-}
-
-const Show = () => {
+export default async function Show() {
     const param = useParams();
 
-    const [components, setComponents] = useState<ComponentData[] | null>(null);
-
-    useEffect(() => {
-        const category = param.category;
-        fetch(`/api/categories/${category}`)
-        .then(response => response.json())
-        .then(data => {
-            setComponents(data);
-        })
-        .catch(err => {
-            console.error(err);
-        })
-    }, [param.category]);
+    const getComponentsCategory = async (category: string) => {
+      "use server";
+      await connectToDatabase();
+      const components = await Component.find({category: category});
+      if (!components) {
+        return {message: "No components found", status: 404};
+      }
+      return components;
+    }
+    const components = await getComponentsCategory(param.category as string);
 
     return(
         <div className="flex flex-wrap justify-center w-full">
@@ -49,4 +34,3 @@ const Show = () => {
       </div>
     )
 }
-export default Show;
