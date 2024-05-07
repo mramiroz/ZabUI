@@ -11,31 +11,37 @@
     "c7c198e980ba9069f2c46d800276da4f10445d1f": {
       "workers": {
         "app/profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FProfile%2FgetFavComps.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
-        "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
+        "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
+        "app/categories/[category]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
         "app/profile/page": "action-browser",
-        "app/component/page": "action-browser"
+        "app/component/page": "action-browser",
+        "app/categories/[category]/page": "action-browser"
       }
     },
     "b0bdedc75d2b8e9da6e20beef711b431519d9df8": {
       "workers": {
         "app/profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FProfile%2FgetFavComps.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
-        "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
+        "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
+        "app/categories/[category]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
         "app/profile/page": "action-browser",
-        "app/component/page": "action-browser"
+        "app/component/page": "action-browser",
+        "app/categories/[category]/page": "action-browser"
       }
     },
     "afa4969fbd70e65adebf05a2074e619b742b4819": {
       "workers": {
         "app/profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FProfile%2FgetFavComps.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
-        "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
+        "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
+        "app/categories/[category]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
         "app/profile/page": "action-browser",
-        "app/component/page": "action-browser"
+        "app/component/page": "action-browser",
+        "app/categories/[category]/page": "action-browser"
       }
     },
     "44fb603e5782e446d29ef0494ba997abc7a62c27": {
@@ -52,6 +58,14 @@
       },
       "layer": {
         "app/component/page": "rsc"
+      }
+    },
+    "a74cf03dc3c9fdb383f4422bc86935b083fda064": {
+      "workers": {
+        "app/categories/[category]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FCompUI%2Fweb%2Fsrc%2Fapp%2Fcategories%2F%5Bcategory%5D%2Fpage.tsx%22%2C%5B%22%24%24ACTION_1%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/categories/[category]/page": "rsc"
       }
     }
   },

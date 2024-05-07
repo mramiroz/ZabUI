@@ -22,10 +22,7 @@ export default function RootLayout({
       </head>
       <body className={`${roboto.className} bg-gray-800 text-white flex flex-col min-h-screen`}>
         <SessionWrapper>
-          <HeaderWrap />
-          <main className="flex flex-grow">
-            <div className="w-full mx-2 md:mx-32 md:my-10">{children}<Analytics/></div>
-          </main>
+          <HeaderWrap>{children}</HeaderWrap>
         </SessionWrapper>
         <Footer />
       </body>

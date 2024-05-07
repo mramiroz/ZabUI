@@ -18,7 +18,7 @@ interface CardProps {
 const Card = ({ id,  code, title, description, category, props, likes}: CardProps) => {
   const Component = Comp[title];
   return (
-    <div className="flex flex-col justify-between w-full p-4 m-4 bg-gray-900 rounded-lg shadow-lg">
+    <div className="flex flex-col justify-between w-full p-4 m-4 rounded-lg shadow-lg">
       <div className='flex justify-center m-10 '>
         <Component {...props}/>
       </div>
