@@ -11,7 +11,7 @@ export default function HeaderWrap( {children}: Readonly<{children: React.ReactN
         <Header isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} />
         <main className="flex flex-grow">
             <Aside  isAsideOpen={isAsideOpen}/>
-            <div className="w-full mx-2 md:mx-32 md:my-10">{children}<Analytics/></div>
+            <div className="w-full md:mx-32 md:my-10">{children}<Analytics/></div>
         </main>
       </>
     );

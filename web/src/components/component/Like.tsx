@@ -6,6 +6,7 @@ import Image from 'next/image';
 import removeLike from '@/actions/Like/removeLike';
 import addLike from '@/actions/Like/addLike';
 import getLikesAndUserLikeStatus from '@/actions/Like/getLikesAndUserLikeStatus';
+import { redirect } from 'next/navigation';
 
 
 export default function Like({compId}: {compId: string}){

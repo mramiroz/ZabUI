@@ -16,5 +16,10 @@ export default async function getFavComps({id}: {id: ObjectId}) {
   if (!comps) {
     return {message: "No components found", status: 404};
   }
-  return comps;
+
+  return comps.map(comp => {
+    const obj = comp.toObject();
+    obj._id = obj._id.toString();
+    return obj;
+  });
 }

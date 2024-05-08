@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {useParams } from 'next/navigation';
 import Copy  from '../../../components/component/Copy'
 import * as Comps from '@compui/comps';
+import getComponentById from '@/actions/Comps/getComponentById';
 
 interface ComponentData {
   _id: string;
@@ -18,28 +19,14 @@ const Show = () => {
   const param = useParams();
 
   const [component, setComponent] = useState<ComponentData | null>(null);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const id = param.id;
-
-    if (id) {
-      fetch(`/api/components/${id}`)
-        .then(res => res.json())
-        .then(data => {
-          setComponent(data);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error(err);
-          setLoading(false);
-        });
+    const fetchData = async () => {
+      const res = await getComponentById({id: param.id as string});
+      setComponent(res);
     }
+    fetchData();
   }, [param.id]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
   const Component = component && Comps[component.title];
 
   return (

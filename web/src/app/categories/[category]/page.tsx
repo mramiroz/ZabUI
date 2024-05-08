@@ -1,36 +1,47 @@
+"use client";
 import Card from "@/components/component/Card";
-import { connectToDatabase } from "@/lib/mongodb";
-import Component from "@/models/Component";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import getComponentsCategory from "@/actions/Categories/getComponentsCategory";
 
-export default async function Show() {
+interface UserInterface{
+  _id: string;
+  code: string;
+  title: string;
+  description: string;
+  category: string;
+  props: string[];
+  likes: number;
+
+}
+
+export default function Show() {
     const param = useParams();
+    const [components, setComponents] = useState<UserInterface[]>([]);
 
-    const getComponentsCategory = async (category: string) => {
-      "use server";
-      await connectToDatabase();
-      const components = await Component.find({category: category});
-      if (!components) {
-        return {message: "No components found", status: 404};
+    useEffect(() => {
+      const fetchData = async () => {
+        const category = Array.isArray(param.category) ? param.category[0] : param.category;
+        const res = await getComponentsCategory(category);
+        setComponents(res);
       }
-      return components;
-    }
-    const components = await getComponentsCategory(param.category as string);
+      fetchData();
+    }, [param.category])
 
     return(
-        <div className="flex flex-wrap justify-center w-full">
-        {Array.isArray(components) && components.map((item, index) => (
-          <Card
-            key={index}
-            id={item._id}
-            code={item.code}
-            title={item.title}
-            description={item.description}
-            category={item.category}
-            props={item.props}
-            likes={item.likes}
-          />
-        ))}
-      </div>
+          <div className="flex flex-wrap justify-center w-full">
+          {Array.isArray(components) && components.map((item, index) => (
+            <Card
+              key={index}
+              id={item._id}
+              code={item.code}
+              title={item.title}
+              description={item.description}
+              category={item.category}
+              props={item.props}
+              likes={item.likes}
+            />
+          ))}
+        </div>
     )
 }

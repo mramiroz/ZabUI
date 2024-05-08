@@ -6,7 +6,7 @@ import Copy from './Copy';
 import * as Comp from '@compui/comps';
 
 interface CardProps {
-  id: ObjectId;
+  id: string;
   code: string;
   title: string;
   description: string;  
@@ -18,8 +18,8 @@ interface CardProps {
 const Card = ({ id,  code, title, description, category, props, likes}: CardProps) => {
   const Component = Comp[title];
   return (
-    <div className="flex flex-col justify-between w-full p-4 m-4 rounded-lg shadow-lg">
-      <div className='flex justify-center m-10 '>
+    <div className="p-4 m-10 rounded-lg shadow-lg ">
+      <div className='flex justify-center'>
         <Component {...props}/>
       </div>
       <div className="flex items-center justify-between px-6 py-4">

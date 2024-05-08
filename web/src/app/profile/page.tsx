@@ -7,7 +7,7 @@ import { ObjectId } from 'mongodb';
 import getFavComps from '@/actions/Profile/getFavComps';
 
 interface ComponentData{
-  _id: ObjectId;
+  _id: string;
   code: string;
   title: string;
   description: string;
@@ -35,15 +35,15 @@ export default function Profile(){
   }, [])
   
   return (
-    <>
+    <div className='m-10'>
       <p className='my-5 text-5xl text-center'>Hello {(user as any)?.name} 👋</p>
-      <p className='my-3 text-3xl'>Here are your favorite components: </p>
+      <p className='my-3 text-3xl text-center'>Here are your favorite components: </p>
       <div className='md:flex md:flex-wrap'>
         {favComps.map((comp: ComponentData, index) => {
           return (
             <Card
               key={index}
-              id={comp._id}
+              id={(comp._id).toString()}
               code={comp.code}
               title={comp.title}
               description={comp.description}
@@ -56,6 +56,6 @@ export default function Profile(){
       <Button onClick={() => signOut()}>
         Logout
       </Button>
-    </>
+    </div>
   )
 }
