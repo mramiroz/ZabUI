@@ -1,9 +1,11 @@
 import Component from '@/models/Component';
 import InputForm from '@/components/forms/InputForm';
+import { connectToDatabase } from '@/lib/mongodb';
 
 export default async function CreateComponent() {
   const createComponent = async (formData: FormData) => {
     "use server";
+    await connectToDatabase();
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;
     const category = formData.get("category") as string;

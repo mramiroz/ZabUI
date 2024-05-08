@@ -18,7 +18,7 @@ interface ComponentData{
 export default function Profile(){
   const { data: session, status } = useSession();
   const user = session?.user;
-  const [favComps, setFavComps] = useState<ComponentData[]>([]);
+  const [favComps, setFavComps] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,14 +32,14 @@ export default function Profile(){
       setFavComps(favComps as any);
     }
     fetchData();
-  }, [])
+  }, [status])
   
   return (
     <div className='m-10'>
       <p className='my-5 text-5xl text-center'>Hello {(user as any)?.name} 👋</p>
       <p className='my-3 text-3xl text-center'>Here are your favorite components: </p>
       <div className='md:flex md:flex-wrap'>
-        {favComps.map((comp: ComponentData, index) => {
+        {Array.isArray(favComps) && favComps.map((comp: ComponentData, index) => {
           return (
             <Card
               key={index}

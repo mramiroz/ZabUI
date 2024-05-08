@@ -8,7 +8,7 @@ export default function SessionProfile() {
     const { data: session } = useSession();
     return (
       <div className="flex items-center justify-end w-1/3">
-      {session ? (
+      {session?.user ? (
         <>
           <p className='hidden sm:block'> Welcome, {(session?.user as any)?.name}!</p>   
           <Link href={`/profile`}>

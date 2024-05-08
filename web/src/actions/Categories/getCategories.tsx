@@ -1,7 +1,13 @@
 "use server";
+import { connectToDatabase } from "@/lib/mongodb";
 import Component from "@/models/Component";
 
 export default async function getCategories() {
-  const categories = await Component.distinct('category');
-  return categories;
+  try {
+    await connectToDatabase();
+    const categories = await Component.find().distinct('category');
+    return categories;
+  } catch (error: any) {
+    return error;
+  }
 }

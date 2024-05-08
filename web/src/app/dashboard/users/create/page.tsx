@@ -1,9 +1,11 @@
 import InputForm from '@/components/forms/InputForm';
 import User from '@/models/User';
+import { connectToDatabase } from '@/lib/mongodb';
 
 export default function Create(){
   const createUser = async (formData: FormData) => {
     "use server";
+    await connectToDatabase();
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
