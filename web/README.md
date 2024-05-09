@@ -1,36 +1,203 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Indice
 
-## Getting Started
+- [Indice](#indice)
+- [Descripción general del proyecto](#descripción-general-del-proyecto)
+- [Analisis y diseño de la base de datos](#analisis-y-diseño-de-la-base-de-datos)
+  - [Colección de usuarios](#colección-de-usuarios)
+  - [Colección de componentes](#colección-de-componentes)
+- [Aspectos funcionales y de diseño de la aplicación](#aspectos-funcionales-y-de-diseño-de-la-aplicación)
+  - [Aspectos funcionales](#aspectos-funcionales)
+  - [Diseño y estructura de la aplicación](#diseño-y-estructura-de-la-aplicación)
+    - [Librería de componentes](#librería-de-componentes)
+    - [Aplicación web](#aplicación-web)
+- [Implementación de la aplicación](#implementación-de-la-aplicación)
 
-First, run the development server:
+# Descripción general del proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+CompUI es una librería de componentes de react que facilita la creación de interfaces de usuario. Pudiendo copiarlas en su propio repositorio y modificarlas mediante las props proporcionadas por la librería en el componente. Se proporciona una aplicación web en la que se pueden hacer una previsualización de los componentes, instalar la librería mediante el gestor de paquetes de node npm y ver la documentación de los componentes.
+
+Las principales tecnologías utilizadas en el proyecto son el framework de NextJS para la aplicación web, la librería de react para los componentes, para los estilos de los componentes se usa tailwindcss y para la base de datos he utilizado mongodb. El proyecto se encuentra en un repositorio de github y se ha desplegado en vercel.
+
+# Analisis y diseño de la base de datos
+
+El tipo de base de datos utilizada es mongodb, es una base de datos nosql que almacena los datos por colecciones y documentos de tipo json. He elegido esta base de datos ya que se adapta a la perfección a la estructura de los datos que se van a almacenar en la aplicación web además al utilizar un sistema de autenticación y agregar componentes favoritos a un usuario, la gestión de muchos cambios en la base de datos es más sencilla que en una base de datos relacional como mysql.
+
+La base de datos se compone de dos colecciones, la colección de usuarios y la colección de componentes. Para la gestión de la base de datos he utilizado la librería de npm mongoose que facilita la conexión con la base de datos y la creación de los modelos de los documentos mediate esquemas.
+
+## Colección de usuarios
+
+El esquema de la colección de usuarios es el siguiente:
+
+```javascript
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+
+const {Schema} = mongoose;
+
+const UserSchema = new Schema({
+    name:{
+        type: String,
+        required: [true, "Username is required"],
+        unique: true
+    },
+    password:{
+        type: String,
+        required: [true, "Password is required"],
+        select: false
+    },
+    email:{
+        type: String,
+        required: [true, "Email is required"],
+        unique: true,
+        match: [
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            "Email is invalid"
+        ]
+    },
+    role:{
+        type: String,
+        enum: ["admin", "user"],
+        default: "user"
+    },
+    favComps: {
+        type: Array,
+        default: []
+    }
+}, {timestamps: true});
+
+UserSchema.pre("save", async function(next){
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    next();
+});
+
+const User = mongoose.models.User || mongoose.model("User", UserSchema, "Users");
+
+export default User;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Los atributos que se almacenan en la colección de Users son el nombre, la contraseña, el email, el rol y los componentes favoritos.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Name** es un string que es único y es requerido.
+- **Password** es un string que es requerido, no se muestra en las consultas cuando se obtiene un usuario, además antes de guardar el usuario en la base de datos se encripta la contraseña mediante la librería bcrypt.
+- **Email** es un string que es único, es requerido y tiene que cumplir una expresión manejada por regex, que es un email válido.
+- **Rol** es un string que tiene que ser admin o user, por defecto es user.
+- **FavComps** es un array que almacena los ids de los componentes favoritos del usuario.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Colección de componentes
 
-## Learn More
+El esquema de la colección de componentes es el siguiente:
 
-To learn more about Next.js, take a look at the following resources:
+```javascript
+import mongoose from "mongoose";
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+const { Schema } = mongoose;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+const componentSchema = new Schema({
+  title: { 
+    type: String,
+    required: true 
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  props: {
+    type: Object,
+    required: true
+  },
+  import: {
+    type: String,
+    required: true
+  },
+  code: {
+    type: String,
+    required: true
+  },
+  component: {
+    type: String,
+    required: true
+  },
+  likes: {
+    type: Number,
+    default: 0
+  }
+}, { timestamps: true });
 
-## Deploy on Vercel
+const Component = mongoose.models.Component || mongoose.model("Component", componentSchema, "Components")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+export default Component;
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Los atributos que se almacenan en la colección de Components son el título, la descripción, la categoría, las props, el import, el código, el componente y los likes.
+
+- **Title** es un string que es requerido. Que es el el titulo del componente en la aplicación web.
+- **Description** es un string que es requerido. Que es una breve descripción del componente.
+- **Category** es un string que es requerido. Que es la categoría a la que pertenece el componente.
+- **Props** es un objeto que es requerido. Que son las props que se le pueden pasar al componente.
+- **Import** es un string que es requerido. Que es el import del componente desde el paquete de npm.
+- **Code** es un string que es requerido. Que es un código de ejemplo para que el usuario pueda pegarlo en su proyecto y aplicar el componente expuesto.
+- **Component** es un string que es requerido. Que es el nombre del componete para luego poder visualizarlo en la aplicación web.
+- **Likes** es un número que por defecto es 0. Que es el número de likes que tiene el componente dado por los usuarios.
+
+# Aspectos funcionales y de diseño de la aplicación
+
+## Aspectos funcionales
+
+Los principales aspectos funcionales de la aplicación web son los siguientes:
+
+- **Mostrar componentes**: haciendo una previsualización de los componentes de la librería de npm en la aplicación web.
+- **Copiar codigo ejemplo**: se proproporciona un código de ejemplo más la previsualización para ver como aplicar el componente en el proyecto del usuario, además se puede copiar el código de ejemplo.
+
+## Diseño y estructura de la aplicación
+
+Existen dos directorios principales que cada uno tiene su propio proyecto de npm el primero es el directorio de la librería de componentes y el segundo es el directorio de la aplicación web.
+
+### Librería de componentes
+
+El directorio de la librería de componentes se compone de los siguientes directorios y archivos:
+
+- **Components**: es el directorio donde se encuentran los componentes de la librería.
+  - **Gestionado por categorias**: los componentes se encuentran en directorios que se llaman igual que la categoría a la que pertenecen.
+- **Dist**: es el directorio donde se encuentran los componentes compilados.
+- **index.js**: es el archivo de entrada a la librería donde se exportan todos los componentes.
+- **Otros**: package.json, tailwind.config.js, postcss.config.js, etc. Son archivos de configuración de la librería.
+
+### Aplicación web
+
+El directorio de la aplicación web se compone de una estructura de nextjs que se compone de los siguientes directorios y archivos:
+
+**Public**: es el directorio con los archivos estáticos de la aplicación, donde se encuentran principalmente las imágenes y svg.
+
+**SRC**: Es el directorio fuente de la aplicación que se divide en distintas partes.
+
+- **Actions**: es el directorio donde se encuentran las server actions de la aplicación dividida por funcionalidades. Las server actions se ejecutan en el servidor y devuelven los datos al cliente despues de haber sido procesados.
+- **App**: es el directorio donde se encuentran las páginas web de la aplicación gestionadas por el router de nextjs. Utilizo un una plantilla para todas las páginas donde solo cambia el contenido del main al redirigir a otra página. En la pagina es donde se hacen las llamadas a las server actions
+- **Components**: es el directorio donde se encuentran los componentes de la aplicación web, estructurados por funcionalidad y son reutilizables en todas las aplicaciones.
+- **Lib**: Contiene principalmente utilizades pero únicamente se utiliza para la gestión de conexión con la base de datos.
+- **Models**: Contiene los schemas de mongoose de User y Component. Para conectar con la base de datos.
+- **Styles**: Contiene los estilos de la aplicación web, donde se importa tailwind y se definen los estilos en css.
+- **Middleware.ts**: Es el archivo de typescript que se encarga de gestionar que un usuario esté o no autenticado pueda acceder a las rutas que se le permiten.
+  
+# Implementación de la aplicación
+
+Los lenguajes de programación utilizados son principalmente typescript y javascript. Typescript es soportado por nextjs y mongoose, este lenguaje añade un tipado a javascript que facilita la detección de errroes y evitar problemas en tiempo de ejecución. Y permite tener un mejor proceso de desarrollo al saber el tipo de dato que se está manejando.
+
+La aplicación se ha implementado NextJS que permite una gestión de la web tanto del lado del cliente como del servidor. Proporcionando los llamados server components que permiten renderizar componentes en el servidor y enviarlos al cliente, los client components que son componentes que tienen una interaccción con el cliente y pueden cambiar su estado sin tener que recargar la página y las server actions que son las apis que se llaman desde el cliente en el servidor la cual se encarga de hacer las consultas a la base de datos y devolver los datos al cliente.
+
+Enlace aplicación web: [CompUI](https://compui.vercel.app/)
+
+NextJS además proporciona utilidades como el enrutamiento, la gestión de la cache, la gestión de estilos y otras funcionalidades que facilitan mucho el desarrollo de la aplicación web.
+
+La gestión de la autentificación se realiza mediante next-auth una librería que facilita la autentificación en nextjs. Además de permitir la autentificación con google, facebook, github y otras plataformas.
+
+Para desplegar la aplicación he utilizado vercel que tiene una capa gratuita que permite desplegar applicaciones de nextjs, reactjs y otras librerias y frameworks de javascript. Además tiene una experiencia de usuario muy buena y es sencilla de utilizar. Mostrando logs, analiticas y otras funcionalidades que facilitan el despliegue de la aplicación. Te proporciona un dominio gratuito con un nombre personalizado.
+
+Para la base de datos he utilizado mongodb que en el apartado [Analisis y diseño de la base de datos](#analisis-y-diseño-de-la-base-de-datos) se ha explicado como se ha diseñado la base de datos y porque se ha elegido mongodb. La base de datos se encuentra alojada en un cluster de mongodb atlas que proporciona una capa gratuita que permite almacenar 512mb de datos y 100 conexiones simultaneas. Además de proporcionar una interfaz muy amigable para la gestión de la base de datos y la creación de los clusters. Se puede localizar en cualquier región del mundo, selecciónando el cluster de la región que quieras.
+
+Para los estilos he utilizado tailwindcss que es una librería de estilos que se implementan directamente en la clase de la etiqueta html. Proporciona muchas funcionalidades que facilitan la creación de estilos en la aplicación web. Tiene una documentación muy completa y facil de comprender. Los estilos de los componentes de la librería están hechos con tailwindcss.

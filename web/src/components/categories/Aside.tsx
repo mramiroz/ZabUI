@@ -13,7 +13,7 @@ export default function Aside({ isAsideOpen }: { isAsideOpen: boolean }) {
     fetchData();
   }, [])
   return (
-    <aside className={`order-first bg-gray-900 w-3/5 md:w-1/5 ${isAsideOpen ? 'open' : ''} absolute bg-opacity-55 z-40`}>
+    <aside className={`order-first bg-gray-900 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24`}>
       <ul className='m-5'>
         {categories.map((category, index) => (
             <Link key={index} href={`/categories/${category}`}>
