@@ -1,0 +1,23 @@
+{
+  "backColor": {
+    "description": "The background color of the cell.",
+    "type": "string"
+  },
+  "borderColor": {
+    "description": "The border color of the cell.",
+    "type": "string"
+  },
+  "text": {
+    "description": "The text of the cell.",
+    "type": "string"
+  },
+  "width": {
+    "description": "The width of the cell.",
+    "type": "number"
+  },
+  "height": {
+    "description": "The height of the cell.",
+    "type": "number"
+  }
+
+}

@@ -1,6 +1,7 @@
 
 import Copy from '../components/component/Copy';
-import { Bubble, SearchBar} from '@compui/comps';
+import { Bubble } from '@compui/comps';
+import SearchBtn from '@/components/example/SearchBtn';
 
 
 const Home = () => {

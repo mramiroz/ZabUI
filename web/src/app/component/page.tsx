@@ -24,7 +24,7 @@ export default async function Home(){
       {Array.isArray(components) && components.map((item, index) => (
         <Card
           key={index}
-          id={item._id}
+          id={item._id.toString()}
           code={item.code}
           title={item.title}
           description={item.description}

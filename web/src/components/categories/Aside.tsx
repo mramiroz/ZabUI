@@ -21,7 +21,7 @@ export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
   }, [])
 
   return (
-    <aside className={`order-first bg-gray-900 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24 left-0`}>
+    <aside className={`order-first bg-gray-900 pr-4 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24 left-0`}>
       <ul className='m-5'>
         <li className='mb-3'>
           <div onClick={() => setIsAccordionOpen(!isAccordionOpen)} className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
@@ -31,8 +31,8 @@ export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
             <ul>
               {categories.map((category, index) => {
                 return (
-                    <Link href={`/categories/${category}`}>
-                      <li key={index} className='w-full p-2 m-4 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+                    <Link key={index} href={`/categories/${category}`}>
+                      <li className='w-full p-2 m-4 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
                           {category}
                       </li>
                     </Link>

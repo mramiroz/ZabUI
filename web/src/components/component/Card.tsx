@@ -25,7 +25,7 @@ const Card = ({ id,  code, title, description, category, props, component, likes
   return (
     <div ref={ref} className={`p-4 m-10 rounded-lg shadow-lg ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
       <div className='flex justify-center'>
-        <Component {...props}/>
+        {Component && <Component {...props}/> }
       </div>
       <div className="flex items-center justify-between px-6 py-4">
         <Link href={`/component/${id}`} className="inline-block p-3 mr-2 text-sm font-semibold text-gray-700 bg-blue-500 rounded-full">

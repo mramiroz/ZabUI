@@ -85,7 +85,23 @@
       "onChange": "() => console.log('searching')",
       "onSearch": "() => console.log('searched')",
       "borderColor": "black",
-      "backCOlor": "white",
+      "backColor": "white",
+      "textColor": "black"
+    },
+    "import": "import SearchBar from '@compui/comps';",
+    "code": "impor"
+  },
+  {
+    "title": "Search Bar Button",
+    "description": "A search bar",
+    "category": "Search",
+    "component": "SearchBtn",
+    "props": {
+      "placeholder": "Search",
+      "onChange": "() => console.log('searching')",
+      "onSearch": "() => console.log('searched')",
+      "borderColor": "black",
+      "backColor": "white",
       "textColor": "black"
     },
     "import": "import SearchBar from '@compui/comps';",
