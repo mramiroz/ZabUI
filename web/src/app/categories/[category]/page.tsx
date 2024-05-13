@@ -4,17 +4,6 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import getComponentsCategory from "@/actions/Categories/getComponentsCategory";
 
-export const generateMetaData = ({ category }: Params) => {
-  return {
-    title: category.category,
-    description: "Search and find the best components for your website",
-  }
-}
-interface Params{
-  category:{
-    category: string;
-  }
-}
 
 interface UserInterface{
   _id: string;

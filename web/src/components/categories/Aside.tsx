@@ -31,21 +31,21 @@ export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
             <ul>
               {categories.map((category, index) => {
                 return (
-                  <li key={index} className='w-full p-2 m-4 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
                     <Link href={`/categories/${category}`}>
-                      {category}
+                      <li key={index} className='w-full p-2 m-4 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+                          {category}
+                      </li>
                     </Link>
-                  </li>
                 )
               })}
             </ul>
           )}
         </li>
-        <li className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
           <Link href='/component' >
-            Components
+            <li className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+                Components
+            </li>
           </Link>
-        </li>
       </ul>
     </aside>
   )

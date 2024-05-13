@@ -1,4 +1,5 @@
 {
+  "/not-found": "app/not-found.js",
   "/component/page": "app/component/page.js",
   "/categories/[category]/page": "app/categories/[category]/page.js",
   "/profile/page": "app/profile/page.js",
