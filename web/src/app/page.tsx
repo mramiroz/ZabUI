@@ -1,5 +1,6 @@
+
 import Copy from '../components/component/Copy';
-import { Bubble } from '@compui/comps';
+import { Bubble, SearchBar} from '@compui/comps';
 
 
 const Home = () => {

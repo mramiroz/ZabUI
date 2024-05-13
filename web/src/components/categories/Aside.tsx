@@ -3,23 +3,49 @@ import getCategories from '@/actions/Categories/getCategories';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-export default function Aside({ isAsideOpen }: { isAsideOpen: boolean }) {
+let cachedCategories: string[] | null = null;
+
+export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
   const [categories, setCategories] = useState<string[]>([]);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getCategories();
-      setCategories(res);
+      if (!cachedCategories) {
+        const res = await getCategories();
+        cachedCategories = res;
+      }
+      setCategories(cachedCategories as string[]);
     }
     fetchData();
   }, [])
+
   return (
-    <aside className={`order-first bg-gray-900 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24`}>
+    <aside className={`order-first bg-gray-900 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24 left-0`}>
       <ul className='m-5'>
-        {categories.map((category, index) => (
-            <Link key={index} href={`/categories/${category}`}>
-              <li className='p-2 my-2 bg-gray-700 rounded-md hover:bg-gray-600'>{category}</li>
-            </Link>
-        ))}
+        <li className='mb-3'>
+          <div onClick={() => setIsAccordionOpen(!isAccordionOpen)} className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+            Categories {isAccordionOpen ? '▼' : '▲'}
+          </div>
+          {isAccordionOpen && (
+            <ul>
+              {categories.map((category, index) => {
+                return (
+                  <li key={index} className='w-full p-2 m-4 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+                    <Link href={`/categories/${category}`}>
+                      {category}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </li>
+        <li className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+          <Link href='/component' >
+            Components
+          </Link>
+        </li>
       </ul>
     </aside>
   )

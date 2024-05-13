@@ -1,7 +1,13 @@
 import { connectToDatabase } from '@/lib/mongodb';
 import Card from '@/components/component/Card';
 import Component from '@/models/Component';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "Components",
+  description: "Search and find the best components for your website",
+
+}
 export default async function Home(){
   const getComponents = async () => {
     "use server"
@@ -23,6 +29,7 @@ export default async function Home(){
           title={item.title}
           description={item.description}
           category={item.category}
+          component={item.component}
           props={item.props}
           likes={item.likes}
         />

@@ -1,8 +1,12 @@
 "use client";
 import React, { FormEvent, useState } from 'react';
 import { signIn } from 'next-auth/react';
-import Image from 'next/image';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Login to your account",
+}
 export default function Login() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");

@@ -4,12 +4,25 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import getComponentsCategory from "@/actions/Categories/getComponentsCategory";
 
+export const generateMetaData = ({ category }: Params) => {
+  return {
+    title: category.category,
+    description: "Search and find the best components for your website",
+  }
+}
+interface Params{
+  category:{
+    category: string;
+  }
+}
+
 interface UserInterface{
   _id: string;
   code: string;
   title: string;
   description: string;
   category: string;
+  component: string;
   props: string[];
   likes: number;
 
@@ -29,7 +42,7 @@ export default function Show() {
     }, [param.category])
 
     return(
-          <div className="flex flex-wrap justify-center w-full">
+          <div>
           {Array.isArray(components) && components.map((item, index) => (
             <Card
               key={index}
@@ -38,6 +51,7 @@ export default function Show() {
               title={item.title}
               description={item.description}
               category={item.category}
+              component={item.component}
               props={item.props}
               likes={item.likes}
             />

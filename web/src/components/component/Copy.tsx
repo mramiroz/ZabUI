@@ -1,11 +1,17 @@
 "use client";
 import copysvg from "../../../public/copy.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Copy({code, showCode}: {code: string, showCode: boolean}) {
   const [value, setValue] = useState(code);
   const [copied, setCopied] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+  
   const handleChange = (e:any)=>{
     setValue(e.target.value);
   }
@@ -19,7 +25,7 @@ export default function Copy({code, showCode}: {code: string, showCode: boolean}
   }
 
   return (
-    <div className="flex items-center justify-between">
+    <div className={`flex items-center justify-between transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {showCode && (
         <pre className="flex items-center p-2 m-2 border bg-gray-950">
           <code>{code}</code>

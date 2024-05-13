@@ -74,5 +74,21 @@
     "import": "import Pricing from '@compui/comps';",
     "code": "impor",
     "likes": 0
+  },
+  {
+    "title": "Search Bar",
+    "description": "A search bar",
+    "category": "Search",
+    "component": "SearchBar",
+    "props": {
+      "placeholder": "Search",
+      "onChange": "() => console.log('searching')",
+      "onSearch": "() => console.log('searched')",
+      "borderColor": "black",
+      "backCOlor": "white",
+      "textColor": "black"
+    },
+    "import": "import SearchBar from '@compui/comps';",
+    "code": "impor"
   }
 ]

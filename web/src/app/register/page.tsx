@@ -2,6 +2,12 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import registerUser from "@/actions/Users/registerUser";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Register",
+    description: "Register a new account",
+};
 
 export default function Register() {
     const [error, setError] = useState<string | null>(null);

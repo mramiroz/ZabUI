@@ -1,9 +1,10 @@
-import { ObjectId } from 'mongodb';
+"use client";
 import React from 'react';
 import Link from 'next/link';
 import Like from '@/components/component/Like';
 import Copy from './Copy';
 import * as Comp from '@compui/comps';
+import { useInView} from 'react-intersection-observer';
 
 interface CardProps {
   id: string;
@@ -11,14 +12,18 @@ interface CardProps {
   title: string;
   description: string;  
   category: string;
+  component: string;
   props: any;
   likes: number;
 }
 
-const Card = ({ id,  code, title, description, category, props, likes}: CardProps) => {
-  const Component = Comp[title];
+const Card = ({ id,  code, title, description, category, props, component, likes}: CardProps) => {
+  const Component = Comp[component];
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   return (
-    <div className="p-4 m-10 rounded-lg shadow-lg ">
+    <div ref={ref} className={`p-4 m-10 rounded-lg shadow-lg ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
       <div className='flex justify-center'>
         <Component {...props}/>
       </div>
