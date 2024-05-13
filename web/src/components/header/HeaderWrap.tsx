@@ -1,5 +1,3 @@
-"use client";
-import { useState } from "react";
 import Header from "@/components/header/Header";
 import { Analytics } from "@vercel/analytics/react";
 

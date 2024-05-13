@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@compui/comps"
+import { Button } from "@zabui/comps"
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 

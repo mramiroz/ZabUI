@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { Button } from '@compui/comps';
+import { Button } from '@zabui/comps';
 
 interface ComponentData {
     title: string;

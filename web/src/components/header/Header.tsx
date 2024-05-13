@@ -16,7 +16,7 @@ export default function Header() {
     <div className="flex w-1/3">
       <Image src="/menu.svg" alt="menu" width={30} height={30} onClick={handleMenuClick} 
             className="mr-4 transition-transform duration-300 cursor-pointer hover:rotate-180" />
-      <a href="/"><h1 className="mx-auto text-4xl font-bold">CompUI</h1></a>
+      <a href="/"><h1 className="mx-auto text-4xl font-bold">ZabUI</h1></a>
     </div>
     <NavBar />
     <SessionProfile />

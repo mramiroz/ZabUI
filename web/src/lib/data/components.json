@@ -11,7 +11,7 @@
       "color":"red",
       "href": "#"
     },
-    "import": "import Button from '@compui/comps';",
+    "import": "import { Button }from '@zabui/comps';",
     "code": "impor",
     "likes": 0
   },
@@ -25,7 +25,7 @@
       "width": "30",
       "height": "30"
     },
-    "import": "import Profile from '@compui/comps';",
+    "import": "import { Profile } from '@zabui/comps';",
     "code": "impor",
     "likes": 0
   },
@@ -37,7 +37,7 @@
     "props": {
       "text": "Hello World"
     },
-    "import": "import Copy from '@compui/comps';",
+    "import": "import { Copy } from '@zabui/comps';",
     "code": "impor",
     "likes": 0
   },
@@ -54,7 +54,7 @@
       "link": "#",
       "image": "/github-icon.svg"
     },
-    "import": "import Bubble from '@compui/comps';",
+    "import": "import { Bubble } from '@zabui/comps';",
     "code": "impor",
     "likes": 0
   },
@@ -71,7 +71,7 @@
       "features": ["Feature 1", "Feature 2", "Feature 3"],
       "children": "Buy now"
     },
-    "import": "import Pricing from '@compui/comps';",
+    "import": "import { Pricing } from '@zabui/comps';",
     "code": "impor",
     "likes": 0
   },
@@ -88,7 +88,7 @@
       "backColor": "white",
       "textColor": "black"
     },
-    "import": "import SearchBar from '@compui/comps';",
+    "import": "import { SearchBar } from '@zabui/comps';",
     "code": "impor"
   },
   {
@@ -104,7 +104,20 @@
       "backColor": "white",
       "textColor": "black"
     },
-    "import": "import SearchBar from '@compui/comps';",
+    "import": "import { SearchBar } from '@zabui/comps';",
+    "code": "impor"
+  },
+  {
+    "title": "Link Button",
+    "description": "A link button",
+    "category": "Button",
+    "component": "LinkButton",
+    "props": {
+      "color": "black",
+      "text": "Click me",
+      "href": "#"
+    },
+    "import": "import { LinkButton } from '@zabui/comps';",
     "code": "impor"
   }
 ]

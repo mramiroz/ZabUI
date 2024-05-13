@@ -1,6 +1,6 @@
 
 import Copy from '../components/component/Copy';
-import { Bubble } from '@compui/comps';
+import { Bubble } from '@zabui/comps';
 import SearchBtn from '@/components/example/SearchBtn';
 
 
@@ -12,12 +12,12 @@ const Home = () => {
           <h1 className='text-6xl'>Build UI in <br/> NextJS easily</h1>
         </div>
         <div className='flex justify-center'>
-          <Bubble link='https://github.com/mramiroz/CompUI.git' text="Github"image="/github-icon.svg" width={30} height={30} color="#071e26"/>
+          <Bubble link='https://github.com/mramiroz/ZabUI.git' text="Github"image="/github-icon.svg" width={30} height={30} color="#071e26"/>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center p-4 m-4">
-        <p className='my-4 max-w-prose'>CompUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
-        <Copy code="npm install @compui/comps" showCode={true}/>
+        <p className='my-4 max-w-prose'>ZabUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
+        <Copy code="npm install @zabui/comps" showCode={true}/>
       </section>
     </div>
   );

@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react"
 import { Roboto } from "next/font/google";
 import "../styles/globals.css";
 import Footer from "@/components/footer/Footer";
@@ -9,18 +8,18 @@ import { Metadata } from "next";
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://compui.vercel.app"),
+  metadataBase: new URL("https://zabui.vercel.app"),
   title: {
-    default: "CompUI - React Components Library",
-    template: "%s | CompUI - React Components Library",
+    default: "ZabUI - React Components Library",
+    template: "%s | ZabUI - React Components Library",
   },
-  description: "CompUI is a library of ReactJS components that can be used in your website you can custom your components, simply as installing a npm package",
+  description: "ZabUI is a library of ReactJS components that can be used in your website you can custom your components, simply as installing a npm package",
   openGraph: {
-    title: "CompUI - React Components Library",
-    description: "CompUI is a library of ReactJS components that can be used in your website you can custom your components, simply as installing a npm package",
+    title: "ZabUI - React Components Library",
+    description: "ZabUI is a library of ReactJS components that can be used in your website you can custom your components, simply as installing a npm package",
     type: "website",
-    url: "https://compui.vercel.app",
-    siteName: "CompUI",
+    url: "https://zabui.vercel.app",
+    siteName: "ZabUI",
   },
 };
 

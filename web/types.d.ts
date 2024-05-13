@@ -1,1 +1,1 @@
-declare module '@compui/comps';
+declare module '@zabui/comps';

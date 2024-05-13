@@ -1,6 +1,6 @@
 "use client";
 import Label from "@/components/dashboard/LabelComp";
-import { Button } from "@compui/comps";
+import { Button } from "@zabui/comps";
 import { getSession, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 

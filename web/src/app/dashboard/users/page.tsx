@@ -1,6 +1,6 @@
 "use client"
 import Label from "@/components/dashboard/LabelUser";
-import { Button } from "@compui/comps";
+import { Button } from "@zabui/comps";
 import { useEffect, useState } from "react";
 import getUsers from "@/actions/Users/getUsers";
 

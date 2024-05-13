@@ -6,17 +6,17 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
   const categories = await getCategories();
   const categoryRoutes = categories.map((category: string[]) => {
     return {
-      url: `https://compui.vercel.app/categories/${category}`,
+      url: `https://zabui.vercel.app/categories/${category}`,
       lastModified: new Date(),
     }
   });
   return [
     {
-      url: "https://compui.vercel.app",
+      url: "https://zabui.vercel.app",
       lastModified: new Date(),
     },
     {
-      url: "https://compui.vercel.app/component",
+      url: "https://zabui.vercel.app/component",
       lastModified: new Date(),
     },
     ...categoryRoutes

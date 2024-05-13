@@ -1,6 +1,6 @@
 "use client";
 import Card from '@/components/component/Card';
-import { Button } from '@compui/comps';
+import { Button } from '@zabui/comps';
 import { useSession, signOut, getSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import getFavComps from '@/actions/Profile/getFavComps';

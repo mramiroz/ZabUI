@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Like from '@/components/component/Like';
 import Copy from './Copy';
-import * as Comp from '@compui/comps';
+import * as Comp from '@zabui/comps';
 import { useInView} from 'react-intersection-observer';
 
 interface CardProps {

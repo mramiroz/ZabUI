@@ -1,17 +1,12 @@
-"use client";
-import { RndButton } from '@compui/comps';
-import { useMediaQuery } from 'react-responsive';
+import { LinkButton } from '@zabui/comps';
+
 
 export default function NavBar() {
   return (
     <>
         <nav className="justify-center hidden w-1/3 sm:flex">
-          <RndButton href="/" backColor="#1F2F71">
-            Home
-          </RndButton>
-          <RndButton href="/component" backColor="#1F2F71">
-            Components
-          </RndButton>
+          <LinkButton href="/" text="Home" color="white"/>
+          <LinkButton href="/component" text="Components" color="white" />
         </nav>
     </>
   );
