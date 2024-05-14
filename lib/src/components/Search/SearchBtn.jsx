@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export default function SearchBtn( {placeholder, onChange, borderColor, backColor, textColor, onSearch}) {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +20,7 @@ export default function SearchBtn( {placeholder, onChange, borderColor, backColo
     <>
     {!isOpen && (
       <button onClick={handleButtonClick} className='p-2 bg-white rounded-sm '>
-        <Image src="/search-icon.svg" alt="search" width={20} height={20} />
+        <img src="/search-icon.svg" alt="search" width={20} height={20} />
       </button>
     )
     }

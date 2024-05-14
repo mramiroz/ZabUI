@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function SearchBar({ placeholder, onChange, onSearch, borderColor, backColor, textColor }) {
   textColor = textColor || 'black';
   borderColor = borderColor || 'black';

@@ -1,4 +1,5 @@
 import { Button } from '@zabui/comps'
+import React from 'react'
 
 const colorPalette = {
   blue: {

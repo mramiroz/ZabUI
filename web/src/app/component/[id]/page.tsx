@@ -38,7 +38,7 @@ export default function Show() {
   }, [param.id]);
   const Component = component && Comps[component.component];
   return (
-    <div className="mt-10">
+    <div className="flex flex-col items-center m-4 justify-center">
       {component && (
         <>
           <h1 className='mb-4 text-4xl font-bold'>{component.title}</h1>
