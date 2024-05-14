@@ -14,7 +14,7 @@
 
 # Descripción general del proyecto
 
-CompUI es una librería de componentes de react que facilita la creación de interfaces de usuario. Pudiendo copiarlas en su propio repositorio y modificarlas mediante las props proporcionadas por la librería en el componente. Se proporciona una aplicación web en la que se pueden hacer una previsualización de los componentes, instalar la librería mediante el gestor de paquetes de node npm y ver la documentación de los componentes.
+ZabUI es una librería de componentes de react que facilita la creación de interfaces de usuario. Pudiendo copiarlas en su propio repositorio y modificarlas mediante las props proporcionadas por la librería en el componente. Se proporciona una aplicación web en la que se pueden hacer una previsualización de los componentes, instalar la librería mediante el gestor de paquetes de node npm y ver la documentación de los componentes.
 
 Las principales tecnologías utilizadas en el proyecto son el framework de NextJS para la aplicación web, la librería de react para los componentes, para los estilos de los componentes se usa tailwindcss y para la base de datos he utilizado mongodb. El proyecto se encuentra en un repositorio de github y se ha desplegado en vercel.
 
@@ -190,7 +190,7 @@ Los lenguajes de programación utilizados son principalmente typescript y javasc
 
 La aplicación se ha implementado NextJS que permite una gestión de la web tanto del lado del cliente como del servidor. Proporcionando los llamados server components que permiten renderizar componentes en el servidor y enviarlos al cliente, los client components que son componentes que tienen una interaccción con el cliente y pueden cambiar su estado sin tener que recargar la página y las server actions que son las apis que se llaman desde el cliente en el servidor la cual se encarga de hacer las consultas a la base de datos y devolver los datos al cliente.
 
-Enlace aplicación web: [CompUI](https://compui.vercel.app/)
+Enlace aplicación web: [ZabUI](https://compui.vercel.app/)
 
 NextJS además proporciona utilidades como el enrutamiento, la gestión de la cache, la gestión de estilos y otras funcionalidades que facilitan mucho el desarrollo de la aplicación web.
 

@@ -5,6 +5,7 @@ import Copy  from '../../../components/component/Copy'
 import * as Comps from '@zabui/comps';
 import getComponentById from '@/actions/Comps/getComponentById';
 import propsDataJSON from '@/lib/data/props.json';
+import ComponentCode from '@/components/component/ComponentCode';
 
 interface PropsData{
   [key: string]: {
@@ -24,7 +25,7 @@ interface ComponentData {
   props: any;
 }
 
-const Show = () => {
+export default function Show() {
   const param = useParams();
   const [component, setComponent] = useState<ComponentData | null>(null);
   const propsData : PropsData = JSON.parse(JSON.stringify(propsDataJSON));
@@ -37,13 +38,11 @@ const Show = () => {
   }, [param.id]);
   const Component = component && Comps[component.component];
   return (
-    <div className="flex flex-col items-center justify-center mt-10">
+    <div className="mt-10">
       {component && (
         <>
           <h1 className='mb-4 text-4xl font-bold'>{component.title}</h1>
-          <div className="mb-4 component-content">
-            <Component {...component.props} />
-          </div>
+          <ComponentCode component={component}/>
           <p className="mb-4 text-base text-gray-200">{component.description}</p>
           <code className="mb-4 text-sm text-gray-200">
             <Copy code={component.import} showCode={true}/>
@@ -62,5 +61,3 @@ const Show = () => {
   );
 
 }
-
-export default Show;

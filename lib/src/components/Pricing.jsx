@@ -1,4 +1,4 @@
-import { Button } from '@compui/comps'
+import { Button } from '@zabui/comps'
 
 const colorPalette = {
   blue: {

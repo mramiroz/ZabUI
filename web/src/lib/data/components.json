@@ -7,12 +7,12 @@
     "props": {
       "children": "Click me",
       "width": "4",
-      "height": "2",
+      "height": "2", 
       "color":"red",
       "href": "#"
     },
     "import": "import { Button }from '@zabui/comps';",
-    "code": "impor",
+    "code": "import { Button } from '@zabui/comps';\nfunction Page() {\n  <Button>Click me</Button>\n}\nexport default Page",
     "likes": 0
   },
   {
@@ -26,7 +26,7 @@
       "height": "30"
     },
     "import": "import { Profile } from '@zabui/comps';",
-    "code": "impor",
+    "code": "import { Profile } from '@zabui/comps';\nfunction Page() {\n  <Profile image='/profile.jpg' width='30' height='30' />\n}\nexport default Page",
     "likes": 0
   },
   {
@@ -38,7 +38,7 @@
       "text": "Hello World"
     },
     "import": "import { Copy } from '@zabui/comps';",
-    "code": "impor",
+    "code": "import { Copy } from '@zabui/comps';\nfunction Page() {\n  <Copy text='Hello World' />\n}\nexport default Page",
     "likes": 0
   },
   {
@@ -55,7 +55,7 @@
       "image": "/github-icon.svg"
     },
     "import": "import { Bubble } from '@zabui/comps';",
-    "code": "impor",
+    "code": "import { Bubble } from '@zabui/comps';\nfunction Page() {\n  <Bubble text='Hello World' width='30' height='30' color='#071e26' link='#' image='/github-icon.svg' />\n}\nexport default Page",
     "likes": 0
   },
   {
@@ -72,7 +72,7 @@
       "children": "Buy now"
     },
     "import": "import { Pricing } from '@zabui/comps';",
-    "code": "impor",
+    "code": "import { Pricing } from '@zabui/comps';\nfunction Page() {\n  <Pricing text='Product' btnText='Buy now' color='black' price='$10' features={['Feature 1', 'Feature 2', 'Feature 3']}>Buy now</Pricing>\n}\nexport default Page",
     "likes": 0
   },
   {
@@ -89,7 +89,8 @@
       "textColor": "black"
     },
     "import": "import { SearchBar } from '@zabui/comps';",
-    "code": "impor"
+    "code": "import { SearchBar } from '@zabui/comps';\nfunction Page() {\n  <SearchBar placeholder='Search' onChange={() => console.log('searching')} onSearch={() => console.log('searched')} borderColor='black' backColor='white' textColor='black' />\n}\nexport default Page",
+    "likes": 0
   },
   {
     "title": "Search Bar Button",
@@ -105,7 +106,8 @@
       "textColor": "black"
     },
     "import": "import { SearchBar } from '@zabui/comps';",
-    "code": "impor"
+    "code": "import { SearchBar } from '@zabui/comps';\nfunction Page() {\n  <SearchBar placeholder='Search' onChange={() => console.log('searching')} onSearch={() => console.log('searched')} borderColor='black' backColor='white' textColor='black' />\n}\nexport default Page",
+    "likes": 0
   },
   {
     "title": "Link Button",
@@ -118,6 +120,7 @@
       "href": "#"
     },
     "import": "import { LinkButton } from '@zabui/comps';",
-    "code": "impor"
+    "code": "import { LinkButton } from '@zabui/comps';\nfunction Page() {\n  <LinkButton color='black' text='Click me' href='#' />\n}\nexport default Page",
+    "likes": 0
   }
 ]
