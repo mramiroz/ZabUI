@@ -32,7 +32,7 @@ export default function Show() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await getComponentById({id: param.id as string});
-      setComponent(res);
+      setComponent(res as ComponentData);
     }
     fetchData();
   }, [param.id]);
