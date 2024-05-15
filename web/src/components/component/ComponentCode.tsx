@@ -35,10 +35,10 @@ export default function ComponentCode({ component }: { component: any }) {
   return (
     <div className='w-full'>
         <div className='flex flex-wrap'>
-          <button className='w-full px-4 py-2 bg-gray-900 sm:w-1/2 rounded-t-md hover:bg-gray-950' onClick={handleComponentClick}>Show Component</button>
-          <button className='w-full px-4 py-2 bg-gray-900 sm:w-1/2 rounded-t-md hover:bg-gray-950' onClick={handleCodeClick}>Show Code</button>
+          <button className='px-4 py-2 bg-gray-900 border-2 border-b-0 rounded-t-md hover:bg-gray-950' onClick={handleComponentClick}>Show Component</button>
+          <button className='px-4 py-2 bg-gray-900 border-2 border-b-0 sm:rounded-t-md hover:bg-gray-950' onClick={handleCodeClick}>Show Code</button>
         </div>
-        <div className='w-full p-10 mt-0 mb-8 bg-gray-900 rounded-b-lg' >
+        <div className='w-full p-10 mt-0 mb-8 bg-gray-900 border-2 rounded-b-lg' >
           <div className='flex flex-col items-center justify-center m-4 sm:flex-row'> 
           {showComponent && component &&(
               <Component {...component.props}/>

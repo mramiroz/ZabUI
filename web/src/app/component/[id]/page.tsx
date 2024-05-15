@@ -36,9 +36,9 @@ export default function Show() {
     }
     fetchData();
   }, [param.id]);
-  const Component = component && Comps[component.component];
+
   return (
-    <div className="flex flex-col items-center m-4 justify-center">
+    <div className="flex flex-col items-center justify-center m-4">
       {component && (
         <>
           <h1 className='mb-4 text-4xl font-bold'>{component.title}</h1>
