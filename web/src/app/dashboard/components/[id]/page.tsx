@@ -2,6 +2,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Button } from '@zabui/comps';
+import { get } from 'http';
+import getComponentById from '@/actions/Comps/getComponentById';
+import updateComponent from '@/actions/Comps/updateComponent';
 
 interface ComponentData {
     title: string;
@@ -9,37 +12,45 @@ interface ComponentData {
     category: string;
     code: string;
     props: string;
-    likes: number;
+    component: string;
 }
 
 export default function Update(){
-    const [component, setComponent] = useState({} as ComponentData);
+    const [component, setComponent] = useState({
+        title: '',
+        description: '',
+        category: '',
+        code: '',
+        props: '',
+        component: ''
+    } as ComponentData);
     const { id } = useParams();
-    useEffect(() => {
-        fetch(`/api/components/${id}`)
-            .then(res => res.json())
-            .then(data => setComponent(data))
-            .catch(err => console.error(err));
-    }, []);
+    useEffect(()=>{
+        const fetchData = async () => {
+            const res = await getComponentById({id: id as string});
+            setComponent(res);
+        }
+        fetchData();
+    }, [id]);
     
-    const updateComponent = (updatedData: ComponentData) => {
-        fetch(`/api/components/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(updatedData)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.error(err));
-    };
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        try {
+            await updateComponent({id: id as string, title: component.title, description: component.description, category: component.category, code: component.code, props: component.props, likes: '', component: component.component});
+            alert('Component updated successfully');
+        }
+        catch(error){
+            console.error("Error updating component:", error);
+            alert('Error updating component');
+        }
+    }
+        
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <div className="flex flex-col w-full max-w-md p-8 mx-auto space-y-4 bg-gray-900 rounded-lg shadow-md">
                 <h1 className="mb-4 text-xl font-bold text-center">Update Component</h1>
-                <form className="space-y-4">
+                <form className="space-y-4" action={handleSubmit}>
                     <div className="flex flex-col">
                         <label className="text-sm font-bold">Title:</label>
                         <input type="text" id="title" name="title" value={component.title} className="p-2 text-black border rounded-md" />
@@ -61,8 +72,8 @@ export default function Update(){
                         <input type="text" id="props" name="props" value={component.props} className="p-2 text-black border rounded-md" />
                     </div>
                     <div className="flex flex-col">
-                        <label className="text-sm font-bold">Likes:</label>
-                        <input type="number" id="likes" name="likes" value={component.likes} className="p-2 text-black border rounded-md" />
+                        <label className='text-sm font-bold'>Component:</label>
+                        <input type="text" id="component" name="component" value={component.component} className="p-2 text-black border rounded-md" />
                     </div>
                     <div className="flex flex-col">
                         <Button type="submit" className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Update</Button>

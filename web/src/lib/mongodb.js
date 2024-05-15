@@ -17,7 +17,7 @@ export async function connectToDatabase() {
     const client = new MongoClient(uri);
     await client.connect();
     db = client.db("CompUI");
-    await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'CompUI'});
+    await mongoose.connect(uri, { useNewUrlParser: true, dbName: 'CompUI'});
   }
   return db;
 }

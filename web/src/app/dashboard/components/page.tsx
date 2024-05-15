@@ -3,27 +3,17 @@ import Label from "@/components/dashboard/LabelComp";
 import { Button } from "@zabui/comps";
 import { getSession, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import getComponents from "@/actions/Comps/getComponents";
+import deleteComponent from "@/actions/Comps/deleteComponent";
 
 export default function Dashboard(){
   const [components, setComponents] = useState([]);
-  const deleteComponent = async (id: string) => {
-    try {
-      const res = await fetch(`/api/components/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      setComponents(components.filter((user: any) => user._id !== id));
-    } catch (err: any) {
-      console.error(err);
-    }
-  }
   useEffect(() => {
-    fetch('/api/components')
-      .then(res => res.json())
-      .then(data => setComponents(data))
-      .catch(err => console.error(err));
+    const fetchData = async () => {
+      const res = await getComponents();
+      setComponents(res as any);
+    }
+    fetchData();
   }, []);
   return (
     <>
@@ -34,7 +24,7 @@ export default function Dashboard(){
       </div>
       <div>
         {Array.isArray(components) && components.map((item, index) => (
-          <Label key={index} component={item} onDelete={() => deleteComponent((item as any)._id)}/>
+          <Label key={index} component={item} onDelete={async () => await deleteComponent((item as any)._id)}/>
         ))}
       </div>  
     </>

@@ -33,6 +33,7 @@ export default function Profile(){
     }
     fetchData();
   }, [status])
+
   
   return (
     <div className='m-10'>

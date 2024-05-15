@@ -6,7 +6,7 @@ export default async function getComponentById({id}: {id: string}) {
   try{
     await connectToDatabase();
     const res = await Component.findById(id);
-    return res.toObject();
+    return res.toJSON();
   }catch(error){
     console.error("Error retrieving component:", error);
     return {};
