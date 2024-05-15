@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import registerUser from "@/actions/Users/registerUser";
-import { Metadata } from "next";
+
 
 export default function Register() {
     const [error, setError] = useState<string | null>(null);
@@ -36,22 +36,24 @@ export default function Register() {
             setError(null);
             setSuccess("User registered successfully. Please sign in.");
             await signIn("credentials", { redirect: false, name, password });
+            setTimeout(() => {window.location.href = '/';}, 1500)
+            
         }
     };
 
     return (
         <div className="flex items-center justify-center m-20">
-            <div className="p-20 text-center bg-gray-900 rounded-lg">
+            <div className="p-20 text-center bg-gray-900 rounded-2xl">
                 <h1 className="mb-4 text-3xl font-bold">Register</h1>
                 {error && <p className="mb-4 text-red-500">{error}</p>}
                 {success && <p className="mb-4 text-green-500">{success}</p>}
                 <form className="flex flex-col items-center" onSubmit={handleSubmit}>
-                    <input name="name" className="p-2 mb-2 text-black border border-gray-300 rounded" type="text" placeholder="Username" autoComplete="off" required />
                     {validationErrors && validationErrors.name && <p className="mb-4 text-red-500">{validationErrors.name}</p>}
-                    <input name="email" className="p-2 mb-2 text-black border border-gray-300 rounded" type="email" placeholder="Email" autoComplete="off" required />
                     {validationErrors && validationErrors.email && <p className="mb-4 text-red-500">{validationErrors.email}</p>}
-                    <input name="password" className="p-2 mb-2 text-black border border-gray-300 rounded" type="password" placeholder="Password" autoComplete="off" required />
                     {validationErrors && validationErrors.password && <p className="mb-4 text-red-500">{validationErrors.password}</p>}
+                    <input name="name" className="p-2 mb-2 text-black border border-gray-300 rounded" type="text" placeholder="Username" autoComplete="off" required />
+                    <input name="email" className="p-2 mb-2 text-black border border-gray-300 rounded" type="email" placeholder="Email" autoComplete="off" required />
+                    <input name="password" className="p-2 mb-2 text-black border border-gray-300 rounded" type="password" placeholder="Password" autoComplete="off" required />
                     <button type="submit" className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
                         Register
                     </button>

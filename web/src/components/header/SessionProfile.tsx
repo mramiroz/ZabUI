@@ -12,7 +12,7 @@ export default function SessionProfile() {
         <>
           <p className='hidden sm:block'> Welcome, {(session?.user as any)?.name}!</p>   
           <Link href={`/profile`}>
-            <Image src={(session?.user as any)?.image} alt="profile" width="4" height="4" />
+            <Image src="/user-icon.svg" alt="profile" width={40} height={40}  className='ml-2 border-2 rounded-full'/>
           </Link>
         </>
       ) : (

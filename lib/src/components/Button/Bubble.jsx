@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 export default function Bubble({text, image, width, height, color, link}){
     return (
@@ -7,7 +6,7 @@ export default function Bubble({text, image, width, height, color, link}){
             {link ? (
                     <a href={link} className="flex">
                         <p className='mx-2'>{text}</p>
-                        <Image src={image} alt="profile" width={width} height={width} />
+                        <img src={image} alt="profile" width={width} height={width} />
                     </a>
             ) : (
                 <>

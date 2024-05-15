@@ -1,6 +1,6 @@
 {
   "name": "@zabui/comps",
-  "version": "1.0.49",
+  "version": "1.0.51",
   "main": "dist/index.js",
   "description": "A library of Next components to help to develop your UI",
   "repository": {
@@ -10,7 +10,7 @@
   "author": "Manuel Ramiro Zabaleta",
   "license": "MIT",
   "scripts": {
-    "prepare": "babel src --out-dir dist"
+    "prepare": "babel src --out-dir dist && npx postcss-cli ./src/styles.css -o ./dist/styles.css"
   },
   "babel": {
     "presets": [
@@ -35,7 +35,8 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
-    "postcss": "^8",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }

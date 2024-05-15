@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 
 export default function Button({ width, height, backColor, borderColor, onClick, href, children}) {
 

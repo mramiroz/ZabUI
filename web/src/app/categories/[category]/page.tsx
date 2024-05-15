@@ -24,14 +24,7 @@ export default function Show() {
     useEffect(() => {
       const fetchData = async () => {
         const category = Array.isArray(param.category) ? param.category[0] : param.category;
-        let res = [];
-        const cachedData = localStorage.getItem(`category-${category}`);
-        if (cachedData) {
-          res = JSON.parse(cachedData);
-        } else {
-          res = await getComponentsCategory(category);
-          localStorage.setItem(`category-${category}`, JSON.stringify(res));
-        }
+        const res = await getComponentsCategory(category);
         setComponents(res);
       }
       fetchData();

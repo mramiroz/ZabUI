@@ -12,5 +12,5 @@ export default async function registerUser({name, email, password}: {name: strin
     }
     const user = await User.create({name, email, password});
     user.save();
-    return user;
+    return user.toJSON();
 }
