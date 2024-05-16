@@ -14,7 +14,6 @@ export default function SearchBar({ placeholder, onChange, onSearch, borderColor
   }
   
   return (
-    <>
       <div className="relative w-1/2">
         <input 
           type="text" 
@@ -28,6 +27,5 @@ export default function SearchBar({ placeholder, onChange, onSearch, borderColor
           <img src="/search-icon.svg" alt="search" width={20} height={20} />
         </div>
       </div>
-    </>
   );
 }

@@ -1,10 +1,8 @@
-
 import Copy from '../components/component/Copy';
 import { Bubble } from '@zabui/comps';
-import SearchBtn from '@/components/example/SearchBtn';
 
 
-const Home = () => {
+export default function Home(){
   return (
     <div className="text-lg text-center">
       <section className="justify-center block m-4">
@@ -22,5 +20,3 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;

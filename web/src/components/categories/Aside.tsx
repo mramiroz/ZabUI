@@ -7,7 +7,7 @@ let cachedCategories: string[] | null = null;
 
 export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
   const [categories, setCategories] = useState<string[]>([]);
-  const [isAccordionOpen, setIsAccordionOpen] = useState(true);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +23,11 @@ export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
   return (
     <aside className={`rounded-2xl order-first bg-gray-900 pr-4 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24 left-0`}>
       <ul className='m-5'>
+        <Link href='/component' >
+          <li className='p-2 mb-3 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+              Components
+          </li>
+        </Link>
         <li className='mb-3'>
           <div onClick={() => setIsAccordionOpen(!isAccordionOpen)} className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
             Categories {isAccordionOpen ? '▼' : '▲'}
@@ -41,11 +46,6 @@ export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
             </ul>
           )}
         </li>
-          <Link href='/component' >
-            <li className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
-                Components
-            </li>
-          </Link>
       </ul>
     </aside>
   )

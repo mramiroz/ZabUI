@@ -25,7 +25,7 @@ export default function Copy({code, showCode}: {code: string, showCode: boolean}
   }
 
   return (
-    <div className={`flex items-center justify-between transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`flex flex-col sm:flex-row items-center justify-between transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {showCode && (
         <pre className="flex items-center p-2 m-2 border bg-gray-950">
           <code>{code}</code>

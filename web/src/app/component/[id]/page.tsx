@@ -38,26 +38,23 @@ export default function Show() {
   }, [param.id]);
 
   return (
-    <div className="flex flex-col items-center justify-center m-4">
+    <div className="flex flex-col items-center justify-center m-4 space-y-4">
       {component && (
-        <>
+        <div className="w-full max-w-md p-4 rounded shadow">
           <h1 className='mb-4 text-4xl font-bold'>{component.title}</h1>
           <ComponentCode component={component}/>
-          <p className="mb-4 text-base text-gray-200">{component.description}</p>
-          <code className="mb-4 text-sm text-gray-200">
-            <Copy code={component.import} showCode={true}/>
-          </code>
+          <p className="mb-4 text-base">{component.description}</p>
           <h2 className="mb-2 text-2xl font-semibold">Props:</h2>
           <ul className="list-disc list-inside">
-            {Object.entries(component.props).map(([prop, value]) => (
-              <li key={prop} className="mb-1 text-base text-gray-200">
-                <strong>{prop}: {propsData[prop]?.description || "No description given"}</strong>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
-  );
+                      {Object.entries(component.props).map(([prop, value]) => (
+                        <li key={prop} className="mb-1 text-base">
+                          <strong>{prop}</strong>: {propsData[prop]?.description || "No description given"}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            );
 
 }

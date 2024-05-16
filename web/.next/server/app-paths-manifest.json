@@ -1,5 +1,7 @@
 {
-  "/component/[id]/page": "app/component/[id]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
+  "/component/[id]/page": "app/component/[id]/page.js",
+  "/component/page": "app/component/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

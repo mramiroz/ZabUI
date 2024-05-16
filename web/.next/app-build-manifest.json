@@ -23,6 +23,11 @@
       "static/chunks/main-app.js",
       "static/css/app/component/[id]/page.css",
       "static/chunks/app/component/[id]/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

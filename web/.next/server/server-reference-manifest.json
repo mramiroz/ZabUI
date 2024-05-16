@@ -4,12 +4,14 @@
       "workers": {
         "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FCategories%2FgetCategories.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
         "app/component/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FLike%2FremoveLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FLike%2FaddLike.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FLike%2FgetLikesAndUserLikeStatus.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FCategories%2FgetCategories.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
-        "app/component/[id]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FComps%2FgetComponentById.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FCategories%2FgetCategories.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
+        "app/component/[id]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FComps%2FgetComponentById.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FCategories%2FgetCategories.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!",
+        "app/_not-found/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Factions%2FCategories%2FgetCategories.tsx%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
         "app/page": "action-browser",
         "app/component/page": "action-browser",
-        "app/component/[id]/page": "action-browser"
+        "app/component/[id]/page": "action-browser",
+        "app/_not-found/page": "action-browser"
       }
     },
     "117e074c7a9c055cc09f845c43cced6fc429a159": {
@@ -54,5 +56,5 @@
     }
   },
   "edge": {},
-  "encryptionKey": "G44XFWCLf4ObIaLnOknB6y45pdPodV6wiOmKEjz998k="
+  "encryptionKey": "b5C6Z5M5ORxU1S+lNclBy21gCNAeTMqFYNpwTque2Yw="
 }

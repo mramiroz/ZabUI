@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Button } from '@zabui/comps';
-import { get } from 'http';
 import getComponentById from '@/actions/Comps/getComponentById';
 import updateComponent from '@/actions/Comps/updateComponent';
 
@@ -28,7 +27,7 @@ export default function Update(){
     useEffect(()=>{
         const fetchData = async () => {
             const res = await getComponentById({id: id as string});
-            setComponent(res);
+            setComponent(res as ComponentData);
         }
         fetchData();
     }, [id]);
