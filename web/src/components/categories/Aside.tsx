@@ -5,10 +5,21 @@ import { useState, useEffect } from 'react';
 
 let cachedCategories: string[] | null = null;
 
-export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
+export default function Aside({ isAsideOpen, setIsAsideOpen}: {isAsideOpen: boolean, setIsAsideOpen: (isOpen:boolean) => void}) {
   const [categories, setCategories] = useState<string[]>([]);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  
+  const handleAsideMouseLeave = () => {
+    const id = setTimeout(() => {
+      setIsAsideOpen(false);
+    }, 1000);
+    setTimeoutId(id);
+  }
 
+  const handleAsideMouseEnter = () => {
+    if (timeoutId) clearTimeout(timeoutId);
+  }
   useEffect(() => {
     const fetchData = async () => {
       if (!cachedCategories) {
@@ -21,23 +32,26 @@ export default function Aside({ isAsideOpen}: { isAsideOpen: boolean}) {
   }, [])
 
   return (
-    <aside className={`rounded-2xl order-first bg-gray-900 pr-4 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed bg-opacity-55 z-40 top-16 sm:top-24 left-0`}>
-      <ul className='m-5'>
+    <aside 
+      onMouseEnter={handleAsideMouseEnter}
+      onMouseLeave={handleAsideMouseLeave}
+      className={`transition-all duration-200 ease-in-out order-first bg-gray-900 pr-4 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed z-40 left-0 top-16`}>
+      <ul className='m-5 space-y-4'>
         <Link href='/component' >
-          <li className='p-2 mb-3 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+          <li className='p-2 mb-3 text-white bg-gray-800 border rounded-lg cursor-pointer hover:bg-gray-700'>
               Components
           </li>
         </Link>
         <li className='mb-3'>
-          <div onClick={() => setIsAccordionOpen(!isAccordionOpen)} className='p-2 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+          <div onClick={() => setIsAccordionOpen(!isAccordionOpen)} className='p-2 text-white bg-gray-800 border rounded-lg cursor-pointer hover:bg-gray-700'>
             Categories {isAccordionOpen ? '▼' : '▲'}
           </div>
           {isAccordionOpen && (
-            <ul>
+            <ul className='mt-2 space-y-2'>
               {categories.map((category, index) => {
                 return (
                     <Link key={index} href={`/categories/${category}`}>
-                      <li className='w-full p-2 m-4 border rounded-lg cursor-pointer bg-slate-700 hover:bg-slate-800'>
+                      <li className='w-full p-2 m-4 text-white bg-gray-800 border rounded-lg cursor-pointer hover:bg-gray-700'>
                           {category}
                       </li>
                     </Link>
