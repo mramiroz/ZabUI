@@ -39,7 +39,15 @@ export default function Profile(){
     <div className='m-10'>
       <p className='my-5 text-5xl text-center'>Hello {(user as any)?.name} 👋</p>
       <p className='my-3 text-3xl text-center'>Here are your favorite components: </p>
-      <div>
+      <div className='flex flex-col m-10 space-y-4 md:flex-row md:space-y-0 md:space-x-4'>
+      <div className='w-full md:w-1/4' style={{ padding: '10px' }}>
+        <div className='flex flex-col p-8 space-y-4'>
+          <Button backColor="red" onClick={() => signOut()}>
+            Logout
+          </Button>
+        </div>
+        </div>
+        <div className='w-full mt-10 overflow-auto md:max-h-full' style={{ maxHeight: '90vh' }}>
         {Array.isArray(favComps) && favComps.map((comp: ComponentData, index) => {
           return (
             <Card
@@ -54,10 +62,8 @@ export default function Profile(){
               likes={comp.likes} />
           )
         })}
+        </div>
       </div>
-      <Button onClick={() => signOut()}>
-        Logout
-      </Button>
     </div>
   )
 }
