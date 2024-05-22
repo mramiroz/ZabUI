@@ -16,7 +16,7 @@ interface ComponentData {
   props: any;
 }
 
-export default function ComponentCode({ component }: { component: any }) {
+export default function ComponentCode({ component, props }: { component: any , props: any}) {
   const [showCode, setShowCode] = useState(false);
   const [showComponent, setShowComponent] = useState(true);
 
@@ -41,7 +41,7 @@ export default function ComponentCode({ component }: { component: any }) {
         <div className='w-full p-10 mt-0 mb-8 bg-gray-900 border-2 rounded-b-lg' >
           <div className='flex flex-col items-center justify-center m-4 sm:flex-row'> 
           {showComponent && component &&(
-              <Component {...component.props}/>
+              <Component {...props}/>
             )}
           {showCode && component &&(
             <div className='w-full overflow-auto sm:w-auto md:w-auto lg:w-auto'>

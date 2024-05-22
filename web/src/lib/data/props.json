@@ -1,23 +1,42 @@
 {
   "backColor": {
     "description": "The background color of the cell.",
-    "type": "string"
+    "type": "string",
+    "input": true
   },
   "borderColor": {
     "description": "The border color of the cell.",
-    "type": "string"
+    "type": "string",
+    "input": true
   },
   "text": {
     "description": "The text of the cell.",
-    "type": "string"
+    "type": "string",
+    "input": true
   },
   "width": {
     "description": "The width of the cell.",
-    "type": "number"
+    "type": "number",
+    "input": true
   },
   "height": {
     "description": "The height of the cell.",
-    "type": "number"
+    "type": "number",
+    "input": true
+  },
+  "link": {
+    "description": "The link of the cell.",
+    "type": "string",
+    "input": false
+  },
+  "color":  {
+    "description": "The color of the text.",
+    "type": "string",
+    "input": true
+  },
+  "children": {
+    "description": "The children of the cell.",
+    "type": "array",
+    "input": true
   }
-
 }
