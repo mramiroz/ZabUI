@@ -18,11 +18,34 @@
       "static/css/app/component/page.css",
       "static/chunks/app/component/page.js"
     ],
+    "/profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/profile/page.css",
+      "static/chunks/app/profile/page.js"
+    ],
     "/component/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/component/[id]/page.css",
       "static/chunks/app/component/[id]/page.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/page.css",
+      "static/chunks/app/dashboard/page.js"
+    ],
+    "/dashboard/components/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/components/page.css",
+      "static/chunks/app/dashboard/components/page.js"
+    ],
+    "/dashboard/components/create/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/components/create/page.js"
     ]
   }
 }

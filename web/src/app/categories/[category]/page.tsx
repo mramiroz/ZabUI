@@ -45,6 +45,7 @@ export default function Show() {
               likes={item.likes}
             />
           ))}
+          
         </div>
     )
 }

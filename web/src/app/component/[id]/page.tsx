@@ -46,7 +46,7 @@ export default function Show() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center m-4 space-y-4 md:flex-row md:items-start md:justify-between md:space-y-0 md:space-x-4">
+    <div className="flex flex-col items-center justify-center m-4 space-y-4 md:flex-row md:items-start md:space-y-0 md:space-x-4">
       {component && (
         <>
         <div className="w-full max-w-md p-4 rounded shadow md:w-1/2">

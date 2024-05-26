@@ -44,25 +44,25 @@ export default function Home(){
         />
       ))}
       <div className="flex justify-center mt-4">
-      <button 
-        className={`font-bold py-2 px-4 rounded ${page === 1 ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700 text-white'}`}
-        onClick={() => {
-          setPage(page - 1);
-          window.scrollTo(0, 0);
-        }}
-        disabled={page === 1}
-      >
-        Previous
-      </button>
-      <button 
-        className={`font-bold py-2 px-4 rounded ml-4 ${isLastPage ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700 text-white'}`}
-        onClick={() => {
-          setPage(page + 1);
-          window.scrollTo(0, 0);
-        }}
-      >
-        Next
-      </button>
+        <button 
+          className={`font-bold py-2 px-4 rounded ${page === 1 ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700 text-white'}`}
+          onClick={() => {
+            setPage(page - 1);
+            window.scrollTo(0, 0);
+          }}
+          disabled={page === 1}
+        >
+          Previous
+        </button>
+        <button 
+          className={`font-bold py-2 px-4 rounded ml-4 ${isLastPage ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700 text-white'}`}
+          onClick={() => {
+            setPage(page + 1);
+            window.scrollTo(0, 0);
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

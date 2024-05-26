@@ -1,4 +1,9 @@
 {
+  "/page": "app/page.js",
   "/component/page": "app/component/page.js",
-  "/component/[id]/page": "app/component/[id]/page.js"
+  "/component/[id]/page": "app/component/[id]/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/components/page": "app/dashboard/components/page.js",
+  "/dashboard/components/create/page": "app/dashboard/components/create/page.js"
 }
