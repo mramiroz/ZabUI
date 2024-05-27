@@ -1,5 +1,4 @@
 "use client"
-import { connectToDatabase } from '@/lib/mongodb';
 import Card from '@/components/component/Card';
 import getComponents from '@/actions/Comps/getComponents';
 import { useState, useEffect } from 'react';

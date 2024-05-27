@@ -1,8 +1,6 @@
 "use client"; 
 import { useEffect, useState } from 'react';
 import {useParams } from 'next/navigation';
-import Copy  from '../../../components/component/Copy'
-import * as Comps from '@zabui/comps';
 import getComponentById from '@/actions/Comps/getComponentById';
 import propsDataJSON from '@/lib/data/props.json';
 import ComponentCode from '@/components/component/ComponentCode';

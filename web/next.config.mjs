@@ -1,4 +1,4 @@
-
+import withMdx from '@next/mdx';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -16,4 +16,4 @@ const nextConfig = {
   }
 };
 
-export default nextConfig;
+export default withMdx()(nextConfig);

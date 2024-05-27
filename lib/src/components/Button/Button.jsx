@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function Button({ width, height, backColor, borderColor, onClick, href, children}) {
+export default function Button({ width, height, backColor, borderColor, onClick, href, children, textColor}) {
 
   return (
     <button
-        style={{backgroundColor: backColor, borderColor: borderColor}}
-        className={`w-${width} h-${height} p-2 border rounded hover:shadow-lg transform 
-                  transition-all duration-200 ease-in-out hover:scale-110 font-bold`}
-        onClick={onClick}>
+        style={{backgroundColor: backColor, borderColor: borderColor, color: textColor}}
+        className="p-2 font-bold transition-all duration-200 ease-in-out transform border-2 rounded hover:shadow-lg hover:scale-110"
+        onClick={onClick}
+        >
      <a href={href}>{children}</a>
     </button>
   );

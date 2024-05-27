@@ -636,9 +636,6 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
-.static {
-  position: static;
-}
 .fixed {
   position: fixed;
 }
@@ -1714,9 +1711,6 @@ video {
   --tw-contain-layout:  ;
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
-}
-.static {
-  position: static;
 }
 .fixed {
   position: fixed;

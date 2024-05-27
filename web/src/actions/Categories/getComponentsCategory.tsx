@@ -3,10 +3,10 @@ import { connectToDatabase } from "@/lib/mongodb";
 import Component from "@/models/Component";
 
 
-export default async function getComponentsCategory(category: string) {
+export default async function getComponentsCategory(category: string,  limit: number = 5, page: number = 1) {
   try {
     await connectToDatabase();
-    const components = await Component.find({ category: category });
+    const components = await Component.find({ category }).skip((page - 1) * limit).limit(limit);
     if (!components) {
       return [];
     }
