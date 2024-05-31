@@ -25,6 +25,7 @@ export default function Home(){
     };
     fetchComponents();
   }, [page]);
+  
 
   const isLastPage = components.length < 5;
   return (

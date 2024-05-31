@@ -15,10 +15,6 @@ const componentSchema = new Schema({
     type: String,
     required: true
   },
-  props: {
-    type: Object,
-    required: true
-  },
   import: {
     type: String,
     required: true

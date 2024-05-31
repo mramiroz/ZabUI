@@ -15,7 +15,7 @@ export default function Home(){
       </section>
       <section className="flex flex-col items-center justify-center p-4 m-4">
         <p className='my-4 max-w-prose'>ZabUI is a library of NextJS components that can be used in your website you can custom your components, simply as installing a npm package</p>
-        <Copy code="npm install @zabui/comps" showCode={true}/>
+        <Copy text="npm install @zabui/comps" showCode={true}/>
       </section>
     </div>
   );

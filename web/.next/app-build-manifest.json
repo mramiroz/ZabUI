@@ -1,15 +1,22 @@
 {
   "pages": {
-    "/docs/page": [
+    "/component/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/docs/page.js"
+      "static/css/app/component/[id]/page.css",
+      "static/chunks/app/component/[id]/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/component/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/component/page.css",
+      "static/chunks/app/component/page.js"
     ]
   }
 }

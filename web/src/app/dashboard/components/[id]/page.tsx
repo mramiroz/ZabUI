@@ -67,10 +67,6 @@ export default function Update(){
                         <input type="text" id="code" name="code" value={component.code} className="p-2 text-black border rounded-md" />
                     </div>
                     <div className="flex flex-col">
-                        <label className="text-sm font-bold">Props:</label>
-                        <input type="text" id="props" name="props" value={component.props} className="p-2 text-black border rounded-md" />
-                    </div>
-                    <div className="flex flex-col">
                         <label className='text-sm font-bold'>Component:</label>
                         <input type="text" id="component" name="component" value={component.component} className="p-2 text-black border rounded-md" />
                     </div>
