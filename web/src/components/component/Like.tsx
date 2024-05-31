@@ -5,8 +5,8 @@ import { ObjectId } from 'mongodb';
 import Image from 'next/image';
 import removeLike from '@/actions/Like/removeLike';
 import addLike from '@/actions/Like/addLike';
-import getLikesAndUserLikeStatus from '@/actions/Like/getLikesAndUserLikeStatus';
-import { redirect } from 'next/navigation';
+import getUserLikeStatus from '@/actions/Like/getLikesAndUserLikeStatus';
+import getLikes from '@/actions/Like/getLikes';
 
 
 export default function Like({compId}: {compId: string}){
@@ -19,12 +19,12 @@ export default function Like({compId}: {compId: string}){
     useEffect(() => {
         const fetchData = async () =>
         {
-            if (!user) {
-                return;
-            }
-            const { likesCount, userHasLiked } = await getLikesAndUserLikeStatus({compId, userId: id});
+            const {likesCount} = await getLikes({compId});
             setLikesCount(likesCount);
-            setLiked(userHasLiked);
+            if (user){
+                const {userHasLiked} = await getUserLikeStatus({compId, userId: id});
+                setLiked(userHasLiked);
+            }
         }
         fetchData();
     },[session])

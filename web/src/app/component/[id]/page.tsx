@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import {useParams } from 'next/navigation';
 import getComponentById from '@/actions/Comps/getComponentById';
-import propsDataJSON from '@/lib/data/props.json';
 import ComponentCode from '@/components/component/ComponentCode';
+import getComponentProps from '@/actions/Props/getCoponentProps';
 
 interface PropsData{
   [key: string]: {
@@ -28,13 +28,13 @@ export default function Show() {
   const param = useParams();
   const [component, setComponent] = useState<ComponentData | null>(null);
   const [propsValues, setPropsValues] = useState<{[key: string]: string}>({});
-  const propsData : PropsData = JSON.parse(JSON.stringify(propsDataJSON));
+  const propsData = {} as PropsData;
   
   useEffect(() => {
     const fetchData = async () => {
       const res = await getComponentById({id: param.id as string}) as ComponentData;
       setComponent(res);
-      setPropsValues(res.props);
+      const props = await getComponentProps({componentId: res._id});
     }
     fetchData();
   }, [param.id]);
@@ -55,7 +55,8 @@ export default function Show() {
         <div className="w-full max-w-md p-4 rounded shadow md:w-1/2">
           <h2 className="mb-2 text-2xl font-semibold">Props:</h2>
           <ul className="list-inside">
-            {Object.entries(component.props).map(([prop, value]) => (
+          { component.props && (
+              Object.entries(component.props).map(([prop, value]) => (
               <li key={prop} className="p-2 mb-4 border rounded">
                 <div className="mb-2 text-base">
                   <strong>{prop}</strong>: {propsData[prop]?.description || "No description given"}
@@ -71,7 +72,8 @@ export default function Show() {
                   )}
                 </div>
               </li>
-            ))}
+              ))
+            )}
           </ul>
         </div>
         </>

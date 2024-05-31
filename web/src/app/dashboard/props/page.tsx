@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { Button } from "@zabui/comps"
 import getProps from "@/actions/Props/getProps"
-import Label from "@/components/dashboard/LabelComp";
+import Label from "@/components/dashboard/LabelProps";
 import deleteProp from "@/actions/Props/deleteProp";
 
 export default function Dashboard(){
@@ -17,6 +17,8 @@ export default function Dashboard(){
     fetchData();
   }, [page]);
 
+  const isLastPage = props.length < 10;
+
   return (
     <>
       <div className="flex flex-col items-center justify-center py-2 my-10">
@@ -24,10 +26,31 @@ export default function Dashboard(){
           Create Prop
         </Button>
       </div>
-      <div className="flex flex-col items-center justify-center py-2 my-10">
+      <div>
           {Array.isArray(props) && props.map((item, index) => (
-            <Label key={index} component={item} onDelete={async () => deleteProp((item as any)._id)}/> 
+            <Label key={index}  prop={item} onDelete={async () => deleteProp((item as any)._id)}/> 
           ))}
+      </div>
+      <div className="my-4">
+      <button 
+          className={`font-bold py-2 px-4 rounded ${page === 1 ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700 text-white'}`}
+          onClick={() => {
+            setPage(page - 1);
+            window.scrollTo(0, 0);
+          }}
+          disabled={page === 1}
+        >
+          Previous
+        </button>
+        <button 
+          className={`font-bold py-2 px-4 rounded ml-4 ${isLastPage ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700 text-white'}`}
+          onClick={() => {
+            setPage(page + 1);
+            window.scrollTo(0, 0);
+          }}
+        >
+          Next
+        </button>
       </div>
         
     </>

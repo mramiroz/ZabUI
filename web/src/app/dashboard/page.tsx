@@ -26,6 +26,7 @@ export default function Dashboard(){
           </Button>
           <p className="mt-2 font-bold text-center">Create, update, and delete props.</p>
         </div>
+
       </div>
     </div>
   )

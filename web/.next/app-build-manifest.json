@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/component/[id]/page": [
+    "/component/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/component/[id]/page.css",
-      "static/chunks/app/component/[id]/page.js"
+      "static/css/app/component/page.css",
+      "static/chunks/app/component/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,11 +12,35 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/component/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/component/page.css",
-      "static/chunks/app/component/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/page.css",
+      "static/chunks/app/dashboard/page.js"
+    ],
+    "/dashboard/props/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/props/page.css",
+      "static/chunks/app/dashboard/props/page.js"
+    ],
+    "/dashboard/components/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/components/page.css",
+      "static/chunks/app/dashboard/components/page.js"
+    ],
+    "/dashboard/users/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/users/page.css",
+      "static/chunks/app/dashboard/users/page.js"
     ]
   }
 }
