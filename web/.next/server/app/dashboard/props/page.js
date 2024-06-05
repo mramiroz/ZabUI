@@ -34,7 +34,7 @@ module.exports = require("mongoose");
 
 /***/ }),
 
-/***/ "./action-async-storage.external?9022":
+/***/ "./action-async-storage.external":
 /*!****************************************************************************!*\
   !*** external "next/dist/client/components/action-async-storage.external" ***!
   \****************************************************************************/
@@ -45,7 +45,7 @@ module.exports = require("next/dist/client/components/action-async-storage.exter
 
 /***/ }),
 
-/***/ "./action-async-storage.external?8dda":
+/***/ "../../client/components/action-async-storage.external":
 /*!*******************************************************************************!*\
   !*** external "next/dist/client/components/action-async-storage.external.js" ***!
   \*******************************************************************************/
@@ -56,7 +56,7 @@ module.exports = require("next/dist/client/components/action-async-storage.exter
 
 /***/ }),
 
-/***/ "./request-async-storage.external?93d0":
+/***/ "./request-async-storage.external":
 /*!*****************************************************************************!*\
   !*** external "next/dist/client/components/request-async-storage.external" ***!
   \*****************************************************************************/
@@ -67,7 +67,7 @@ module.exports = require("next/dist/client/components/request-async-storage.exte
 
 /***/ }),
 
-/***/ "./request-async-storage.external?3d59":
+/***/ "../../client/components/request-async-storage.external":
 /*!********************************************************************************!*\
   !*** external "next/dist/client/components/request-async-storage.external.js" ***!
   \********************************************************************************/
@@ -78,7 +78,7 @@ module.exports = require("next/dist/client/components/request-async-storage.exte
 
 /***/ }),
 
-/***/ "./static-generation-async-storage.external?d822":
+/***/ "./static-generation-async-storage.external":
 /*!***************************************************************************************!*\
   !*** external "next/dist/client/components/static-generation-async-storage.external" ***!
   \***************************************************************************************/
@@ -89,7 +89,7 @@ module.exports = require("next/dist/client/components/static-generation-async-st
 
 /***/ }),
 
-/***/ "./static-generation-async-storage.external?16bc":
+/***/ "../../client/components/static-generation-async-storage.external":
 /*!******************************************************************************************!*\
   !*** external "next/dist/client/components/static-generation-async-storage.external.js" ***!
   \******************************************************************************************/
@@ -407,7 +407,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getProps)\n/* harmony export */ });\n/* harmony import */ var private_next_rsc_server_reference__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! private-next-rsc-server-reference */ \"(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/server-reference.js\");\n/* harmony import */ var private_next_rsc_action_encryption__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! private-next-rsc-action-encryption */ \"(action-browser)/./node_modules/next/dist/server/app-render/encryption.js\");\n/* harmony import */ var private_next_rsc_action_encryption__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(private_next_rsc_action_encryption__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _models_Props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/models/Props */ \"(action-browser)/./src/models/Props.ts\");\n/* harmony import */ var _lib_mongodb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/lib/mongodb */ \"(action-browser)/./src/lib/mongodb.js\");\n/* harmony import */ var private_next_rsc_action_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! private-next-rsc-action-validate */ \"(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/action-validate.js\");\n/* __next_internal_action_entry_do_not_use__ {\"d91acaab96d5c266b50597388f32b30b5914e1dd\":\"default\"} */ \n\n\n\nasync function getProps(page, limit) {\n    await (0,_lib_mongodb__WEBPACK_IMPORTED_MODULE_3__.connectToDatabase)();\n    const res = await _models_Props__WEBPACK_IMPORTED_MODULE_2__[\"default\"].find().skip((page - 1) * limit).limit(limit);\n    const data = JSON.parse(JSON.stringify(res));\n    return data;\n}\n\n(0,private_next_rsc_action_validate__WEBPACK_IMPORTED_MODULE_4__.ensureServerEntryExports)([\n    getProps\n]);\n(0,private_next_rsc_server_reference__WEBPACK_IMPORTED_MODULE_0__.registerServerReference)(\"d91acaab96d5c266b50597388f32b30b5914e1dd\", getProps);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFjdGlvbi1icm93c2VyKS8uL3NyYy9hY3Rpb25zL1Byb3BzL2dldFByb3BzLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFFbUM7QUFDZTtBQUduQyxlQUFlRSxTQUFTQyxJQUFZLEVBQUVDLEtBQWE7SUFDaEUsTUFBTUgsK0RBQWlCQTtJQUN2QixNQUFNSSxNQUFNLE1BQU1MLDBEQUFVLEdBQUdPLElBQUksQ0FBQyxDQUFDSixPQUFPLEtBQUtDLE9BQU9BLEtBQUssQ0FBQ0E7SUFDOUQsTUFBTUksT0FBT0MsS0FBS0MsS0FBSyxDQUFDRCxLQUFLRSxTQUFTLENBQUNOO0lBQ3ZDLE9BQU9HO0FBQ1QiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly96YWJ1aS8uL3NyYy9hY3Rpb25zL1Byb3BzL2dldFByb3BzLnRzeD84NjQ2Il0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHNlcnZlclwiO1xuXG5pbXBvcnQgUHJvcHMgZnJvbSBcIkAvbW9kZWxzL1Byb3BzXCI7XG5pbXBvcnQgeyBjb25uZWN0VG9EYXRhYmFzZSB9IGZyb20gXCJAL2xpYi9tb25nb2RiXCI7XG5cblxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gZ2V0UHJvcHMocGFnZTogbnVtYmVyLCBsaW1pdDogbnVtYmVyKSB7XG4gIGF3YWl0IGNvbm5lY3RUb0RhdGFiYXNlKCk7XG4gIGNvbnN0IHJlcyA9IGF3YWl0IFByb3BzLmZpbmQoKS5za2lwKChwYWdlIC0gMSkgKiBsaW1pdCkubGltaXQobGltaXQpO1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShyZXMpKTtcbiAgcmV0dXJuIGRhdGE7XG59Il0sIm5hbWVzIjpbIlByb3BzIiwiY29ubmVjdFRvRGF0YWJhc2UiLCJnZXRQcm9wcyIsInBhZ2UiLCJsaW1pdCIsInJlcyIsImZpbmQiLCJza2lwIiwiZGF0YSIsIkpTT04iLCJwYXJzZSIsInN0cmluZ2lmeSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(action-browser)/./src/actions/Props/getProps.tsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getProps)\n/* harmony export */ });\n/* harmony import */ var private_next_rsc_server_reference__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! private-next-rsc-server-reference */ \"(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/server-reference.js\");\n/* harmony import */ var private_next_rsc_action_encryption__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! private-next-rsc-action-encryption */ \"(action-browser)/./node_modules/next/dist/server/app-render/encryption.js\");\n/* harmony import */ var private_next_rsc_action_encryption__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(private_next_rsc_action_encryption__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _models_Props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/models/Props */ \"(action-browser)/./src/models/Props.ts\");\n/* harmony import */ var _lib_mongodb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/lib/mongodb */ \"(action-browser)/./src/lib/mongodb.js\");\n/* harmony import */ var private_next_rsc_action_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! private-next-rsc-action-validate */ \"(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/action-validate.js\");\n/* __next_internal_action_entry_do_not_use__ {\"d91acaab96d5c266b50597388f32b30b5914e1dd\":\"default\"} */ \n\n\n\nasync function getProps() {\n    await (0,_lib_mongodb__WEBPACK_IMPORTED_MODULE_3__.connectToDatabase)();\n    const res = await _models_Props__WEBPACK_IMPORTED_MODULE_2__[\"default\"].find();\n    const data = JSON.parse(JSON.stringify(res));\n    return data;\n}\n\n(0,private_next_rsc_action_validate__WEBPACK_IMPORTED_MODULE_4__.ensureServerEntryExports)([\n    getProps\n]);\n(0,private_next_rsc_server_reference__WEBPACK_IMPORTED_MODULE_0__.registerServerReference)(\"d91acaab96d5c266b50597388f32b30b5914e1dd\", getProps);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFjdGlvbi1icm93c2VyKS8uL3NyYy9hY3Rpb25zL1Byb3BzL2dldFByb3BzLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFFbUM7QUFDZTtBQUVuQyxlQUFlRTtJQUM1QixNQUFNRCwrREFBaUJBO0lBQ3ZCLE1BQU1FLE1BQU0sTUFBTUgsMERBQVU7SUFDNUIsTUFBTUssT0FBT0MsS0FBS0MsS0FBSyxDQUFDRCxLQUFLRSxTQUFTLENBQUNMO0lBQ3ZDLE9BQU9FO0FBQ1QiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly96YWJ1aS8uL3NyYy9hY3Rpb25zL1Byb3BzL2dldFByb3BzLnRzeD84NjQ2Il0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHNlcnZlclwiXG5cbmltcG9ydCBQcm9wcyBmcm9tIFwiQC9tb2RlbHMvUHJvcHNcIjtcbmltcG9ydCB7IGNvbm5lY3RUb0RhdGFiYXNlIH0gZnJvbSBcIkAvbGliL21vbmdvZGJcIjtcblxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gZ2V0UHJvcHMoKXtcbiAgYXdhaXQgY29ubmVjdFRvRGF0YWJhc2UoKTtcbiAgY29uc3QgcmVzID0gYXdhaXQgUHJvcHMuZmluZCgpO1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShyZXMpKTtcbiAgcmV0dXJuIGRhdGE7XG59Il0sIm5hbWVzIjpbIlByb3BzIiwiY29ubmVjdFRvRGF0YWJhc2UiLCJnZXRQcm9wcyIsInJlcyIsImZpbmQiLCJkYXRhIiwiSlNPTiIsInBhcnNlIiwic3RyaW5naWZ5Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(action-browser)/./src/actions/Props/getProps.tsx\n");
 
 /***/ }),
 
@@ -571,7 +571,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/next-auth","vendor-chunks/@babel","vendor-chunks/dotenv","vendor-chunks/@zabui","vendor-chunks/@vercel","vendor-chunks/@swc"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fdashboard%2Fprops%2Fpage&page=%2Fdashboard%2Fprops%2Fpage&appPaths=%2Fdashboard%2Fprops%2Fpage&pagePath=private-next-app-dir%2Fdashboard%2Fprops%2Fpage.tsx&appDir=%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Fapp&pageExtensions=js&pageExtensions=jsx&pageExtensions=ts&pageExtensions=tsx&pageExtensions=md&pageExtensions=mdx&rootDir=%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/next-auth","vendor-chunks/@babel","vendor-chunks/dotenv","vendor-chunks/@zabui","vendor-chunks/@vercel"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fdashboard%2Fprops%2Fpage&page=%2Fdashboard%2Fprops%2Fpage&appPaths=%2Fdashboard%2Fprops%2Fpage&pagePath=private-next-app-dir%2Fdashboard%2Fprops%2Fpage.tsx&appDir=%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb%2Fsrc%2Fapp&pageExtensions=js&pageExtensions=jsx&pageExtensions=ts&pageExtensions=tsx&pageExtensions=md&pageExtensions=mdx&rootDir=%2Fhome%2Fmramiroz%2FEscritorio%2FZabUI%2Fweb&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();

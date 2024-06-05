@@ -1,7 +1,6 @@
 import Component from '@/models/Component';
 import InputForm from '@/components/forms/InputForm';
 import { connectToDatabase } from '@/lib/mongodb';
-import SelectProps from '@/components/dashboard/SelectProps';
 
 export default async function CreateComponent() {
   const createComponent = async (formData: FormData) => {
@@ -10,11 +9,10 @@ export default async function CreateComponent() {
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;
     const category = formData.get("category") as string;
-    const props = formData.get("props") as string;
     const importLabel = formData.get("import") as string;
     const code = formData.get("code") as string;
     const componentName = formData.get("component") as string;
-    const component = await Component.create({title, description, category, props, import: importLabel, code, component: componentName});
+    const component = await Component.create({title, description, category, import: importLabel, code, component: componentName});
     component.save();
     return component;
   }
@@ -27,7 +25,6 @@ export default async function CreateComponent() {
           <InputForm label="Title" type="text" name="title" placeholder="Title" required={true}/>
           <InputForm label="Description" type="text" name="description" placeholder="Description" required={true}/>
           <InputForm label="Category" type="text" name="category" placeholder="Category" required={true}/>
-          <SelectProps/>
           <InputForm label="Import" type="text" name="import" placeholder="Import" required={true}/>
           <InputForm label="Code" type="text" name="code" placeholder="Code" required={true}/>
           <InputForm label="Component" type="text" name="component" placeholder="Component" required={true}/>

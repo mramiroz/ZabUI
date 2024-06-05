@@ -57,7 +57,7 @@ export default function Update(){
                     <div className="flex flex-col">
                         <label className="text-sm font-bold">Description:</label>
                         <input type="text" id="description" name="description" value={component.description} className="p-2 text-black border rounded-md" />
-                    </div>
+                    </div> 
                     <div className="flex flex-col">
                         <label className="text-sm font-bold">Category:</label>
                         <input type="text" id="category" name="category" value={component.category} className="p-2 text-black border rounded-md" />
