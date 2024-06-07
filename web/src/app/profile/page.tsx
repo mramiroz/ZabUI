@@ -7,13 +7,10 @@ import getFavComps from '@/actions/Profile/getFavComps';
 
 interface ComponentData{
   _id: string;
-  code: string;
   title: string;
   description: string;
-  category: string;
+  import: string;
   component: string;
-  props: any;
-  likes: number;
 }
 export default function Profile(){
   const { data: session, status } = useSession();
@@ -53,13 +50,11 @@ export default function Profile(){
             <Card
               key={index}
               id={(comp._id).toString()}
-              code={comp.code}
               title={comp.title}
+              importComp={comp.import}
               description={comp.description}
               component={comp.component}
-              category={comp.category}
-              props={comp.props}
-              likes={comp.likes} />
+            />
           )
         })}
         </div>
