@@ -11,10 +11,11 @@
     - [Librería de componentes](#librería-de-componentes)
     - [Aplicación web](#aplicación-web)
 - [Implementación de la aplicación](#implementación-de-la-aplicación)
+- [Interfaz de usuario](#interfaz-de-usuario)
 
 # Descripción general del proyecto
 
-ZabUI es una librería de componentes de react que facilita la creación de interfaces de usuario. Pudiendo copiarlas en su propio repositorio y modificarlas mediante las props proporcionadas por la librería en el componente. Se proporciona una aplicación web en la que se pueden hacer una previsualización de los componentes, instalar la librería mediante el gestor de paquetes de node npm y ver la documentación de los componentes.
+ZabUI es una aplicación web que sirve de repositorio de una libreria de componentes de React esta librería esta creada por mi y esta publicada en el gestor de paquetes de npm. La aplicación web permite visualizar los componentes de la librería, copiar el código de ejemplo de uso del componente, además de poder ver una previsualización personalizada a tiempo real de los componentes. Como funcionalidad extra se ha añadido la posibilidad de que los usuarios se registren y puedan añadir componentes como favoritos y tenerlos en su apartado de perfil.
 
 Las principales tecnologías utilizadas en el proyecto son el framework de NextJS para la aplicación web, la librería de react para los componentes, para los estilos de los componentes se usa tailwindcss y para la base de datos he utilizado mongodb. El proyecto se encuentra en un repositorio de github y se ha desplegado en vercel.
 
@@ -22,7 +23,7 @@ Las principales tecnologías utilizadas en el proyecto son el framework de NextJ
 
 El tipo de base de datos utilizada es mongodb, es una base de datos nosql que almacena los datos por colecciones y documentos de tipo json. He elegido esta base de datos ya que se adapta a la perfección a la estructura de los datos que se van a almacenar en la aplicación web además al utilizar un sistema de autenticación y agregar componentes favoritos a un usuario, la gestión de muchos cambios en la base de datos es más sencilla que en una base de datos relacional como mysql.
 
-La base de datos se compone de dos colecciones, la colección de usuarios y la colección de componentes. Para la gestión de la base de datos he utilizado la librería de npm mongoose que facilita la conexión con la base de datos y la creación de los modelos de los documentos mediate esquemas.
+La base de datos se compone de cuatro colecciones, users, components, props y componentsProps. Para la gestión de la base de datos he utilizado la librería de npm mongoose que facilita la conexión con la base de datos y la creación de los modelos de los documentos mediante esquemas.
 
 ## Colección de usuarios
 
@@ -107,10 +108,6 @@ const componentSchema = new Schema({
     type: String,
     required: true
   },
-  props: {
-    type: Object,
-    required: true
-  },
   import: {
     type: String,
     required: true
@@ -139,11 +136,87 @@ Los atributos que se almacenan en la colección de Components son el título, la
 - **Title** es un string que es requerido. Que es el el titulo del componente en la aplicación web.
 - **Description** es un string que es requerido. Que es una breve descripción del componente.
 - **Category** es un string que es requerido. Que es la categoría a la que pertenece el componente.
-- **Props** es un objeto que es requerido. Que son las props que se le pueden pasar al componente.
 - **Import** es un string que es requerido. Que es el import del componente desde el paquete de npm.
 - **Code** es un string que es requerido. Que es un código de ejemplo para que el usuario pueda pegarlo en su proyecto y aplicar el componente expuesto.
 - **Component** es un string que es requerido. Que es el nombre del componete para luego poder visualizarlo en la aplicación web.
 - **Likes** es un número que por defecto es 0. Que es el número de likes que tiene el componente dado por los usuarios.
+
+## Colección de props
+
+El esquema de la colección de props es el siguiente:
+
+```javascript
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
+
+const propsSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  required: {
+    type: Boolean,
+    required: true
+  }
+}, { timestamps: true });
+
+const Props = mongoose.models.Props || mongoose.model("Props", propsSchema, "Props");
+
+export default Props;
+```
+
+Los atributos que se almacenan en la colección de Props son el nombre, la descripción, el tipo y si es requerido.
+
+- **Name** es un string que es requerido. Que es el nombre de la prop.
+- **Description** es un string que es requerido. Que es una breve descripción de la prop.
+- **Type** es un string que es requerido. Que es el tipo de dato de la prop.
+- **Required** es un booleano que es requerido. Que indica si la prop es requerida o no a la hora de mostrarlo como prop personalizable.
+
+## Colección de componentsProps
+
+El esquema de la colección de componentsProps es el siguiente:
+
+```javascript
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
+
+const componentsPropsSchema = new Schema({
+  component: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Component",
+    required: true
+  },
+  prop: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Props",
+    required: true
+  },
+  value: {
+    type: String,
+    required: true
+  }
+}, { timestamps: true });
+
+const ComponentsProps = mongoose.models.ComponentsProps || mongoose.model("ComponentsProps", componentsPropsSchema, "ComponentsProps");
+
+export default ComponentsProps;
+```
+
+Los atributos que se almacenan en la colección de ComponentsProps son el componente, la prop y el valor. ComponentsProps es una colección que relaciona los componentes con las props que tienen y el valor de la prop en dicho componente.
+
+- **Component** es un ObjectId que es requerido. Que es el id del componente.
+- **Prop** es un ObjectId que es requerido. Que es el id de la prop.
+- **Value** es un string que es requerido. Que es el valor de la prop en el componente.
 
 # Aspectos funcionales y de diseño de la aplicación
 
@@ -201,3 +274,8 @@ Para desplegar la aplicación he utilizado vercel que tiene una capa gratuita qu
 Para la base de datos he utilizado mongodb que en el apartado [Analisis y diseño de la base de datos](#analisis-y-diseño-de-la-base-de-datos) se ha explicado como se ha diseñado la base de datos y porque se ha elegido mongodb. La base de datos se encuentra alojada en un cluster de mongodb atlas que proporciona una capa gratuita que permite almacenar 512mb de datos y 100 conexiones simultaneas. Además de proporcionar una interfaz muy amigable para la gestión de la base de datos y la creación de los clusters. Se puede localizar en cualquier región del mundo, selecciónando el cluster de la región que quieras.
 
 Para los estilos he utilizado tailwindcss que es una librería de estilos que se implementan directamente en la clase de la etiqueta html. Proporciona muchas funcionalidades que facilitan la creación de estilos en la aplicación web. Tiene una documentación muy completa y facil de comprender. Los estilos de los componentes de la librería están hechos con tailwindcss.
+
+# Interfaz de usuario
+
+## Descripción de la interfaz
+

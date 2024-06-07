@@ -3,6 +3,7 @@ import Label from "@/components/dashboard/LabelUser";
 import { Button } from "@zabui/comps";
 import { useEffect, useState } from "react";
 import getUsers from "@/actions/Users/getUsers";
+import deleteUser from "@/actions/Users/deleteUser";
 
 export default function Users(){
 
@@ -19,6 +20,14 @@ export default function Users(){
     fetchData();
   }, []);
 
+  const handleDelete = async (id: string) => {
+    const res = await deleteUser({id});
+    if (res.status === 200) {
+      const newUsers = users.filter((user: any) => user._id !== id);
+      setUsers(newUsers);
+    }
+  }
+
 
   return(
     <>
@@ -29,7 +38,7 @@ export default function Users(){
       </div>
       <div>
         {Array.isArray(users) && users.map((item, index) => (
-          <Label key={index} user={item}/>
+          <Label key={index} user={item} onDelete={handleDelete}/>
         ))}
       </div>  
     </>

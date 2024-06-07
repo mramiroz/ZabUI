@@ -19,6 +19,7 @@ export default function Register() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setError(null);
         const formData = new FormData(event.currentTarget);
         const name = formData.get("name") as string;
         const email = formData.get("email") as string;
@@ -33,11 +34,9 @@ export default function Register() {
             setError(response.error);
             setSuccess(null);
         } else {
-            setError(null);
             setSuccess("User registered successfully. Please sign in.");
             await signIn("credentials", { redirect: false, name, password });
-            setTimeout(() => {window.location.href = '/';}, 1500)
-            
+            setTimeout(() => {window.location.href = '/';}, 1500);
         }
     };
 

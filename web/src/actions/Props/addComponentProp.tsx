@@ -14,6 +14,7 @@ export default async function addComponentProp({componentId,  propId,  value}: {
     prop,
     value
   });
-  const res = await newComponentProp.save();
+  await newComponentProp.save();
+  let res = JSON.parse(JSON.stringify(newComponentProp));
   return res;
 }

@@ -31,7 +31,10 @@ export default function ComponentCode({ component, props }: { component: any , p
   }
 
   const Component = component && Comps[component.component]
-
+  const propsObject = props.reduce((obj:any, prop:any) => {
+    obj[prop.name] = prop.value;
+    return obj;
+  }, {});
   return (
     <div className='w-full'>
         <div className='flex flex-wrap'>
@@ -41,7 +44,7 @@ export default function ComponentCode({ component, props }: { component: any , p
         <div className='w-full p-10 mt-0 mb-8 bg-gray-900 border-2 rounded-b-lg' >
           <div className='flex flex-col items-center justify-center m-4 sm:flex-row'> 
           {showComponent && component &&(
-              <Component {...props}/>
+              <Component {...propsObject}/>
             )}
           {showCode && component &&(
             <div className='w-full overflow-auto sm:w-auto md:w-auto lg:w-auto'>

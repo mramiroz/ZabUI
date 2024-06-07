@@ -1,11 +1,11 @@
-import { Roboto } from "next/font/google";
+import { Roboto, Roboto_Condensed } from "next/font/google";
 import "../styles/globals.css";
 import Footer from "@/components/footer/Footer";
 import HeaderWrap from "@/components/header/HeaderWrap";
 import SessionWrapper from "@/components/home/SessionWrapper";
 import { Metadata } from "next";
 
-const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
+const roboto = Roboto({ weight: ["400", "700", "900"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zabui.vercel.app"),

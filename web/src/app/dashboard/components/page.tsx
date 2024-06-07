@@ -6,7 +6,7 @@ import getComponents from "@/actions/Comps/getComponents";
 import deleteComponent from "@/actions/Comps/deleteComponent";
 
 export default function Dashboard(){
-  const [components, setComponents] = useState([]);
+  const [components, setComponents] = useState<any>([]);
   const [page, setPage] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
@@ -16,18 +16,24 @@ export default function Dashboard(){
     fetchData();
   }, [page]);
 
+  const handleDelete = async (id: string) => {
+    await deleteComponent({ id: id as string });
+    const res = await getComponents(page, 10);
+    setComponents(res as any);
+  }
+
   const isLastPage = components.length < 10;
   
   return (
     <>
       <div className="my-4">
-        <Button href="/dashboard/components/create" backColor="#007BFF" borderColor="#0056b3">
+        <Button href="/dashboard/components/create">
           Create Component
         </Button>
       </div>
       <div>
         {Array.isArray(components) && components.map((item, index) => (
-          <Label key={index} component={item} onDelete={async () => await deleteComponent((item as any)._id)}/>
+          <Label key={index} component={item} onDelete={() => handleDelete(item._id.toString()) }/>
         ))}
       </div>
       <div className="my-4">

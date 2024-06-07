@@ -1,7 +1,8 @@
 import Link from "next/link";
 import deleteUser from "@/actions/Users/deleteUser";
 
-export default function Label({user}: {user: any}){
+export default function Label({user, onDelete}: {user: any, onDelete: any}){
+  const id = user._id.toString();
   return(
     <div key={user._id} className="flex flex-col mb-4 border rounded-lg">
       <div className="flex justify-between p-2">
@@ -10,7 +11,7 @@ export default function Label({user}: {user: any}){
           <p className="text-base text-gray-700">{user.role}</p>
         </div>
         <div className="flex space-x-2">
-          <button onClick={() => deleteUser(user._id.toString())} className="p-2 text-white bg-red-500 rounded-lg">
+          <button onClick={() => onDelete(id)} className="p-2 text-white bg-red-500 rounded-lg">
             Delete
           </button>
           <button className="p-2 text-white bg-blue-500 rounded-lg">

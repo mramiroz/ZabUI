@@ -13,7 +13,7 @@ export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
             Delete
           </button>
           <button className="p-2 text-white bg-blue-500 rounded-lg">
-            <Link href={`/dashboard/components/${prop._id}`}>Update</Link>
+            <Link href={`/dashboard/props/${prop._id}`}>Update</Link>
           </button>
         </div>
       </div>

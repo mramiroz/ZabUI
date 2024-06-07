@@ -1,20 +1,29 @@
-import Props from "@/models/Props";
-import { connectToDatabase } from "@/lib/mongodb";
+"use client";
+import createProp from "@/actions/Props/createProp";
+import { useState } from "react";
 
-export default function createProp(){
-  const createProp = async (formData: FormData) => {
-    "use server";
-    await connectToDatabase();
+export default function create(){
+  const [success, setSuccess] = useState(false);
+  const handleSubmit = async (formData: FormData) => {
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const type = formData.get("type") as string;
-    const required = formData.get("required") as string;
+    let required = formData.get("required") as string | boolean;
+    if (required === "true") {
+      required = true;
+    }else{
+      required = false;
+    }
     
-    const prop = await Props.create({name, description, type, required});
+    const prop = await createProp({name, description, type, required});
+    setSuccess(true);
+    setTimeout(() => {window.location.href = '/dashboard/props';}, 1500)
   }
+
   return (
     <div className="flex justify-center">
-      <form action={createProp} className="flex flex-col w-full max-w-md p-8 mx-auto space-y-4 bg-gray-900 rounded-lg shadow-md">
+      <form action={handleSubmit} className="flex flex-col w-full max-w-md p-8 mx-auto space-y-4 bg-gray-900 rounded-lg shadow-md">
+        {success && <p className="p-2 text-white bg-green-500 rounded-md">Prop Created Successfully</p>}
         <label className="text-sm font-bold">Name:</label>
         <input type="text" id="name" name="name" className="p-2 text-black border rounded-md" />
         <label className="text-sm font-bold">Description:</label>
@@ -25,8 +34,8 @@ export default function createProp(){
           <option value="number">number</option>
           <option value="boolean">boolean</option>
         </select>
-        <label className="text-sm font-bold">Input:</label>
-        <select name="input" className="p-2 text-black border rounded-md">
+        <label className="text-sm font-bold">Required:</label>
+        <select name="required" className="p-2 text-black border rounded-md">
           <option value="true">true</option>
           <option value="false">false</option>
         </select>

@@ -14,8 +14,8 @@ const componentsPropsSchema = new Schema({
     required: true
   },
   value: {
-    type: String,
-    required: true
+    type: String || Number || Boolean || Array,
+    required: false
   }
 }, { timestamps: true });
 

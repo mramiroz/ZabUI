@@ -1,9 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/components/page": "app/dashboard/components/page.js",
-  "/dashboard/components/create/page": "app/dashboard/components/create/page.js",
-  "/page": "app/page.js",
   "/dashboard/components/[id]/props/page": "app/dashboard/components/[id]/props/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/component/page": "app/component/page.js"
 }

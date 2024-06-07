@@ -7,19 +7,8 @@ let cachedCategories: string[] | null = null;
 
 export default function Aside({ isAsideOpen, setIsAsideOpen}: {isAsideOpen: boolean, setIsAsideOpen: (isOpen:boolean) => void}) {
   const [categories, setCategories] = useState<string[]>([]);
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(true);
   
-  const handleAsideMouseLeave = () => {
-    const id = setTimeout(() => {
-      setIsAsideOpen(false);
-    }, 1000);
-    setTimeoutId(id);
-  }
-
-  const handleAsideMouseEnter = () => {
-    if (timeoutId) clearTimeout(timeoutId);
-  }
   useEffect(() => {
     const fetchData = async () => {
       if (!cachedCategories) {
@@ -28,13 +17,18 @@ export default function Aside({ isAsideOpen, setIsAsideOpen}: {isAsideOpen: bool
       }
       setCategories(cachedCategories as string[]);
     }
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsAsideOpen(false);
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
     fetchData();
   }, [])
 
   return (
     <aside 
-      onMouseEnter={handleAsideMouseEnter}
-      onMouseLeave={handleAsideMouseLeave}
       className={`transition-all duration-200 ease-in-out order-first bg-gray-900 pr-4 w-3/5 md:w-2/5 lg:w-1/5 ${isAsideOpen ? 'open' : ''} fixed z-40 left-0 top-16`}>
       <ul className='m-5 space-y-4'>
         <Link href='/component' >

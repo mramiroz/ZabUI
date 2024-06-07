@@ -1,27 +1,36 @@
+"use client";
 import Component from '@/models/Component';
 import InputForm from '@/components/forms/InputForm';
 import { connectToDatabase } from '@/lib/mongodb';
+import createComponent from '@/actions/Comps/createComponent';
+import { useState } from 'react';
 
-export default async function CreateComponent() {
-  const createComponent = async (formData: FormData) => {
-    "use server";
-    await connectToDatabase();
-    const title = formData.get("title") as string;
-    const description = formData.get("description") as string;
-    const category = formData.get("category") as string;
-    const importLabel = formData.get("import") as string;
-    const code = formData.get("code") as string;
-    const componentName = formData.get("component") as string;
-    const component = await Component.create({title, description, category, import: importLabel, code, component: componentName});
-    component.save();
-    return component;
+export default function Create() {
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const handleSubmit = async (FormData: FormData) => {
+    const title = FormData.get('title') as string;
+    const description = FormData.get('description') as string;
+    const category = FormData.get('category') as string;
+    const code = FormData.get('code') as string;
+    const component = FormData.get('component') as string;
+    const importValue = FormData.get('import') as string;
+    const res = await createComponent({title, description, category, importValue: importValue, code, component});
+    if (res) {
+      setSuccess('Component created');
+    } else {
+      setError('Error creating component');
+    }
+    setTimeout(() => {window.location.href = '/dashboard/components';}, 1500);
   }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <div className="flex flex-col w-full max-w-md p-8 mx-auto space-y-4 bg-gray-900 rounded-lg shadow-md">
         <h1 className="mb-4 text-xl font-bold text-center">Create Component</h1>
-        <form action={createComponent} className="space-y-4">
+        {error && <p className="p-2 text-white bg-red-500 rounded-md">{error}</p>}
+        {success && <p className="p-2 text-white bg-green-500 rounded-md">{success}</p>}
+        <form action={handleSubmit} className="space-y-4">
           <InputForm label="Title" type="text" name="title" placeholder="Title" required={true}/>
           <InputForm label="Description" type="text" name="description" placeholder="Description" required={true}/>
           <InputForm label="Category" type="text" name="category" placeholder="Category" required={true}/>

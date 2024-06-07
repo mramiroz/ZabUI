@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react"
 import { Button } from "@zabui/comps"
-import getProps from "@/actions/Props/getProps"
 import Label from "@/components/dashboard/LabelProps";
 import deleteProp from "@/actions/Props/deleteProp";
+import getPropsPage from "@/actions/Props/getPropsPage";
 
 export default function Dashboard(){
   const [props, setProps] = useState([]);
@@ -11,11 +11,17 @@ export default function Dashboard(){
 
   useEffect (() => {
     const fetchData = async () => {
-      const res = await getProps(page, 10);
+      const res = await getPropsPage(page, 10);
       setProps(res as any);
     }
     fetchData();
   }, [page]);
+
+  const handleDelete = async (id: string) => {
+    await deleteProp(id);
+    const res = await getPropsPage(page, 10);
+    setProps(res as any);
+  }
 
   const isLastPage = props.length < 10;
 
@@ -28,7 +34,7 @@ export default function Dashboard(){
       </div>
       <div>
           {Array.isArray(props) && props.map((item, index) => (
-            <Label key={index}  prop={item} onDelete={async () => deleteProp((item as any)._id)}/> 
+            <Label key={index}  prop={item} onDelete={() => handleDelete((item as any)._id)}/> 
           ))}
       </div>
       <div className="my-4">

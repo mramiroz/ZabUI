@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button} from "@zabui/comps";
 
 export default function Label({component, onDelete}: {component: any, onDelete: any}){
   return(
@@ -9,15 +10,15 @@ export default function Label({component, onDelete}: {component: any, onDelete: 
           <p className="text-base text-gray-700">{component.category}</p>
         </div>
         <div className="flex space-x-2">
-          <button className="p-2 text-white bg-blue-500 rounded-lg">
-            <Link href={`/dashboard/components/${component._id}`}>Update</Link>
-          </button>
-          <button className="p-2 text-white bg-blue-500 rounded-lg">
-            <Link href={`/dashboard/components/${component._id}/props`}>Add Props</Link>
-          </button>
-          <button onClick={onDelete} className="p-2 text-white bg-red-500 rounded-lg">
+          <Button href={`/dashboard/components/${component._id}`} backColor="darkblue">
+            Update
+          </Button>
+          <Button href={`/dashboard/components/${component._id}/props`} backColor="darkblue">
+            Props
+          </Button>
+          <Button onClick={onDelete} backColor="red">
             Delete
-          </button>
+          </Button>
         </div>
       </div>
     </div>

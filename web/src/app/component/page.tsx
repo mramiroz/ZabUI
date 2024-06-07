@@ -25,7 +25,6 @@ export default function Home(){
     };
     fetchComponents();
   }, [page]);
-  
 
   const isLastPage = components.length < 5;
   return (
@@ -37,10 +36,7 @@ export default function Home(){
           code={item.code}
           title={item.title}
           description={item.description}
-          category={item.category}
           component={item.component}
-          props={item.props}
-          likes={item.likes}
         />
       ))}
       <div className="flex justify-center mt-4">

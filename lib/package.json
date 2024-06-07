@@ -1,6 +1,6 @@
 {
   "name": "@zabui/comps",
-  "version": "1.1.6",
+  "version": "1.1.11",
   "main": "dist/index.js",
   "description": "A library of Next components to help to develop your UI",
   "repository": {
@@ -25,7 +25,8 @@
     "react-serialize": "^0.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.24.1",
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",

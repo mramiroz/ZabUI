@@ -41,10 +41,8 @@ export default function Show() {
               code={item.code}
               title={item.title}
               description={item.description}
-              category={item.category}
               component={item.component}
               props={item.props}
-              likes={item.likes}
             />
           ))}
             <div className="flex justify-center mt-4">
