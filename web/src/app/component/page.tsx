@@ -2,6 +2,7 @@
 import Card from '@/components/component/Card';
 import getComponents from '@/actions/Comps/getComponents';
 import { useState, useEffect } from 'react';
+import { Button } from '@zabui/comps';
 
 interface Component {
   _id: string;
@@ -10,7 +11,7 @@ interface Component {
   description: string;
   category: string;
   component: string;
-  props: string;
+  import: string;
   likes: number;
 }
 
@@ -33,7 +34,7 @@ export default function Home(){
         <Card
           key={index}
           id={item._id.toString()}
-          code={item.code}
+          importComp={item.import}
           title={item.title}
           description={item.description}
           component={item.component}

@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { ObjectId } from 'mongodb';
+import getUserById from '@/actions/Users/getUserById';
+import updateUser from '@/actions/Users/updateUser';
 
 interface UserData{
   _id: ObjectId;
@@ -9,40 +11,53 @@ interface UserData{
   email: string;
   role: string;
   favComps: ObjectId[];
+  password: string;
 }
 
 export default function Update(){
-  const [user, setUser] = useState({} as UserData);
-  const { id } = useParams();
-  useEffect(() => {
-      fetch(`/api/users/${id}`)
-          .then(res => res.json())
-          .then(data => setUser(data))
-          .catch(err => console.error(err));
-  }, []);
-  
-  const handleOnchange = (e: any) => {
-    setUser({...user, [e.target.name]: e.target.value});
+    const [user, setUser] = useState<UserData>({} as UserData);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const { id } = useParams();
+
+    useEffect(()=>{
+      const fetchData = async () =>{
+          const user = await getUserById(id as string);
+          setUser(user as UserData);
+      }
+      fetchData();
+    }, [id]);
+
+    const handleOnchange = (e: any) => {
+        const { name, value } = e.target;
+        setUser((prevState: any) => ({
+            ...prevState,
+            [name]: value
+        }));
     }
     
-    const handleOnSubmit = (e: any) => {
-        e.preventDefault();
-        fetch(`/api/users/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        }).then(() => {
-            alert("User updated successfully");
-        }).catch(err => console.error(err));
+    const handleOnSubmit = async (FormData: FormData) => {
+        const id = user._id.toString();
+        const name = FormData.get('name');
+        const email = FormData.get('email');
+        const role = FormData.get('role');
+        const res = await updateUser({id: id, name: user.name, email: user.email, role: user.role, password: user.password});
+        if (res){
+            setSuccess(true);
+            setTimeout(() => {window.location.href = "/dashboard/users"}, 1500);
+        }
+        else{
+            setError(true);
+        }
     }
 
   return (
-      <div className="flex flex-col items-center justify-center min-h-screen py-2" onSubmit={handleOnSubmit}>
+      <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <div className="flex flex-col w-full max-w-md p-8 mx-auto space-y-4 bg-gray-900 rounded-lg shadow-md">
             <h1 className="mb-4 text-xl font-bold text-center">Update User</h1>
-            <form className="space-y-4" onSubmit={handleOnSubmit}>
+            {error && <p className="p-2 text-white bg-red-500 rounded-md">Error updating user</p>}
+            {success && <p className="p-2 text-white bg-green-500 rounded-md">User updated</p>}
+            <form className="space-y-4" action={handleOnSubmit}>
                 <div className="flex flex-col">
                     <label className="text-sm font-bold">Name:</label>
                     <input type="text" id="name" name="name" value={user.name} className="p-2 text-black border rounded-md" onChange={handleOnchange} />

@@ -7,12 +7,11 @@ import getComponentsCategory from "@/actions/Categories/getComponentsCategory";
 
 interface UserInterface{
   _id: string;
-  code: string;
   title: string;
   description: string;
   category: string;
   component: string;
-  props: string[];
+  import: string;
   likes: number;
 
 }
@@ -38,11 +37,10 @@ export default function Show() {
             <Card
               key={index}
               id={item._id.toString()}
-              code={item.code}
+              importComp={item.import}
               title={item.title}
               description={item.description}
               component={item.component}
-              props={item.props}
             />
           ))}
             <div className="flex justify-center mt-4">

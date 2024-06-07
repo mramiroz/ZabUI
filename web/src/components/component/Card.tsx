@@ -2,7 +2,7 @@
 import React, { use } from 'react';
 import Link from 'next/link';
 import Like from '@/components/component/Like';
-import Copy from './Copy';
+import { Copy } from '@zabui/comps';
 import * as Comp from '@zabui/comps';
 import getComponentProps from '@/actions/Props/getCoponentProps';
 import { useEffect, useState } from 'react';
@@ -10,13 +10,13 @@ import { useInView} from 'react-intersection-observer';
 
 interface CardProps {
   id: string;
-  code: string;
+  importComp: string;
   title: string;
   description: string;  
   component: string;
 }
 
-const Card = ({ id,  code, title, description, component}: CardProps) => {
+const Card = ({ id,  importComp, title, description, component}: CardProps) => {
   const [props, setProps] = useState<any[]>([]);
 
   useEffect(() => {
@@ -46,12 +46,12 @@ const Card = ({ id,  code, title, description, component}: CardProps) => {
         <Link href={`/component/${id}`} className="inline-block p-3 mr-2 text-sm font-semibold text-gray-700 bg-blue-500 rounded-full">
           Details
         </Link>
-        <Copy code={code} showCode={false}/>
+        <Copy text={importComp} showCode={false}/>
       </div>
       <div className="flex justify-between px-6 py-4">
         <div>
           <h3 className="mb-2 text-xl font-bold">{title}</h3>
-          <p className="text-base text-gray-700">{description}</p>
+          <p className="text-base text-gray-200">{description}</p>
         </div>
         <div className="flex items-center mt-4">
          <Like compId={id.toString()}/>

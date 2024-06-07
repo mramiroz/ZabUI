@@ -1,6 +1,6 @@
 {
   "name": "@zabui/comps",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "main": "dist/index.js",
   "description": "A library of Next components to help to develop your UI",
   "repository": {
