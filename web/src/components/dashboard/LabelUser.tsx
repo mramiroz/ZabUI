@@ -1,5 +1,4 @@
-import Link from "next/link";
-import deleteUser from "@/actions/Users/deleteUser";
+import { Button } from "@zabui/comps";  
 
 export default function Label({user, onDelete}: {user: any, onDelete: any}){
   const id = user._id.toString();
@@ -11,12 +10,12 @@ export default function Label({user, onDelete}: {user: any, onDelete: any}){
           <p className="text-base text-gray-700">{user.role}</p>
         </div>
         <div className="flex space-x-2">
-          <button onClick={() => onDelete(id)} className="p-2 text-white bg-red-500 rounded-lg">
-            Delete
-          </button>
-          <button className="p-2 text-white bg-blue-500 rounded-lg">
-            <Link href={`/dashboard/users/${user._id}`}>Update</Link>
-          </button>
+            <Button href={`/dashboard/users/${id}`} backColor="darkblue">
+              Update
+            </Button>
+            <Button onClick={onDelete} backColor="red">
+              Delete
+            </Button>
         </div>
       </div>
     </div>

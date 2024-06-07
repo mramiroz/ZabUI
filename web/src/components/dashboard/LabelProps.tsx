@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Button } from '@zabui/comps';
 
 export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
   return(
@@ -12,9 +12,12 @@ export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
           <button onClick={onDelete} className="p-2 text-white bg-red-500 rounded-lg">
             Delete
           </button>
-          <button className="p-2 text-white bg-blue-500 rounded-lg">
-            <Link href={`/dashboard/props/${prop._id}`}>Update</Link>
-          </button>
+          <Button href={`/dashboard/props/${prop._id}`} backColor="darkblue">
+            Update
+          </Button>
+          <Button onClick={onDelete} backColor="red">
+            Delete
+          </Button>
         </div>
       </div>
     </div>

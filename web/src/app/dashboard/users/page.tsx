@@ -21,11 +21,9 @@ export default function Users(){
   }, []);
 
   const handleDelete = async (id: string) => {
-    const res = await deleteUser({id});
-    if (res.status === 200) {
-      const newUsers = users.filter((user: any) => user._id !== id);
-      setUsers(newUsers);
-    }
+    await deleteUser({id});
+    const users = await getUsers();
+    setUsers(users as any);
   }
 
 
@@ -38,7 +36,7 @@ export default function Users(){
       </div>
       <div>
         {Array.isArray(users) && users.map((item, index) => (
-          <Label key={index} user={item} onDelete={handleDelete}/>
+          <Label key={index} user={item} onDelete={() => handleDelete((item as any)._id)}/>
         ))}
       </div>  
     </>

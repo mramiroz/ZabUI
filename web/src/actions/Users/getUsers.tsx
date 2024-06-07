@@ -6,5 +6,6 @@ export default async function getUsers(){
   if (!users) {
     return {message: "No users found", status: 404};
   }
-  return users;
+  let res = JSON.parse(JSON.stringify(users));
+  return res;
 }
