@@ -25,7 +25,7 @@ export default function Dashboard(){
   const isLastPage = components.length < 10;
   
   return (
-    <>
+    <div className="mx-10">
       <div className="my-4">
         <Button href="/dashboard/components/create">
           Create Component
@@ -57,6 +57,6 @@ export default function Dashboard(){
           Next
         </button>
       </div>
-    </>
+    </div>
   )
 }

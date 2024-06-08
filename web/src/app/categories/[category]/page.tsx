@@ -41,6 +41,7 @@ export default function Show() {
               title={item.title}
               description={item.description}
               component={item.component}
+              likes={item.likes}
             />
           ))}
             <div className="flex justify-center mt-4">

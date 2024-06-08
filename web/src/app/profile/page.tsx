@@ -11,6 +11,7 @@ interface ComponentData{
   description: string;
   import: string;
   component: string;
+  likes: number;
 }
 export default function Profile(){
   const { data: session, status } = useSession();
@@ -54,6 +55,7 @@ export default function Profile(){
               importComp={comp.import}
               description={comp.description}
               component={comp.component}
+              likes={comp.likes}
             />
           )
         })}

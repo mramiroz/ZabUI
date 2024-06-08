@@ -9,9 +9,6 @@ export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
           <p className="text-base text-gray-700">{prop.description}</p>
         </div>
         <div className="flex space-x-2">
-          <button onClick={onDelete} className="p-2 text-white bg-red-500 rounded-lg">
-            Delete
-          </button>
           <Button href={`/dashboard/props/${prop._id}`} backColor="darkblue">
             Update
           </Button>

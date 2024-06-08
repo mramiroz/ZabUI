@@ -14,9 +14,10 @@ interface CardProps {
   title: string;
   description: string;  
   component: string;
+  likes: number;
 }
 
-const Card = ({ id,  importComp, title, description, component}: CardProps) => {
+const Card = ({ id,  importComp, title, description, component, likes}: CardProps) => {
   const [props, setProps] = useState<any[]>([]);
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const Card = ({ id,  importComp, title, description, component}: CardProps) => {
           <p className="text-base text-gray-200">{description}</p>
         </div>
         <div className="flex items-center mt-4">
-         <Like compId={id.toString()}/>
+         <Like compId={id.toString()} likes={likes}/>
         </div>
       </div>
     </div>

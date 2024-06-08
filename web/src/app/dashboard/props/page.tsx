@@ -26,9 +26,9 @@ export default function Dashboard(){
   const isLastPage = props.length < 10;
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center py-2 my-10">
-        <Button href="/dashboard/props/create" backColor="#1F2F71">
+    <div className="mx-10">
+      <div className="my-4">
+        <Button href="/dashboard/props/create">
           Create Prop
         </Button>
       </div>
@@ -59,6 +59,6 @@ export default function Dashboard(){
         </button>
       </div>
         
-    </>
+    </div>
   )
 }

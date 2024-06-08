@@ -6,10 +6,9 @@ import Image from 'next/image';
 import removeLike from '@/actions/Like/removeLike';
 import addLike from '@/actions/Like/addLike';
 import getUserLikeStatus from '@/actions/Like/getLikesAndUserLikeStatus';
-import getLikes from '@/actions/Like/getLikes';
 
-
-export default function Like({compId}: {compId: string}){
+export default
+function Like({compId, likes}: {compId: string, likes: number}){
     let { data: session} = useSession();
     const [liked, setLiked] = useState(false)
     const [likesCount, setLikesCount] = useState(0)
@@ -19,24 +18,23 @@ export default function Like({compId}: {compId: string}){
     useEffect(() => {
         const fetchData = async () =>
         {
-            const {likesCount} = await getLikes({compId});
-            setLikesCount(likesCount);
+            setLikesCount(likes);
             if (user){
                 const {userHasLiked} = await getUserLikeStatus({compId, userId: id});
                 setLiked(userHasLiked);
             }
         }
         fetchData();
-    },[session])
+    },[session, compId])
     
     const handleLike = async () => {
         if (liked) {
-            removeLike({id: compId, userId: id});
+            await removeLike({id: compId, userId: id});
             setLiked(false);
             setLikesCount(likesCount - 1);
         }
         else {
-            addLike({id: compId, userId: id});
+            await addLike({id: compId, userId: id});
             setLiked(true);
             setLikesCount(likesCount + 1);
         }
