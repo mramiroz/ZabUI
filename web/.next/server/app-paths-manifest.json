@@ -1,9 +1,11 @@
 {
-  "/dashboard/components/[id]/page": "app/dashboard/components/[id]/page.js",
-  "/dashboard/users/page": "app/dashboard/users/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/dashboard/props/create/page": "app/dashboard/props/create/page.js",
   "/dashboard/components/[id]/props/page": "app/dashboard/components/[id]/props/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/dashboard/components/page": "app/dashboard/components/page.js",
-  "/dashboard/users/[id]/page": "app/dashboard/users/[id]/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/page": "app/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/profile/page": "app/profile/page.js",
+  "/login/page": "app/login/page.js",
+  "/register/page": "app/register/page.js",
+  "/dashboard/components/page": "app/dashboard/components/page.js"
 }

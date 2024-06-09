@@ -23,7 +23,7 @@ export default function Users(){
 
   const handleDelete = async (id: string) => {
     await deleteUser({id});
-    const users = await getUsers();
+    const users = await getUsers(page, 10);
     setUsers(users as any);
   }
 

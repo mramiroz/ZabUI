@@ -7,7 +7,7 @@ export default function Label({component, onDelete}: {component: any, onDelete: 
       <div className="flex justify-between p-2">
         <div>
           <h3 className="text-xl font-bold">{component.title}</h3>
-          <p className="text-base text-gray-700">{component.category}</p>
+          <p className="text-base text-gray-200">{component.category}</p>
         </div>
         <div className="flex space-x-2">
           <Button href={`/dashboard/components/${component._id}`} backColor="darkblue">

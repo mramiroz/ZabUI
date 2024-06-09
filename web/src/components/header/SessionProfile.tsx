@@ -27,7 +27,7 @@ export default function SessionProfile() {
           </Link>
         </>
       ) : (
-        <Button width="4" height="4" href="/login">Login</Button>
+        <Button width="4" height="3" href="/login">Login</Button>
       )}
       </div>
     );

@@ -8,7 +8,7 @@ export default async function middleware(req: NextRequest) {
     const path = req.nextUrl.pathname;
   
     const publicRoutes = ["/profile"];
-    const adminRoutes = ["/dashboard", "/api/users"];
+    const adminRoutes = ["/dashboard"];
     const isPublicRoute = publicRoutes.includes(path);
     const isAdminRoute = adminRoutes.some(route => path.startsWith(route));
     

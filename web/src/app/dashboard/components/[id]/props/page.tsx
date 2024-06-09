@@ -97,9 +97,9 @@ export default function Props(){
               <option key={index} value={prop._id}>{prop.name}</option>
             ))}
           </select>
-          {selectedProps?.required && selectedProps?.type === 'string' && <input type="text" className="bg-gray-900 text-white rounded-md p-2 mb-4 md:mb-0" onChange={handleInputChange}/>}
-          {selectedProps?.required && selectedProps?.type === 'number' && <input type="number" className="bg-gray-900 text-white rounded-md p-2 mb-4 md:mb-0" onChange={handleInputChange}/>}
-          {selectedProps?.required && selectedProps?.type === 'boolean' && <input type="checkbox" className="bg-gray-900 text-white rounded-md p-2 mb-4 md:mb-0" onChange={handleInputChange}/>}
+          {selectedProps?.required && selectedProps?.type === 'string' && <input type="text" className="bg-gray-900 text-white rounded-md p-2 mb-4 md:mb-0" placeholder="Value" onChange={handleInputChange}/>}
+          {selectedProps?.required && selectedProps?.type === 'number' && <input type="number" className="bg-gray-900 text-white rounded-md p-2 mb-4 md:mb-0" placeholder="Value" onChange={handleInputChange}/>}
+          {selectedProps?.required && selectedProps?.type === 'boolean' && <input type="checkbox" className="bg-gray-900 text-white rounded-md p-2 mb-4 md:mb-0" placeholder="Value" onChange={handleInputChange}/>}
           <Button type="submit">Add Prop</Button>
         </form>
       </div>

@@ -7,7 +7,7 @@ export default function Label({user, onDelete}: {user: any, onDelete: any}){
       <div className="flex justify-between p-2">
         <div>
           <h3 className="text-xl font-bold">{user.name}</h3>
-          <p className="text-base text-gray-700">{user.role}</p>
+          <p className="text-base text-gray-200">{user.role}</p>
         </div>
         <div className="flex space-x-2">
             <Button href={`/dashboard/users/${id}`} backColor="darkblue">

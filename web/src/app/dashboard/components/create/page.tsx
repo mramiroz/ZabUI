@@ -1,9 +1,8 @@
 "use client";
-import Component from '@/models/Component';
 import InputForm from '@/components/forms/InputForm';
-import { connectToDatabase } from '@/lib/mongodb';
 import createComponent from '@/actions/Comps/createComponent';
 import { useState } from 'react';
+import { Button } from '@zabui/comps';
 
 export default function Create() {
   const [error, setError] = useState<string | null>(null);
@@ -25,7 +24,7 @@ export default function Create() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex justify-center">
       <div className="flex flex-col w-full max-w-md p-8 mx-auto space-y-4 bg-gray-900 rounded-lg shadow-md">
         <h1 className="mb-4 text-xl font-bold text-center">Create Component</h1>
         {error && <p className="p-2 text-white bg-red-500 rounded-md">{error}</p>}
@@ -37,7 +36,9 @@ export default function Create() {
           <InputForm label="Import" type="text" name="import" placeholder="Import" required={true}/>
           <InputForm label="Code" type="text" name="code" placeholder="Code" required={true}/>
           <InputForm label="Component" type="text" name="component" placeholder="Component" required={true}/>
-          <button type="submit" className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">Create</button>
+          <div className="flex justify-end">
+            <Button type="submit">Create Component</Button>
+          </div>
         </form>
       </div>
     </div>
