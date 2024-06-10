@@ -57,9 +57,6 @@ export default function Home(){
           ))}
         </div>
       </div>
-      <div>
-        <ProfileStatus image="/profile.jpg" width={5} height={5} status="online" borderColor={undefined} href={undefined} alt={undefined} />
-      </div>
     </div>
   );
 };
