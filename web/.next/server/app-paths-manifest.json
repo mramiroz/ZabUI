@@ -1,8 +1,9 @@
 {
-  "/component/page": "app/component/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/dashboard/page": "app/dashboard/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/dashboard/components/page": "app/dashboard/components/page.js",
   "/dashboard/components/[id]/props/page": "app/dashboard/components/[id]/props/page.js",
-  "/dashboard/components/[id]/page": "app/dashboard/components/[id]/page.js"
+  "/dashboard/props/create/page": "app/dashboard/props/create/page.js",
+  "/dashboard/props/page": "app/dashboard/props/page.js",
+  "/dashboard/props/[id]/page": "app/dashboard/props/[id]/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

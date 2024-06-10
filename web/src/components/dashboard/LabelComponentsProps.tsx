@@ -28,9 +28,9 @@ export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
           <p className="text-base text-gray-200">{prop.description}</p>
         </div>
         <div className="flex space-x-2 flex-wrap">
-          {prop.type === 'string' && (<input type="text" className="p-2 text-black border rounded-md mb-4 md:mb-0" value={value} onChange={e => setValue(e.target.value)}/>)}
-          {prop.type === 'number' && (<input type="number" className="p-2 text-black border rounded-md mb-4 md:mb-0" value={value} onChange={e => setValue(e.target.value)}/>)}
-          {prop.type === 'boolean' && (<input type="checkbox" className="p-2 text-black border rounded-md mb-4 md:mb-0" checked={value} onChange={e => setValue(e.target.checked)}/>)}
+          {prop.required && prop.type === 'string' && (<input type="text" className="p-2 text-black border rounded-md mb-4 md:mb-0" value={value} onChange={e => setValue(e.target.value)}/>)}
+          {prop.required && prop.type === 'number' && (<input type="number" className="p-2 text-black border rounded-md mb-4 md:mb-0" value={value} onChange={e => setValue(e.target.value)}/>)}
+          {prop.required && prop.type === 'boolean' && (<input type="checkbox" className="p-2 text-black border rounded-md mb-4 md:mb-0" checked={value} onChange={e => setValue(e.target.checked)}/>)}
           <Button onClick={update} backColor="darkblue">
             Update
           </Button>

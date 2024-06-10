@@ -4,7 +4,7 @@ import { Bubble } from '@zabui/comps';
 import getFavComponents from '@/actions/Comps/getFavComponents';
 import { useEffect, useState } from 'react';
 import Card from '@/components/component/Card';
-import Ex from '@/components/ex';
+import {ProfileStatus} from '@zabui/comps';
 
 interface Component {
   _id: string;
@@ -58,7 +58,7 @@ export default function Home(){
         </div>
       </div>
       <div>
-        <Ex text="Error making the request" textColor="white" backColor="green"/>
+        <ProfileStatus image="/profile.jpg" width={5} height={5} status="online" borderColor={undefined} href={undefined} alt={undefined} />
       </div>
     </div>
   );
