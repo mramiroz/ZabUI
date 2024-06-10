@@ -14,7 +14,7 @@ export default async function getComponentProps({componentId}: {componentId: str
         const prop = await Props.findById(relation.prop);
         if (!prop) return;
         const plainProp = prop.toObject();
-        return { ...plainProp, value: relation.value };
+        return { ...plainProp, value: relation.value, relationId: relation._id};
     }));
     const data = JSON.parse(JSON.stringify(props));
     return data;

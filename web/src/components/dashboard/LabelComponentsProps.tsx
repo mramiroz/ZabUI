@@ -4,12 +4,21 @@ import { useEffect, useState } from "react";
 
 export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
   const [value, setValue] = useState(prop.value);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     setValue(prop.value);
   }, [prop.value]);
 
   const update = async () => {
-    await updateCompProps({id: prop._id, value: value, componentId: prop.component, propId: prop.prop});
+    try {
+      await updateCompProps({id: prop.relationId, value: value});
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    }
+    catch (error : any) {
+      setError(error.message);
+    }
   }
   return(
     <div key={prop._id} className="flex flex-col mb-4 border rounded-lg">
@@ -28,6 +37,8 @@ export default function Label({prop, onDelete}: {prop: any, onDelete: any}){
           <Button onClick={onDelete} backColor="red">
             Delete
           </Button>
+          {error && <p className="p-2 text-center text-red-500 bg-red-100 rounded">{error}</p>}
+          {success && <p className="p-2 text-center text-green-500 bg-green-100 rounded">Prop updated successfully</p>}
         </div>
       </div>
     </div>

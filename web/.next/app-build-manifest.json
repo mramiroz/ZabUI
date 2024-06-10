@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/dashboard/props/page": [
+    "/dashboard/components/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/dashboard/props/page.css",
-      "static/chunks/app/dashboard/props/page.js"
+      "static/css/app/dashboard/components/page.css",
+      "static/chunks/app/dashboard/components/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,23 +12,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/categories/[category]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
-    "/component/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/component/page.css",
-      "static/chunks/app/component/page.js"
-    ],
-    "/profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/profile/page.css",
-      "static/chunks/app/profile/page.js"
+      "static/css/app/categories/[category]/page.css",
+      "static/chunks/app/categories/[category]/page.js"
     ],
     "/dashboard/page": [
       "static/chunks/webpack.js",
@@ -36,79 +24,17 @@
       "static/css/app/dashboard/page.css",
       "static/chunks/app/dashboard/page.js"
     ],
-    "/dashboard/components/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/components/page.css",
-      "static/chunks/app/dashboard/components/page.js"
-    ],
-    "/dashboard/components/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/components/[id]/page.css",
-      "static/chunks/app/dashboard/components/[id]/page.js"
-    ],
-    "/dashboard/users/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/users/page.css",
-      "static/chunks/app/dashboard/users/page.js"
-    ],
     "/dashboard/components/[id]/props/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/dashboard/components/[id]/props/page.css",
       "static/chunks/app/dashboard/components/[id]/props/page.js"
     ],
-    "/dashboard/users/[id]/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/users/[id]/page.js"
-    ],
-    "/dashboard/props/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/props/[id]/page.css",
-      "static/chunks/app/dashboard/props/[id]/page.js"
-    ],
-    "/dashboard/props/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/props/create/page.css",
-      "static/chunks/app/dashboard/props/create/page.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
-    ],
-    "/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/register/page.js"
-    ],
-    "/categories/[category]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/categories/[category]/page.css",
-      "static/chunks/app/categories/[category]/page.js"
-    ],
-    "/dashboard/components/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/components/create/page.css",
-      "static/chunks/app/dashboard/components/create/page.js"
-    ],
-    "/dashboard/users/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/dashboard/users/create/page.css",
-      "static/chunks/app/dashboard/users/create/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ]
   }
 }
