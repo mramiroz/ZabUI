@@ -4,6 +4,7 @@ import { Bubble } from '@zabui/comps';
 import getFavComponents from '@/actions/Comps/getFavComponents';
 import { useEffect, useState } from 'react';
 import Card from '@/components/component/Card';
+import Ex from '@/components/ex';
 
 interface Component {
   _id: string;
@@ -55,6 +56,9 @@ export default function Home(){
           />
           ))}
         </div>
+      </div>
+      <div>
+        <Ex text="Error making the request" textColor="white" backColor="green"/>
       </div>
     </div>
   );
