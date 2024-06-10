@@ -1,11 +1,15 @@
-# Ejecución librería en local
+# ZabUI
+
+Aplicación web: [ZabUI](https://zabui.vercel.app/)
+Librería: [ZabUI](https://www.npmjs.com/package/@zabui/comps)
+
+## Ejecución librería en local
 
 Instalación de la aplicación web en local:
 
 ```bash
 git clone https://github.com/mramiroz/ZabUI.git
-cd ZabUI
-cd web
+cd ZabUI/web
 npm install
 npm run dev
 ```
