@@ -4,7 +4,7 @@ import { Bubble } from '@zabui/comps';
 import getFavComponents from '@/actions/Comps/getFavComponents';
 import { useEffect, useState } from 'react';
 import Card from '@/components/component/Card';
-import {ProfileStatus} from '@zabui/comps';
+import { SuccessMsg } from '@zabui/comps';
 
 interface Component {
   _id: string;
