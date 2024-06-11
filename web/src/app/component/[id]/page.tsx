@@ -64,9 +64,9 @@ export default function Show() {
                     <div className="mb-2 text-base">
                       <strong>{prop.name}</strong>: {prop.description || "No description given"}
                     </div>
-                    {prop.type === 'string' && (<input type="text" className="p-2 text-black border rounded-md" value={prop.value} onChange={(e) => handleInputChange(componentProps, prop._id, e)}/> )}
-                    {prop.type === 'number' && (<input type="number" className="p-2 text-black border rounded-md" value={prop.value} onChange={(e) => handleInputChange(componentProps,prop._id, e)}/> )}
-                    {prop.type === 'boolean' && (<input type="checkbox" className="p-2 text-black border rounded-md" value={prop.value} onChange={(e) => handleInputChange(componentProps,prop._id, e)}/> )}
+                    {prop.required && prop.type === 'string' && (<input type="text" className="p-2 text-black border rounded-md" value={prop.value} onChange={(e) => handleInputChange(componentProps, prop._id, e)}/> )}
+                    {prop.required && prop.type === 'number' && (<input type="number" className="p-2 text-black border rounded-md" value={prop.value} onChange={(e) => handleInputChange(componentProps,prop._id, e)}/> )}
+                    {prop.required && prop.type === 'boolean' && (<input type="checkbox" className="p-2 text-black border rounded-md" value={prop.value} onChange={(e) => handleInputChange(componentProps,prop._id, e)}/> )}
                   </li>
                 </div>
               );
