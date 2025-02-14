@@ -43,7 +43,7 @@ export default function Home(){
       </section>
       <div className="flex justify-center flex-col mt-10">
         <h2 className="text-2xl">Most valorated components</h2>
-        <div className="flex flex-wrap justify-center">
+        <div className="flex py-8 justify-center">
           {Array.isArray(components) && components.map((item: Component, index) => (
           <Card
             key={index}

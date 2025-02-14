@@ -4,6 +4,7 @@ import Footer from "@/components/footer/Footer";
 import HeaderWrap from "@/components/header/HeaderWrap";
 import SessionWrapper from "@/components/home/SessionWrapper";
 import { Metadata } from "next";
+import AnimatedBackground from "@/components/home/AnimatedBackgroud";
 
 const roboto = Roboto({ weight: ["400", "700", "900"], subsets: ["latin"] });
 
@@ -36,10 +37,10 @@ export default function RootLayout({
         <link rel="icon" href="/logo.png" />
       </head>
       <body className={`${roboto.className} bg-gray-800 flex flex-col text-white min-h-screen`}>
-        <SessionWrapper>
-          <HeaderWrap>{children}</HeaderWrap>
-        </SessionWrapper>
-        <Footer />
+          <SessionWrapper>
+            <AnimatedBackground />
+            <HeaderWrap>{children}</HeaderWrap>
+          </SessionWrapper>
       </body>
     </html>
   );

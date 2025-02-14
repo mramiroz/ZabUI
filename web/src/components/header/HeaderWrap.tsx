@@ -8,7 +8,7 @@ export default function HeaderWrap( {children}: Readonly<{children: React.ReactN
       <>
         <Header />
         <main className="flex flex-grow">
-            <div className="w-full my-28 md:mx-40">{children}<SpeedInsights/><Analytics/></div>
+            <div className="flex justify-center w-full my-28 md:mx-40">{children}<SpeedInsights/><Analytics/></div>
         </main>
       </>
     );
